@@ -101,3 +101,48 @@
 		text-align: center;
 	}
 }
+
+.card-img-categoryItem{
+    width: 100%;
+    height: 280px;
+}
+.card-article-sumary{
+    width:100%;
+    height: 130px;
+    overflow: hidden;
+}
+.carousel-img-Hot{
+    height: 400px !important ;
+}
+
+.carousel-img-Latest, .card-img-Most-Viewed{
+    height: 359px !important ;
+}
+
+.card-article-MostViewed-sumary{
+    width: 100% !important;
+    height: 3rem !important ;
+    overflow: hidden;
+}
+
+.my-carousel-caption{
+    background: white;
+    height: 8rem !important;
+    overflow: hidden;
+}
+
+.carousel-sumary, .my-carousel-caption-sumary{
+    background: white;
+    height: 3rem !important;
+    overflow: hidden;
+}
+
+.my-carousel-caption h5, .my-card-title{
+    height: 2rem;
+    overflow: hidden;
+}
+
+.my-card-title-s{
+    height: 3rem;
+    overflow: hidden;
+}
