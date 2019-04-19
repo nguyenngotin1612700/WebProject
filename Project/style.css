@@ -146,7 +146,21 @@
     height: 3rem;
     overflow: hidden;
 }
-.header {
-    background: url(https://cdn.24h.com.vn/upload/2-2019/images/2019-04-12/header_10_03_pc-1900x50-1555064446-750-width1900height50.jpg) no-repeat fixed center top #78b43d;
-    padding-left: 203px;
+.header-logo {
+display: flexbox;
+justify-content: space-between;
 }
+  .header-logo img[src="./img/logo.png"] {
+    width:25%;
+    height: 105px;
+  }
+  .header{
+    background: #f9f9f9;
+    padding: 4px 0;
+    margin-bottom: 5px;
+  }
+
+  .login-register-icons li, .login-register-icons img{
+      display:inline-block;
+  }
+
