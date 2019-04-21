@@ -151,7 +151,7 @@
 display: flexbox;
 justify-content: space-between;
 }
-  .header-logo img[src="./img/logo.png"] {
+  .header-logo img[src] {
     width:15%;
     height: 75px;
   }
@@ -255,4 +255,9 @@ background: white;
   .article-mini .detail .category a {
     text-transform: uppercase;
     color: #F73F52;
+  }
+
+  .banner{
+    width: 100%;
+    height: 500px;
   }
