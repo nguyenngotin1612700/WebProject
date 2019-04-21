@@ -193,7 +193,13 @@ color: white;
     color: white;
     font-size:15px;
 }
+.post-outner-Desc{
+  display: inline-block;
+}
 
+.post-outner-title{
+  display: inline-block;
+}
 .my-mark{
 width: 100%;
 height: 35px;
