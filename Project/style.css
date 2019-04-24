@@ -211,12 +211,25 @@ font-family: Arial, Helvetica, sans-serif;
 background: white;
 }
 
-.article-mini {
+.my-big-mark{
+  width: 100%;
+  height: 60px;
+  border-left: 6px solid red;
+  line-height: 60px;
+  font-size:30px;    
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  background: white;
+  margin-left: 12px;
+  margin-bottom: 4px;
+}
+
+.article-mini,.article {
     display: inline-block;
     width: 100%;
     margin-bottom: 15px;
   }
-  .article-mini .inner {
+  .article-mini .inner,.article .inner {
     display: inline-block;
     height: 100%;
   }
@@ -232,7 +245,7 @@ background: white;
     overflow: hidden;
     margin: 0;
   }
-  .article-mini figure img {
+  .article-mini figure img,.article figure img {
     width: 100%;
     height: 100%;
   }
@@ -257,7 +270,32 @@ background: white;
     color: #F73F52;
   }
 
-  .banner{
-    width: 100%;
-    height: 500px;
+  .article figure {
+    float: left;
+    display: inline-block;
+    width: 350px;
+    height: 250px;
+    overflow: hidden;
+    margin: 2px 15px;
   }
+  .time{
+    font-size: 15px;
+    color: #c0bdbd
+  }
+  .article .detail a{
+    text-decoration: none;
+    color: black;
+  }
+  .article .detail a:hover{
+    text-decoration: none;
+    color: orangered;
+  }
+
+  .mypage-item{
+width: 45px !important;
+height: 45px !important;
+border-radius:50% !important;
+line-height: 25px !important;
+margin-left: 4px;
+}
+
