@@ -97,11 +97,11 @@
 
 
 
-@media screen and (max-width: 767px){
+/* @media screen and (max-width: 767px){
 	#myFooter {
 		text-align: center;
 	}
-}
+} */
 
 .card-img-categoryItem{
     width: 100%;
@@ -148,12 +148,14 @@
     overflow: hidden;
 }
 .header-logo {
+width: 100%;
 display: flexbox;
 justify-content: space-between;
 }
   .header-logo .logo {
-    width:15%;
+    width:20%;
     height: 75px;
+    padding-left: 25px; 
   }
   .header{
     background: #f9f9f9;
@@ -220,8 +222,8 @@ background: white;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   background: white;
-  margin-left: 12px;
-  margin-bottom: 4px;
+  /* margin-left: 12px;*/
+  margin-bottom: 20px; 
 }
 
 .article-mini,.article {
