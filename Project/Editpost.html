@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./form-style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/froala_editor.css">
+    <link rel="stylesheet" href="./css/froala_style.css">
+    <link rel="stylesheet" href="./css/plugins/code_view.css">
+    <link rel="stylesheet" href="./css/plugins/draggable.css">
+    <link rel="stylesheet" href="./css/plugins/colors.css">
+    <link rel="stylesheet" href="./css/plugins/emoticons.css">
+    <link rel="stylesheet" href="./css/plugins/image_manager.css">
+    <link rel="stylesheet" href="./css/plugins/image.css">
+    <link rel="stylesheet" href="./css/plugins/line_breaker.css">
+    <link rel="stylesheet" href="./css/plugins/table.css">
+    <link rel="stylesheet" href="./css/plugins/char_counter.css">
+    <link rel="stylesheet" href="./css/plugins/video.css">
+    <link rel="stylesheet" href="./css/plugins/fullscreen.css">
+    <link rel="stylesheet" href="./css/plugins/file.css">
+    <link rel="stylesheet" href="./css/plugins/quick_insert.css">
+    <link rel="stylesheet" href="./css/plugins/help.css">
+    <link rel="stylesheet" href="./css/third_party/spell_checker.css">
+    <link rel="stylesheet" href="./css/plugins/special_characters.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js">
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js">
+    </script>
+
+    <script type="text/javascript" src="./js/froala_editor.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/align.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/char_counter.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/code_beautifier.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/code_view.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/colors.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/draggable.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/emoticons.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/entities.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/file.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/font_size.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/font_family.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/fullscreen.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/image.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/image_manager.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/line_breaker.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/inline_style.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/link.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/lists.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/paragraph_format.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/paragraph_style.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/quick_insert.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/quote.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/table.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/save.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/url.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/video.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/help.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/print.min.js"></script>
+    <script type="text/javascript" src="./js/third_party/spell_checker.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/special_characters.min.js"></script>
+    <script type="text/javascript" src="./js/plugins/word_paste.min.js"></script>
+
+    <style>
+        div#editor {
+            width: 81%;
+            margin: auto;
+            text-align: left;
+        }
+
+        .ss {
+            background-color: red;
+        }
+    </style>
+
+
+</head>
+
+<body style="background-color: #f0f1f4;">
+    <!-- Header -->
+    <div class="row header-logo " style="background-color: #f0f1f4;">
+        <div class="col-lg-8 col-sm-12"><a href="#"><img class="logo" src="./img/logo.png" alt=""></a></div>
+        <div class="col-lg-4 col-sm-12 login-register-icons">
+            <div class="row mt-4">
+                <div class="col-6 pr-auto pl-auto text-right">
+                    <button type="button" class="btn btn-success text-uppercase">
+                        Đăng nhập
+                        <span>
+                            <img src="./img/dangnhap.png" alt="">
+                        </span>
+                    </button>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-success text-uppercase">
+                        Đăng ký
+                        <span>
+                            <img src="./img/dangky.png" alt="">
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End header -->
+
+    <!--Editor for journalist-->
+    <div class="mx-3">
+        <div class="row">
+
+            <div class="col-md-9 col-sm-12">
+                <h2>Tiêu đề bài viết</h2>
+                <textarea placeholder="Nhập tiêu đề bài viết tại đây" style="width:100%; height: 40px;"></textarea>
+                <span>Permarlink: </span><textarea placeholder="" style="width:100%; height: 30px;"></textarea>
+                <div id='edit' style="margin-top: 30px;">
+
+                    <p>This is the full featured editor for jounalist.</p>
+
+
+
+                    <a href="http://google.com" title="Aenean sed hendrerit">Aenean sed hendrerit</a> velit. Nullam
+                    eu
+                    mi dolor. Maecenas et erat risus. Nulla ac auctor diam, non aliquet ante. Fusce ullamcorper,
+                    ipsum
+                    id tempor lacinia, sem tellus malesuada libero, quis ornare sem massa in orci. Sed dictum dictum
+                    tristique. Proin eros turpis, ultricies eu sapien eget, ornare rutrum ipsum. Pellentesque eros
+                    nisl,
+                    ornare nec ipsum sed, aliquet sollicitudin erat. Nulla tincidunt porta
+                    <strong>vehicula.</strong><br />
+                    <p>This is the full featured editor for jounalist.</p>
+                </div>
+
+                <p><strong>This is some dummy text so you can see the sticky toolbar in action.</strong></p>
+            </div>
+            <div class="col-md-3 col-sm-12">
+                <div style="background-color: white;">
+
+                    <h5>Publish</h5>
+                    <hr>
+                    <div style="text-align:center;">
+                        <button type="button" class="btn btn-outline-danger" style="float: left;">Delete</button>
+                        <button type="button" class="btn btn-outline-secondary">Preview</button>
+                        <button type="button" class="btn btn-outline-success mx-lg-2"
+                            style="float:right;">Publish</button>
+                    </div>
+                    <hr>
+                </div>
+
+                <div style="background-color: white;">
+                    <h5>Categories</h5>
+                    <hr>
+                    <div class="ml-3">
+                        <label class="checkbox">Thời sự
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="checkbox">Thể thao
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="checkbox">Tài chính
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="checkbox">Công nghệ
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <hr>
+                    </div>
+                    <input type="text" class="form-control" id="incat">
+                    <button type="button" class="btn btn-outline-success my-3">Add new category</button>
+                    <hr>
+                </div>
+
+                <div style="background-color: white;">
+                    <h5>Tag</h5>
+                    <hr>
+                    <input type="text" class="form-control" id="intag">
+
+                    <div class="ml-3 mt-1">
+                        <label class="font-weight-light font-italic border px-1">iphonex</label>
+                        <label class="font-weight-light font-italic border px-1">u23</label>
+                        <label class="font-weight-light font-italic border px-1">marvel</label>
+                        <label class="font-weight-light font-italic border px-1">endgame</label>
+                    </div>
+                    <button type="button" class="btn btn-outline-success my-3">Add new tag</button>
+                    <hr>
+                </div>
+
+                <div style="background-color: white;">
+                        <h5>Feature Image</h5>
+                        <hr>
+                        
+                        <button type="button" class="btn btn-outline-success my-3">Select feature image</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!--End editor-->
+   
+    <!--Footer-->
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 myCols">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sign up</a></li>
+                        <li><a href="#">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="#">Company Information</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Forums</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2016 Copyright Text </p>
+        </div>
+    </footer>
+    <!--End of footer-->
+    <script>
+        $(function () {
+            $('#edit').froalaEditor({
+                height: 500
+            });
+        });
+    </script>
+</body>
+
+</html>
