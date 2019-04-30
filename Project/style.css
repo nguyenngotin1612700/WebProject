@@ -175,6 +175,7 @@ justify-content: space-between;
     position: relative;
     width: 100%;
     height: 250px;
+    overflow: hidden;
 }
 .post-title, .post-outner-title {
 position: absolute;
@@ -304,5 +305,16 @@ height: 45px !important;
 border-radius:50% !important;
 line-height: 25px !important;
 margin-left: 4px;
+}
+
+.annimationImg:hover{
+  transform: scale(1.2);
+  transition: 1s;
+}
+ .annimationImg{
+  width:100%;
+  height:250px; 
+  transition: 1s ;
+   filter: brightness(70%);
 }
 
