@@ -12,9 +12,14 @@
 }
 .dropdown:hover .dropdown-content{
     display: block;
-    background: #97e2a9;
+    background: #ffffff;
     border-radius: 5px;
 }
+
+.dropdown-content .dropdown-item:hover{
+  background: rgb(205, 230, 213);
+}
+
 .CategoryTitle{
     width: 100%;
     padding-bottom: 3px;
