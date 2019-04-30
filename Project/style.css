@@ -158,8 +158,8 @@ display: flexbox;
 justify-content: space-between;
 }
   .header-logo .logo {
-    width:20%;
-    height: 75px;
+    width:110%;
+    height: 90px;
     padding-left: 25px; 
   }
   .header{
