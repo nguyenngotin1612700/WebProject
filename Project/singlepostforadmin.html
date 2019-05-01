@@ -4,10 +4,27 @@
 <head>
     <title></title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./form-style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link referrerpolicy="stylesheet" href="./css/bootstrap-datetimepicker.min.css">
+    <script type="text/javascript" src="./js/bootstrap-datetimepicker.min.js"></script>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js">
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js">
+    </script>
+
+
+
 
 </head>
 
@@ -17,7 +34,7 @@
         <div class="col-xl-9 col-lg-12">
             <div class="row">
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-6">
-                    <a href="#"><img class="logo" src="../../img/logo.png" alt=""></a>
+                    <a href="#"><img class="logo" src="./img/logo.png" alt=""></a>
                 </div>
                 <!--chạy tin mới nhất-->
                 <div class="col-xl-10 col-lg-12">
@@ -44,7 +61,7 @@
                     <button type="button" class="btn btn-success text-uppercase">
                         Đăng nhập
                         <span>
-                            <img src="../../img/dangnhap.png" alt="">
+                            <img src="./img/dangnhap.png" alt="">
                         </span>
                     </button>
                 </div>
@@ -52,7 +69,7 @@
                     <button type="button" class="btn btn-success text-uppercase">
                         Đăng ký
                         <span>
-                            <img src="../../img/dangky.png" alt="">
+                            <img src="./img/dangky.png" alt="">
                         </span>
                     </button>
                 </div>
@@ -72,7 +89,7 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown mr-1">
                     <button type="button" class="btn btn-light text-uppercase font-weight-bold">
-                        Thể thao <span> <img src="../../img/icondown.png" alt=""> </span>
+                        Thể thao <span> <img src="./img/icondown.png" alt=""> </span>
                     </button>
                     <div class="dropdown-content" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Tin trong nước</a>
@@ -81,7 +98,7 @@
                 </li>
                 <li class="nav-item dropdown mr-1">
                     <button type="button" class="btn btn-light text-uppercase font-weight-bold">
-                        Tài chinh-ngân hàng <span> <img src="../../img/icondown.png" alt=""> </span>
+                        Tài chinh-ngân hàng <span> <img src="./img/icondown.png" alt=""> </span>
                     </button>
                     <div class="dropdown-content" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Doanh nhân</a>
@@ -91,7 +108,7 @@
                 </li>
                 <li class="nav-item dropdown mr-1">
                     <button type="button" class="btn btn-light text-uppercase font-weight-bold">
-                        Thị trường <span> <img src="../../img/icondown.png" alt=""> </span>
+                        Thị trường <span> <img src="./img/icondown.png" alt=""> </span>
                     </button>
                     <div class="dropdown-content" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Trung tâm mua sắm</a>
@@ -100,7 +117,7 @@
                 </li>
                 <li class="nav-item dropdown mr-1">
                     <button type="button" class="btn btn-light text-uppercase font-weight-bold">
-                        Sức khỏe <span> <img src="../../img/icondown.png" alt=""> </span>
+                        Sức khỏe <span> <img src="./img/icondown.png" alt=""> </span>
                     </button>
                     <div class="dropdown-content" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Bệnh đàn ông</a>
@@ -111,7 +128,7 @@
                 </li>
                 <li class="nav-item dropdown mr-1">
                     <button type="button" class="btn btn-light text-uppercase font-weight-bold">
-                        Showbiz <span> <img src="../../img/icondown.png" alt=""> </span>
+                        Showbiz <span> <img src="./img/icondown.png" alt=""> </span>
                     </button>
                     <div class="dropdown-content" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Sao việt</a>
@@ -122,27 +139,28 @@
 
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
     </nav>
 
     <div class="container">
-       
+
         <div class="row">
-                <img src="./VN.jpg" alt="" class="banner">
+
+            <div class="col-lg-8 col-sm-12 bg-white">
+                <img src="./img/VN.jpg" alt="" class="banner">
 
                 <!-- cột 1, bài viết -->
                 <div class="my-mark">
                     <p class="ml-3">Thể thao | Tin trong nước</p>
                 </div>
-            <div class="col-lg-8 col-sm-12 bg-white">
                 <h1 class="title-article">Vì sao đội tuyển Việt Nam vô địch AFF Suzuki Cup 2018?</h1>
                 <div class="post-date">February 11, 2018</div>
                 <h6 class="sumary-article"> Chu kỳ 10 năm đã lặp lại, đội tuyển Việt Nam một lần nữa bước lên ngôi vị
                     cao nhất của giải đấu AFF Suzuki Cup 2018. </h6>
-                <img src="./qualuuniem.jpg" alt="">
+                <img src="./img/qualuuniem.jpg" alt="">
                 <p style="color: #0040ff; text-align:center;">Ông Lee Young Kyun nhận quà lưu niệm từ đội tuyển Việt Nam
                 </p>
                 <p>Nhận xét về thành công ấn tượng của đội tuyển, ông Lee Young Kyun – Tổng giám đốc điều hành Lavifood,
@@ -168,7 +186,7 @@
                 <p>Tất cả các “chiến binh” áo đỏ đều tập luyện hăng say theo giáo án của Ban huấn luyện, sinh hoạt theo
                     lịch của chuyên gia và khi được ra sân thì cống hiến hết mình vì màu cờ sắc áo.</p>
                 <p style="font-weight: bold">Sự tuân thủ đấu pháp của HLV</p>
-                <img src="./Tuanthudauphap.jpg" alt="">
+                <img src="./img/Tuanthudauphap.jpg" alt="">
                 <p style="color: #0040ff; text-align:center;">Tuân thủ là một trong những yếu tố quan trọng để Việt Nam
                     lên ngôi vô địch AFF Cup 2018</p>
                 <p>Tính tuân thủ của đội tuyển Việt Nam ở giải đấu này là điều đáng khen ngợi. Những chiến lược, đấu
@@ -200,7 +218,7 @@
                     chiến thắng của đội tuyển, nhất là khi đối đầu với những đối thủ có thể trạng cao lớn và lối chơi
                     càn quét, nghiêng về thể lực như Malaysia, Philippines…</p>
                 <p style="font-weight: bold">Tinh thần khát khao chiến thắng</p>
-                <img src="./khaokhatchienthang.jpg" alt="">
+                <img src="./img/khaokhatchienthang.jpg" alt="">
                 <p style="color: #0040ff; text-align:center;">CĐV Việt Nam hân hoan mừng đội tuyển vô địch AFF Cup 2018
                 </p>
                 <p>Điều cuối cùng cũng chính là điều quan trọng nhất, là tinh thần khát khao chiến thắng của các cầu
@@ -220,249 +238,92 @@
             <!-- end cột 1 -->
 
             <!-- cột 2, các bài viết cùng chuyên mục, các bài viết mới-->
-            <div class="col-lg-4 col-sm-12 bg-light">
+            <div class="col-lg-4 col-sm-12">
 
                 <!-- Các bài viết cùng chuyên mục -->
-                <div class=" row mb-4 ">
-                    <div class="Customtitle mb-1 w-100">
-                        <div class="my-mark">
-                            <p class="ml-3 mt-2">Cùng chuyên mục</p>
-                        </div>
+                <div style="background-color: white;">
+
+                    <h5>Publish</h5>
+                    <hr>
+                        <input data-format="dd/MM/yyyy hh:mm:ss" type="datetime-local">
+                        
+                
+                    <div style="text-align:center;" class="mt-1">
+                        <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                            data-target="#exampleModal" style="float: left;">Delete</button>
+                        <button type="button" class="btn btn-outline-secondary">Preview</button>
+                        <button type="button" class="btn btn-outline-success mx-lg-2"
+                            style="float:right;">Publish</button>
                     </div>
-                    <div style="" id="vs_inner_0">
-                        <article class="article-mini" data-list="2" style="display: block;">
-                            <div class="inner">
-                                <figure>
-                                    <a href="#">
-                                        <img src="../../img/tevez.jpg" alt="Sample Article">
-                                    </a>
-                                </figure>
-                                <div class="padding">
-                                    <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
-                                            sao?</a></h1>
-                                    <div class="detail">
-                                        <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
-                                        <div class="time">April 5, 2019</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="article-mini" data-list="3" style="display: block;">
-                            <div class="inner">
-                                <figure>
-                                    <a href="#">
-                                        <img src="../../img/tevez.jpg" alt="Sample Article">
-                                    </a>
-                                </figure>
-                                <div class="padding">
-                                    <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
-                                    </h1>
-                                    <div class="detail">
-                                        <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
-                                        <div class="time">April 9, 2019</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="article-mini" data-list="2" style="display: block;">
-                            <div class="inner">
-                                <figure>
-                                    <a href="#">
-                                        <img src="../../img/cr7.jpg" alt="Sample Article">
-                                    </a>
-                                </figure>
-                                <div class="padding">
-                                    <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
-                                            sao?</a></h1>
-                                    <div class="detail">
-                                        <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
-                                        <div class="time">April 5, 2019</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="article-mini" data-list="3" style="display: block;">
-                            <div class="inner">
-                                <figure>
-                                    <a href="#">
-                                        <img src="../../img/mu-barca.jpg" alt="Sample Article">
-                                    </a>
-                                </figure>
-                                <div class="padding">
-                                    <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
-                                    </h1>
-                                    <div class="detail">
-                                        <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
-                                        <div class="time">April 9, 2019</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="article-mini" data-list="2" style="display: block;">
-                            <div class="inner">
-                                <figure>
-                                    <a href="#">
-                                        <img src="../../img/cr7.jpg" alt="Sample Article">
-                                    </a>
-                                </figure>
-                                <div class="padding">
-                                    <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
-                                            sao?</a></h1>
-                                    <div class="detail">
-                                        <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
-                                        <div class="time">April 5, 2019</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="article-mini" data-list="3" style="display: block;">
-                            <div class="inner">
-                                <figure>
-                                    <a href="#">
-                                        <img src="../../img/vidic.png" alt="Sample Article">
-                                    </a>
-                                </figure>
-                                <div class="padding">
-                                    <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
-                                    </h1>
-                                    <div class="detail">
-                                        <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
-                                        <div class="time">April 9, 2019</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- kết thúc tin 1 -->
+                    <hr>
                 </div>
+
+                <div style="background-color: white;">
+                    <h5>Categories</h5>
+                    <hr>
+                    <div class="ml-3">
+                        <label class="checkbox">Thời sự
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="checkbox">Thể thao
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="checkbox">Tài chính
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="checkbox">Công nghệ
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <hr>
+                    </div>
+                    <input type="text" class="form-control" id="incat">
+                    <button type="button" class="btn btn-outline-success my-3">Add new category</button>
+                    <hr>
+                </div>
+
+                <div style="background-color: white;">
+                    <h5>Tag</h5>
+                    <hr>
+                    <input type="text" class="form-control" id="intag">
+
+                    <div class="ml-3 mt-1">
+                        <label class="font-weight-light font-italic border px-1">iphonex</label>
+                        <label class="font-weight-light font-italic border px-1">u23</label>
+                        <label class="font-weight-light font-italic border px-1">marvel</label>
+                        <label class="font-weight-light font-italic border px-1">endgame</label>
+                    </div>
+                    <button type="button" class="btn btn-outline-success my-3">Add new tag</button>
+                    <hr>
+                </div>
+
+                <div style="background-color: white;">
+                    <h5>Feature Image</h5>
+                    <hr>
+
+                    <button type="button" class="btn btn-outline-success my-3">Select feature image</button>
+                </div>
+                <!-- kết thúc tin 1 -->
+
                 <!-- end các bài viết cùng chuyên mục -->
 
-                <!-- Các bài viết mới -->
-                <div class=" row mb-4 ">
-                        <div class="Customtitle mb-1 w-100">
-                            <div class="my-mark">
-                                <p class="ml-3 mt-2">Tin mới nhất</p>
-                            </div>
-                        </div>
-                        <div style="" id="vs_inner_0">
-                            <article class="article-mini" data-list="2" style="display: block;">
-                                <div class="inner">
-                                    <figure>
-                                        <a href="#">
-                                            <img src="../../img/tevez.jpg" alt="Sample Article">
-                                        </a>
-                                    </figure>
-                                    <div class="padding">
-                                        <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
-                                                sao?</a></h1>
-                                        <div class="detail">
-                                            <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
-                                            <div class="time">April 5, 2019</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="article-mini" data-list="3" style="display: block;">
-                                <div class="inner">
-                                    <figure>
-                                        <a href="#">
-                                            <img src="../../img/tevez.jpg" alt="Sample Article">
-                                        </a>
-                                    </figure>
-                                    <div class="padding">
-                                        <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
-                                        </h1>
-                                        <div class="detail">
-                                            <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
-                                            <div class="time">April 9, 2019</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="article-mini" data-list="2" style="display: block;">
-                                <div class="inner">
-                                    <figure>
-                                        <a href="#">
-                                            <img src="../../img/cr7.jpg" alt="Sample Article">
-                                        </a>
-                                    </figure>
-                                    <div class="padding">
-                                        <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
-                                                sao?</a></h1>
-                                        <div class="detail">
-                                            <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
-                                            <div class="time">April 5, 2019</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="article-mini" data-list="3" style="display: block;">
-                                <div class="inner">
-                                    <figure>
-                                        <a href="#">
-                                            <img src="../../img/mu-barca.jpg" alt="Sample Article">
-                                        </a>
-                                    </figure>
-                                    <div class="padding">
-                                        <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
-                                        </h1>
-                                        <div class="detail">
-                                            <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
-                                            <div class="time">April 9, 2019</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="article-mini" data-list="2" style="display: block;">
-                                <div class="inner">
-                                    <figure>
-                                        <a href="#">
-                                            <img src="../../img/cr7.jpg" alt="Sample Article">
-                                        </a>
-                                    </figure>
-                                    <div class="padding">
-                                        <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
-                                                sao?</a></h1>
-                                        <div class="detail">
-                                            <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
-                                            <div class="time">April 5, 2019</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="article-mini" data-list="3" style="display: block;">
-                                <div class="inner">
-                                    <figure>
-                                        <a href="#">
-                                            <img src="../../img/vidic.png" alt="Sample Article">
-                                        </a>
-                                    </figure>
-                                    <div class="padding">
-                                        <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
-                                        </h1>
-                                        <div class="detail">
-                                            <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
-                                            <div class="time">April 9, 2019</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        
-                    </div>
-
-                <!-- end các bài viết mới -->
             </div>
             <!-- end cột 2 -->
         </div>
         <div class="row comment-box mt-4 mb-4">
             <div class="col-lg-8 col-sm-12 bg-white">
-            <h3>Đăng bình luận</h3>
-            <form action="" method="post">
-                <textarea rows="8" cols="90%" placeholder="Bình luận"></textarea>
-                <button class="btn btn-primary mb-2">Đăng bình luận</button>
-            </form>
-        </div>
+                <h3>Đăng bình luận</h3>
+                <form action="" method="post">
+                    <textarea rows="8" cols="90%" placeholder="Bình luận"></textarea>
+                    <button class="btn btn-primary mb-2">Đăng bình luận</button>
+                </form>
+            </div>
         </div>
     </div>
     <footer id="myFooter">
@@ -506,6 +367,43 @@
             <p>© 2016 Copyright Text </p>
         </div>
     </footer>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">message for jounalist</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">From</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Message:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
+<script>
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+    })
+</script>
+
 
 </html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./form-style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js">
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js">
+    </script>
+
+
+
+
+</head>
+
+<body style="background-color: #f0f1f4;">
+    <!-- Header -->
+    <div class="row header-logo " style="background-color: #f0f1f4;">
+        <div class="col-xl-9 col-lg-12">
+            <div class="row">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-6">
+                    <a href="#"><img class="logo" src="./img/logo.png" alt=""></a>
+                </div>
+                <!--chạy tin mới nhất-->
+                <div class="col-xl-10 col-lg-12">
+                    <div class="mt-4">
+                        <marquee id="marq" scrollamount="5" direction="left" loop="50" scrolldelay="0" behavior="scroll"
+                            onmouseover="this.stop()" onmouseout="this.start()">
+                            <a style="color: black;" href="#" target="_blank">Nhiệt độ TP HCM cao đỉnh điểm</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a style="color: black;" href="#" target="_blank">Thông báo nghỉ lễ 30/4 - 1/5</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a style="color: black;" href="#" target="_blank">Avenger-Endgame đạt doanh thu kỷ lục</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a style="color: black;" href="#" target="_blank">Vũng tàu thất thủ dịp lễ 30/4 - 1/5</a>
+                            &nbsp;&nbsp;&nbsp;
+                        </marquee>
+                    </div>
+                </div>
+                <!--chạy tin mới nhất-->
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-12" class="login-register-icons">
+            <div class="row mt-4" style="display:flex; justify-content:flex-end;">
+                <div class="mr-3">
+                    <button type="button" class="btn btn-success text-uppercase">
+                        Đăng nhập
+                        <span>
+                            <img src="./img/dangnhap.png" alt="">
+                        </span>
+                    </button>
+                </div>
+                <div class="mr-1">
+                    <button type="button" class="btn btn-success text-uppercase">
+                        Đăng ký
+                        <span>
+                            <img src="./img/dangky.png" alt="">
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End header -->
+
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Thể thao <span> <img src="./img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Tin trong nước</a>
+                        <a class="dropdown-item" href="#">Tin quốc tế</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Tài chinh-ngân hàng <span> <img src="./img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Doanh nhân</a>
+                        <a class="dropdown-item" href="#">Tài chính</a>
+                        <a class="dropdown-item" href="#">Bất động sản</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Thị trường <span> <img src="./img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Trung tâm mua sắm</a>
+                        <a class="dropdown-item" href="#">Thị trường 24h</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Sức khỏe <span> <img src="./img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Bệnh đàn ông</a>
+                        <a class="dropdown-item" href="#">Bệnh phụ nữ</a>
+                        <a class="dropdown-item" href="#">Sức khỏe dinh dưỡng</a>
+                        <a class="dropdown-item" href="#">Bài thuốc dân gian</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Showbiz <span> <img src="./img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Sao việt</a>
+                        <a class="dropdown-item" href="#">Talk cùng sao</a>
+                        <a class="dropdown-item" href="#">Sao Hollywood và các nước khác</a>
+                    </div>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <!-- end off navigation bar -->
+
+    <!--View post for journalist-->
+    <div class="container">
+        <div class="row">
+                <div class="Customtitle mb-1 w-100">
+                        <div class="my-mark">
+                            <p class="ml-3">Danh sách các bài viết chờ duyệt</p>
+                        </div>
+                    </div>
+            <div style="background-color: white;">
+                <div class="row mb-1">
+                    <div class="CategoryTitle">
+                        <a href="#" class="badge badge-success">Doanh nhân</a>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="card">
+                            <div style="height:250px!important; overflow: hidden;"><a href="#"><img src="./img/cr7.jpg"
+                                        class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                            <div class="card-body">
+                                <h5 class="card-title my-card-title-s">Tiêu đề bài viết aaaaaaaaaaa aaaaaa bbbb
+                                    aaaaaaaaaa aaaaaaaaaaaaaaa</h5>
+                                <p class="card-text card-article-sumary">Vài dòng tóm tắt</p>
+                                <div class="post-date">February 11, 2018</div>
+                                <div class="d-flex flex-row-reverse">
+                                    <button type="button" class="btn btn-outline-success">Preview</button>
+                                    <button type="button" class="btn btn-outline-danger mr-3">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="card">
+                            <div style="height:250px!important; overflow: hidden;"><a href="#"><img src="./img/cr7.jpg"
+                                        class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                            <div class="card-body">
+                                <h5 class="card-title my-card-title-s">Tiêu đề bài viết aaaaaaaaaaa aaaaaa bbbb
+                                    aaaaaaaaaa aaaaaaaaaaaaaaa</h5>
+                                <p class="card-text card-article-sumary">Vài dòng tóm tắt</p>
+                                <div class="post-date">February 11, 2018</div>
+                                <div class="d-flex flex-row-reverse">
+                                    <button type="button" class="btn btn-outline-success">Preview</button>
+                                    <button type="button" class="btn btn-outline-danger mr-3">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12 ">
+                        <div class="card">
+                            <div style="height:250px!important; overflow: hidden;"><a href="#"><img src="./img/cr7.jpg"
+                                        class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                            <div class="card-body">
+                                <h5 class="card-title my-card-title-s">Card title</h5>
+                                <p class="card-text card-article-sumary">Some quick example text to build on the
+                                    card
+                                    title and make up the
+                                    bulk of the card's content aaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaa
+                                    aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                                    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaa
+                                    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                                    aaaaa abababababababab bbbbbbbbbbbbbbb fffffffffffffffffff
+                                </p>
+                                <div class="post-date">February 11, 2018</div>
+                                <div class="d-flex flex-row-reverse">
+                                    <button type="button" class="btn btn-outline-success">Preview</button>
+                                    <button type="button" class="btn btn-outline-danger mr-3">Delete</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="CategoryTitle">
+                    <a href="#" class="badge badge-success">Tài chính</a>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a href="#"><img src="./img/cr7.jpg"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Tiêu đề bài viết aaaaaaaaaaa aaaaaa bbbb
+                                aaaaaaaaaa aaaaaaaaaaaaaaa</h5>
+                            <p class="card-text card-article-sumary">Vài dòng tóm tắt</p>
+                            <div class="post-date">February 11, 2018</div>
+                            <div class="d-flex flex-row-reverse">
+                                <button type="button" class="btn btn-outline-success">Preview</button>
+                                <button type="button" class="btn btn-outline-danger mr-3">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a href="#"><img src="./img/cr7.jpg"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Tiêu đề bài viết aaaaaaaaaaa aaaaaa bbbb
+                                aaaaaaaaaa aaaaaaaaaaaaaaa</h5>
+                            <p class="card-text card-article-sumary">Vài dòng tóm tắt</p>
+                            <div class="post-date">February 11, 2018</div>
+                            <div class="d-flex flex-row-reverse">
+                                <button type="button" class="btn btn-outline-success">Preview</button>
+                                <button type="button" class="btn btn-outline-danger mr-3">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a href="#"><img src="./img/cr7.jpg"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Tiêu đề bài viết aaaaaaaaaaa aaaaaa bbbb
+                                aaaaaaaaaa aaaaaaaaaaaaaaa</h5>
+                            <p class="card-text card-article-sumary">Vài dòng tóm tắt</p>
+                            <div class="post-date">February 11, 2018</div>
+                            <div class="d-flex flex-row-reverse">
+                                <button type="button" class="btn btn-outline-success">Preview</button>
+                                <button type="button" class="btn btn-outline-danger mr-3">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-1">
+                <div class="CategoryTitle">
+                    <a href="#" class="badge badge-success">Thị trường</a>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a href="#"><img src="./img/cr7.jpg"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Tiêu đề bài viết aaaaaaaaaaa aaaaaa bbbb
+                                aaaaaaaaaa aaaaaaaaaaaaaaa</h5>
+                            <p class="card-text card-article-sumary">Vài dòng tóm tắt</p>
+                            <div class="post-date">February 11, 2018</div>
+                            <div class="d-flex flex-row-reverse">
+                                <button type="button" class="btn btn-outline-success">Preview</button>
+                                <button type="button" class="btn btn-outline-danger mr-3">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a href="#"><img src="./img/cr7.jpg"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Tiêu đề bài viết aaaaaaaaaaa aaaaaa bbbb
+                                aaaaaaaaaa aaaaaaaaaaaaaaa</h5>
+                            <p class="card-text card-article-sumary">Vài dòng tóm tắt</p>
+                            <div class="post-date">February 11, 2018</div>
+                            <div class="d-flex flex-row-reverse">
+                                <button type="button" class="btn btn-outline-success">Preview</button>
+                                <button type="button" class="btn btn-outline-danger mr-3">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a href="#"><img src="./img/cr7.jpg"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Tiêu đề bài viết aaaaaaaaaaa aaaaaa bbbb
+                                aaaaaaaaaa aaaaaaaaaaaaaaa</h5>
+                            <p class="card-text card-article-sumary">Vài dòng tóm tắt</p>
+                            <div class="post-date">February 11, 2018</div>
+                            <div class="d-flex flex-row-reverse">
+                                <button type="button" class="btn btn-outline-success">Preview</button>
+                                <button type="button" class="btn btn-outline-danger mr-3">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--End view post-->
+
+    <!--Footer-->
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 myCols">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sign up</a></li>
+                        <li><a href="#">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="#">Company Information</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Forums</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2016 Copyright Text </p>
+        </div>
+    </footer>
+    <!--End of footer-->
+    <script>
+        $(function () {
+            $('#edit').froalaEditor({
+                height: 500
+            });
+        });
+    </script>
+</body>
+
+</html>
