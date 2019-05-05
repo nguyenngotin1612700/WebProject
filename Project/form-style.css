@@ -11,7 +11,7 @@
 .formh1 {
   box-sizing: border-box;
   padding: 20px;
-  background-color: #1abc9c;
+  background-color: #28a745;
   color: white;
   text-align: center;
 }
@@ -22,13 +22,13 @@
   display: block;
   border: none;
   padding: 10px 0;
-  border-bottom: solid 1px #1abc9c;
+  border-bottom: solid 1px #28a745;
   transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #28a745 4%);
   background-position: -450px 0;
   background-size: 450px 100%;
   background-repeat: no-repeat;
-  color: #1abc9c;
+  color: #28a745;
 }
 input:focus, input:valid {
   box-shadow: none;
@@ -36,7 +36,7 @@ input:focus, input:valid {
   background-position: 0 0;
 }
 input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
-  color: #1abc9c;
+  color: #28a745;
   font-size: 11px;
   transform: translateY(-20px);
   visibility: visible !important;
@@ -44,7 +44,7 @@ input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
  
 .buttonLogin {
   border: none;
-  background: #1abc9c;
+  background: #28a745;
   cursor: pointer;
   border-radius: 3px;
   padding: 6px;
@@ -59,21 +59,21 @@ button:hover {
   box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
 }
 .textform{
-    color: #1abc9c;
+    color: #28a745;
     margin: 20px 25px;
     display: block;
 }
 .checkboxform{
-  color: #1abc9c;
+  color: #28a745;
   margin: 20px 25px;
   display: block;
 }
 a:hover{
-  color: #1abc9c;
+  color: #28a745;
 }
 .textcolor{
   margin: 20px 25px;
-  color: #1abc9c;
+  color: #28a745;
 }
 /*end login*/
 .new{
