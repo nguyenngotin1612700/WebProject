@@ -1,4 +1,8 @@
-﻿index.html : Trang chủ
+﻿VNNews by IT HCMUS
+An online newspaper developed by HCMUS Team
+
+Purpose of each site
+index.html : Trang chủ
 editInformation.html : Người dùng cập nhật thông tin
 editPost.html: phóng viên viết bài viết mới + chỉnh sửa bài viết
 forgotPassword.html: quên mật khẩu

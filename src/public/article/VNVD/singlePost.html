@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body style="background-color: #f0f1f4;">
+    <!-- header -->
+    <div class="row header-logo " style="background-color: #f0f1f4;">
+        <div class="col-xl-9 col-lg-12">
+            <div class="row">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-6">
+                    <a href="../../index.html"><img class="logo" src="../../img/logo.png" alt=""></a>
+                </div>
+                <!--chạy tin mới nhất-->
+                <div class="col-xl-10 col-lg-12">
+                    <div class="mt-4">
+                        <marquee id="marq" scrollamount="5" direction="left" loop="50" scrolldelay="0" behavior="scroll"
+                            onmouseover="this.stop()" onmouseout="this.start()">
+                            <a style="color: black;" href="#" target="_blank">Nhiệt độ TP HCM cao đỉnh điểm</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a style="color: black;" href="#" target="_blank">Thông báo nghỉ lễ 30/4 - 1/5</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a style="color: black;" href="#" target="_blank">Avenger-Endgame đạt doanh thu kỷ lục</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a style="color: black;" href="#" target="_blank">Vũng tàu thất thủ dịp lễ 30/4 - 1/5</a>
+                            &nbsp;&nbsp;&nbsp;
+                        </marquee>
+                    </div>
+                </div>
+                <!--chạy tin mới nhất-->
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-12" class="login-register-icons">
+            <div class="row mt-4" style="display:flex; justify-content:flex-end;">
+                <div class="mr-3">
+                    <button type="button" class="btn btn-success text-uppercase">
+                        Đăng nhập
+                        <span>
+                            <img src="../../img/dangnhap.png" alt="">
+                        </span>
+                    </button>
+                </div>
+                <div class="mr-1">
+                    <button type="button" class="btn btn-success text-uppercase">
+                        Đăng ký
+                        <span>
+                            <img src="../../img/dangky.png" alt="">
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End header -->
+
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-xl navbar-light bg-light sticky-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Thể thao <span> <img src="../../img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Tin trong nước</a>
+                        <a class="dropdown-item" href="#">Tin quốc tế</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Tài chinh-ngân hàng <span> <img src="../../img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Doanh nhân</a>
+                        <a class="dropdown-item" href="#">Tài chính</a>
+                        <a class="dropdown-item" href="#">Bất động sản</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Thị trường <span> <img src="../../img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Trung tâm mua sắm</a>
+                        <a class="dropdown-item" href="#">Thị trường 24h</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Sức khỏe <span> <img src="../../img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Bệnh đàn ông</a>
+                        <a class="dropdown-item" href="#">Bệnh phụ nữ</a>
+                        <a class="dropdown-item" href="#">Sức khỏe dinh dưỡng</a>
+                        <a class="dropdown-item" href="#">Bài thuốc dân gian</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Showbiz <span> <img src="../../img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Sao việt</a>
+                        <a class="dropdown-item" href="#">Talk cùng sao</a>
+                        <a class="dropdown-item" href="#">Sao Hollywood và các nước khác</a>
+                    </div>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container">
+       
+        <div class="row">
+                <img src="./VN.jpg" alt="" class="banner">
+
+                <!-- cột 1, bài viết -->
+                <div class="my-mark">
+                    <p class="ml-3">Thể thao | Tin trong nước</p>
+                </div>
+            <div class="col-lg-8 col-sm-12 bg-white">
+                <h1 class="title-article">Vì sao đội tuyển Việt Nam vô địch AFF Suzuki Cup 2018?</h1>
+                <div class="post-date">February 11, 2018</div>
+                <h6 class="sumary-article"> Chu kỳ 10 năm đã lặp lại, đội tuyển Việt Nam một lần nữa bước lên ngôi vị
+                    cao nhất của giải đấu AFF Suzuki Cup 2018. </h6>
+                <img src="./qualuuniem.jpg" alt="">
+                <p style="color: #0040ff; text-align:center;">Ông Lee Young Kyun nhận quà lưu niệm từ đội tuyển Việt Nam
+                </p>
+                <p>Nhận xét về thành công ấn tượng của đội tuyển, ông Lee Young Kyun – Tổng giám đốc điều hành Lavifood,
+                    đại diện cho nhà tài trợ bản quyền phát sóng giải đấu nhận xét: “Hành trình vô địch của đội tuyển
+                    Việt Nam tại giải đấu lần này một hành trình đầy vinh quang và đáng tự hào. Nó không chỉ thổi bùng
+                    tình yêu bóng đá mà còn truyền cảm hứng chiến thắng, khát vọng vươn đến đỉnh cao, tinh thần vượt qua
+                    khó khăn, thử thách đến tất cả mọi người, đặc biệt là những người nông dân vốn yêu bóng đá cuồng
+                    nhiệt.</p>
+
+                <p>Cũng như các cầu thủ thi đấu hết mình trên sân cỏ, những người nông dân cũng làm việc miệt mài trên
+                    đồng ruộng để nông sản Việt Nam giành được những chiếc CUP vô địch về chất lượng trên thị trường
+                    quốc tế”.</p>
+
+                <p>Từ vị thế của “kẻ lót đường”, bóng đá Việt Nam đã bất ngờ trở thành á quân U23 Châu Á, trở thành 4
+                    đội mạnh nhất ASIAD 2018 rồi vững chãi, tự tin tiến đến chức vô địch AFF Suzuki Cup 2018. Điều gì đã
+                    làm nên thành công tuyệt vời ấy của tuyển Việt Nam?</p>
+
+                <p style="font-weight: bold">Tính kỉ luật</p>
+                <p>Trong suốt quá trình tập luyện và cả quá trình thi đấu cho AFF Cup 2018, đội tuyển Việt Nam đã có sự
+                    tập trung cao độ và nghiêm túc. Suốt mùa giải, đội tuyển quốc gia Việt Nam không xuất hiện bất kỳ
+                    một thông tin tiêu cực về tính kỷ luật như bỏ tập, nghỉ tập, đòi từ giã đội tuyển hay từ chối thi
+                    đấu…</p>
+                <p>Tất cả các “chiến binh” áo đỏ đều tập luyện hăng say theo giáo án của Ban huấn luyện, sinh hoạt theo
+                    lịch của chuyên gia và khi được ra sân thì cống hiến hết mình vì màu cờ sắc áo.</p>
+                <p style="font-weight: bold">Sự tuân thủ đấu pháp của HLV</p>
+                <img src="./Tuanthudauphap.jpg" alt="">
+                <p style="color: #0040ff; text-align:center;">Tuân thủ là một trong những yếu tố quan trọng để Việt Nam
+                    lên ngôi vô địch AFF Cup 2018</p>
+                <p>Tính tuân thủ của đội tuyển Việt Nam ở giải đấu này là điều đáng khen ngợi. Những chiến lược, đấu
+                    pháp của HLV đều được cầu thủ tuyệt đối tuân theo ngay cả khi điều này trái với sở trường và thói
+                    quen thi đấu của họ.</p>
+                <p>Đó là lý do vì sao một Quang Hải thuận chân trái, chuyên gia cánh trái ở CLB vẫn tỏa sáng và thi đấu
+                    đầy năng lượng ở đội tuyển khi phụ trách biên phản.</p>
+                <p>Đó là khi một Đức Huy vốn nổi tiếng với vai trò là một tiền vệ công vẫn chơi tốt khi trở thành “mỏ
+                    neo” ở tuyến giữa. Đó là khi cả đội bóng vốn quen thuộc với sơ đồ 4-4-2 nhưng vẫn tập luyện và tập
+                    luyện để thành thạo, nhuần nguyễn sơ đồ 3-4-3 hoặc biến thể 5-4-1 (khi cần phòng ngự)…</p>
+                <p>Sự tuân thủ này đã là lý do quan trọng để những tính toán chiến thuật của HLV Park Hang Seo phát huy
+                    được tối đa tác dụng.</p>
+                <p style="font-weight: bold">Đoàn kết, đồng thuận</p>
+                <p>Đoàn kết, đồng thuận không có nghĩa là cùng nhau làm mọi việc mà còn bao hàm cả việc nhắc nhở, tranh
+                    luận, đấu tranh với những sai lầm của đồng đội để có được kết quả tốt nhất.</p>
+                <p>Đó chính là lý do vì sao người hâm mộ rưng rưng nước mắt khi thấy Công Phượng cõng Văn Toàn, khi thấy
+                    áo Xuân Trường ghi tên những người đồng đội vắng mặt vì chấn thương, khi Quế Ngọc Hải trao lại băng
+                    đội trưởng cho Văn Quyết khi nhận Cup vô địch… </p>
+                <p>Nhưng người hâm mộ còn vui hơn khi nhìn thấy Quế Ngọc Hải và thủ thành Đặng Văn Lâm “ầm ĩ” với nhau
+                    trên sân cỏ, song vẫn thân thiết ở đời thường, tất cả chỉ để giúp nhau thi đấu tỉnh táo, tập trung
+                    hơn.</p>
+                <p style="font-weight: bold">Đầu tư cho khoa học thể thao </p>
+                <p>Những mùa giải trước, đội tuyển Việt Nam luôn gặp các vấn đề về thể lực. Thi đấu thăng hoa ở hiệp 1
+                    để rồi hiệp 2 “lê chân” không nổi để kèm người. Nhưng với sự đầu tư cho khoa học thể thao đã giúp
+                    các cầu thủ chúng ta phát triển thể chất, tối ưu hóa khả năng vận động, xây dựng chế độ dinh dưỡng
+                    và tập luyện thi đấu phù hợp, phục hồi sau vận động, tâm lý, phòng tránh và trị liệu chấn thương…
+                </p>
+                <p>Trong khuôn khổ AFF Cup 2018, thể lực đã là một yếu tố không thể thiếu để Việt Nam góp phần làm nên
+                    chiến thắng của đội tuyển, nhất là khi đối đầu với những đối thủ có thể trạng cao lớn và lối chơi
+                    càn quét, nghiêng về thể lực như Malaysia, Philippines…</p>
+                <p style="font-weight: bold">Tinh thần khát khao chiến thắng</p>
+                <img src="./khaokhatchienthang.jpg" alt="">
+                <p style="color: #0040ff; text-align:center;">CĐV Việt Nam hân hoan mừng đội tuyển vô địch AFF Cup 2018
+                </p>
+                <p>Điều cuối cùng cũng chính là điều quan trọng nhất, là tinh thần khát khao chiến thắng của các cầu
+                    thủ. Mỗi một trận đấu, các cầu thủ đều thi đấu hết mình vì sự mong mỏi của người hâm mộ, vì niềm
+                    khát khao 10 năm trời ròng rã, vì màu cờ sắc áo, vì tinh thần dân tộc.</p>
+                <p>Điển hình như trận chung kết lượt về, trung vệ Trần Đình Trọng đã dính chấn thương khá nặng nhưng anh
+                    vẫn nhịn đau để thi đấu. Người hâm mộ không nhìn thấy bất kỳ dấu hiệu nào trên gương mặt, những bước
+                    chạy hay những pha truy cản vô cùng chính xác của cầu thủ mang áo số 21 này. Chỉ chi tiết ấy thôi
+                    cũng đủ thấy về sự kiên cường của Đình Trọng nói riêng và tuyển thủ Việt Nam nói chung.</p>
+                <p>Cuộc sống vốn là vòng quay bất tận. Chẳng thể có thành công mãi mãi nếu như chúng ta không cố gắng.
+                    Chỉ sau giải AFF Cup 2018 khoảng 1 tháng, những chiến binh của Việt Nam sẽ bước vào hành trình mới
+                    hứa hẹn sẽ khốc liệt hơn rất nhiều, đó là Asian Cup 2019, nơi chúng ta sẽ nằm chung bảng với những
+                    ông lớn như Iran, Iraq và Yemen.</p>
+                <p>Đương nhiên, để chinh phục chặng đường phía trước, trong đó bao gồm việc bảo vệ thành công chức vô
+                    địch AFF Cup 2018, đòi hỏi những cầu thủ cần nỗ lực hơn rất nhiều.</p>
+            </div>
+            <!-- end cột 1 -->
+
+            <!-- cột 2, các bài viết cùng chuyên mục, các bài viết mới-->
+            <div class="col-lg-4 col-sm-12 bg-light">
+
+                <!-- Các bài viết cùng chuyên mục -->
+                <div class=" row mb-4 ">
+                    <div class="Customtitle mb-1 w-100">
+                        <div class="my-mark">
+                            <p class="ml-3 mt-2">Cùng chuyên mục</p>
+                        </div>
+                    </div>
+                    <div style="" id="vs_inner_0">
+                        <article class="article-mini" data-list="2" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/tevez.jpg" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                            sao?</a></h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 5, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-mini" data-list="3" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/tevez.jpg" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                    </h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 9, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-mini" data-list="2" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/cr7.jpg" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                            sao?</a></h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 5, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-mini" data-list="3" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/mu-barca.jpg" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                    </h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 9, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-mini" data-list="2" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/cr7.jpg" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                            sao?</a></h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 5, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-mini" data-list="3" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/vidic.png" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                    </h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 9, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- kết thúc tin 1 -->
+                </div>
+                <!-- end các bài viết cùng chuyên mục -->
+
+                <!-- Các bài viết mới -->
+                <div class=" row mb-4 ">
+                        <div class="Customtitle mb-1 w-100">
+                            <div class="my-mark">
+                                <p class="ml-3 mt-2">Tin mới nhất</p>
+                            </div>
+                        </div>
+                        <div style="" id="vs_inner_0">
+                            <article class="article-mini" data-list="2" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/tevez.jpg" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                                sao?</a></h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 5, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="article-mini" data-list="3" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/tevez.jpg" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                        </h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 9, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="article-mini" data-list="2" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/cr7.jpg" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                                sao?</a></h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 5, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="article-mini" data-list="3" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/mu-barca.jpg" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                        </h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 9, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="article-mini" data-list="2" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/cr7.jpg" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                                sao?</a></h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 5, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="article-mini" data-list="3" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/vidic.png" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                        </h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 9, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        
+                    </div>
+
+                <!-- end các bài viết mới -->
+            </div>
+            <!-- end cột 2 -->
+        </div>
+        <div class="row comment-box mt-4 mb-4">
+            <div class="col-lg-8 col-sm-12 bg-white">
+            <h3>Đăng bình luận</h3>
+            <form action="" method="post">
+                <textarea rows="8" cols="90%" placeholder="Bình luận"></textarea>
+                <button class="btn btn-primary mb-2">Đăng bình luận</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 myCols">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sign up</a></li>
+                        <li><a href="#">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="#">Company Information</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Forums</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2016 Copyright Text </p>
+        </div>
+    </footer>
+</body>
+
+</html>

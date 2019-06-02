@@ -1,0 +1,777 @@
+<!--dòng 1 Slide tin nổi bật, Tin trong nước, Tin quốc tế-->
+<div class="container mt-3 ">
+    <div class="row">
+
+        <!-- cột 1 slide các bài viết nổi bật  -->
+        <div class="col-md-7 col-sm-12">
+            <div class="bd-example mt-0 ">
+                <div class="Customtitle mb-1">
+                    <div class="my-mark">
+                        <p class="ml-3 text-danger">Tin nổi bật</p>
+                    </div>
+                </div>
+                <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {{#each this.highlight}}
+                        <div class="carousel-item {{#if isActive}}active{{/if}}">
+                            <a href="./highlights/{{id}}" class="carousel-itemlink">
+                                <img src="{{featureImg}}" class="d-block w-100 carousel-img-Hot" alt="...">
+                            </a>
+                            <div class="my-carousel-caption">
+                                <h5 class="my-carousel-caption-title">{{title}}
+                                </h5>
+                                <p class="my-carousel-caption-sumary">{{description}}</p>
+                                <div class="post-date">{{datePost}}</div>
+                            </div>
+                        </div>
+                        {{/each}}
+
+                        {{!-- <div class="carousel-item active">
+                            <a href="./article/VNVD/singlePost.html" class="carousel-itemlink">
+                                <img src="./img/tinnoibat1.png" class="d-block w-100 carousel-img-Hot" alt="...">
+                            </a>
+                            <div class="my-carousel-caption">
+                                <h5 class="my-carousel-caption-title">Làm sao để du lịch Việt Nam đón thêm khách nhà
+                                    giàu?</h5>
+                                <p class="my-carousel-caption-sumary">Miễn visa, nâng cao chất lượng dịch vụ là một
+                                    số hiến kế được đưa ra để du lịch Việt Nam có thể thu hút khách nhà giàu.
+                                </p>
+                                <div class="post-date">February 11, 2018</div>
+                            </div>
+                        </div> --}}
+                        {{!-- <div class="carousel-item">
+                            <a href="./article/VNVD/singlePost.html" class="carousel-itemlink">
+                                <img src="./img/tinnoibat2.png" class="d-block w-100 carousel-img-Hot" alt="...">
+                            </a>
+                            <div class="my-carousel-caption">
+                                <h5 class="my-carousel-caption-title">Bí quyết kiếm nhiều tiền của triệu phú 26 tuổi
+                                </h5>
+                                <p class="my-carousel-caption-sumary">Josh Altman luôn tìm cách gây ấn tượng tốt với
+                                    người đối diện ngay từ giây đầu tiên gặp mặt.
+                                </p>
+                                <div class="post-date">February 11, 2018</div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="./article/VNVD/singlePost.html" class="carousel-itemlink">
+                                <img src="./img/tinnoibat3.jpg" class="d-block w-100 carousel-img-Hot" alt="...">
+                            </a>
+                            <div class="my-carousel-caption">
+                                <h5 class="my-carousel-caption-title">Kim Jong-un chăm chú theo dõi tên lửa khai hỏa
+                                    trong 'diễn tập tấn công'</h5>
+                                <p class="my-carousel-caption-sumary">Chủ tịch Triều Tiên ngày 4/5 tới thị sát trực
+                                    tiếp vụ phóng thử tên lửa tầm ngắn và pháo phản lực tại thao trường gần thành
+                                    phố Wonsan.
+                                </p>
+                                <div class="post-date">February 11, 2018</div>
+                            </div>
+                        </div> --}}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- end cột 1 slide các bài viết nổi bật  -->
+
+        <!-- Cột 2  Tin trong nước, tin quốc tế-->
+        <div class="col-md-5 col-sm-12">
+            <!-- dòng 1 Tin trong nước -->
+            <div class="row mb-3">
+                <div class="post">
+                    <img class="annimationImg" src="./img/mienbac.jpg" alt="">
+                    <a href="./category/TinTrongNuoc/TinTrongNuoc.html" class=" post-title badge badge-success ">Tin
+                        trong nước</a>
+                    <span class="post-Desc">
+                        Đầu tuần miền Bắc và Trung nắng nóng
+                    </span>
+                    <span class="post-Time">February 11, 2018</span>
+                </div>
+            </div>
+            <!-- end dòng 1 tin trong nước -->
+
+            <!-- dòng 2 Tin quốc tế -->
+            <div class="row mb-1">
+                <div class="post">
+                    <img class="annimationImg" src="./img/venezelua.jpg" alt="">
+                    <a href="./category/TinTrongNuoc/TinTrongNuoc.html" class="post-title badge badge-success ">Tin
+                        quốc tế</a>
+                    <span class="post-Desc ">
+                        Trực thăng quân sự Venezuela rơi, 7 sĩ quan thiệt mạng
+                    </span>
+                    <span class="post-Time">February 11, 2018</span>
+                </div>
+            </div>
+            <!-- end dòng 2 tin quốc tế -->
+        </div>
+        <!-- End cột 2 -->
+    </div>
+</div>
+
+<!-- end dòng 1 -->
+
+<!-- Dòng 2: Slide xem nhiều nhất, Các mục còn lại -->
+<div class="container mt-3 ">
+    <div class="row">
+        <!-- Cột 1: các chuyên mục còn lại-->
+        <div class="col-md-7 col-sm-12">
+
+            <!-- 1 Category 2 post -->
+            <div class="row mb-1">
+                <div class="CategoryTitle">
+                    <a href="./category/TinTrongNuoc/TinTrongNuoc.html" class="badge badge-success">Doanh nhân</a>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a
+                                href="./article/VNVD/singlePost.html"><img src="./img/mark.jpg"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Khối bất động sản 'khủng' của Mark Zuckerberg
+                            </h5>
+                            <p class="card-text card-article-sumary">Ngoài căn nhà ở Palo Alto, Mark Zuckerberg sở
+                                hữu gần chục biệt thự, mảnh đất và đồn điền rộng hàng trăm ha.</p>
+                            <div class="post-date">February 11, 2018</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-12 ">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a
+                                href="./article/VNVD/singlePost.html"><img src="./img/warrent.png"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Bàn tay vàng của Warren Buffett liệu đã hết phép?
+                            </h5>
+                            <p class="card-text card-article-sumary">Nhiều tài sản ưa thích của Buffett, như Wells
+                                Fargo và Coca-Cola, không có diễn biến tốt, còn Kraft Heinz mất giá 20% năm nay.
+                            </p>
+                            <div class="post-date">February 11, 2018</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end of category -->
+
+            <!-- 1 Category 2 post -->
+            <div class="row mb-1">
+                <div class="CategoryTitle">
+                    <a href="./category/TinTrongNuoc/TinTrongNuoc.html" class="badge badge-success">Tài chính</a>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a
+                                href="./article/VNVD/singlePost.html"><img src="./img/taichinh.jpg"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Chuyên gia lo GDP giảm nếu siết tín dụng bất động
+                                sản cao cấp</h5>
+                            <p class="card-text card-article-sumary">Việc siết tín dụng có thể giáng thêm một cú sốc
+                                cho thị trường địa ốc đang gặp khó khăn từ nhiều phía, theo các chuyên gia. </p>
+                            <div class="post-date">February 11, 2018</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-12 ">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a
+                                href="./article/VNVD/singlePost.html"><img src="./img/taichinh1.jpg"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Giải ngân đầu tư công tiếp tục chậm</h5>
+                            <p class="card-text card-article-sumary">Tới cuối tháng 4, 39 Bộ, địa phương có tỷ lệ
+                                giải ngân vốn đầu tư công dưới 10% kế hoạch được giao năm 2019.
+                            </p>
+                            <div class="post-date">February 11, 2018</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of category -->
+
+            <!-- 1 Category 2 post -->
+            <div class="row mb-1">
+                <div class="CategoryTitle">
+                    <a href="./category/TinTrongNuoc/TinTrongNuoc.html" class="badge badge-success">Bất động sản</a>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a
+                                href="./article/VNVD/singlePost.html"><img src="./img/batdongsan.jpg"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Lợi ích nhóm trong 'cuộc chiến' chung cư</h5>
+                            <p class="card-text card-article-sumary">Hiện tượng căng băng rôn trở thành một trào lưu
+                                ở các dự án, mà đằng sau đó đôi khi có dấu hiệu “lợi ích nhóm”. </p>
+                            <div class="post-date">February 11, 2018</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-12 ">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a
+                                href="./article/VNVD/singlePost.html"><img src="./img/batdongsan1.png"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Tiềm năng đầu tư bất động sản nghỉ dưỡng Hạ Long
+                            </h5>
+                            <p class="card-text card-article-sumary">Hạ tầng giao thông, hệ thống tiện ích đồng bộ
+                                giúp Hạ Long thu hút nhà đầu tư, nhất là phần khúc bất động sản nghỉ dưỡng.
+                            </p>
+                            <div class="post-date">February 11, 2018</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of category -->
+
+            <!-- 1 Category 2 post -->
+            <div class="row mb-1">
+                <div class="CategoryTitle">
+                    <a href="./category/TinTrongNuoc/TinTrongNuoc.html" class="badge badge-success">Trung tâm mua
+                        sắm</a>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a
+                                href="./article/VNVD/singlePost.html"><img src="./img/trungtam.jpg"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Top các trung tâm thương mại đẹp và mát nhất Sài
+                                Gòn cho du khách mua sắm, tránh nóng
+                            </h5>
+                            <p class="card-text card-article-sumary">Sài Gòn có nhiều trung tâm thương mại sầm uất,
+                                do đó nếu dịp 30/4-1/5 này không đi chơi xa thì danh sách những điểm mua sắm này
+                                cũng khiến bạn mất cả ngày để khám phá. </p>
+                            <div class="post-date">February 11, 2018</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-12 ">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a
+                                href="./article/VNVD/singlePost.html"><img src="./img/trungtam1.jpg"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Tp.HCM sắp có đại trung tâm thương mại lớn nhất
+                                tại quận 8</h5>
+                            <p class="card-text card-article-sumary">Quý 3/2019, Tập đoàn Quốc Cường Gia Lai sẽ đưa
+                                vào vận hành đại trung tâm thương mại Central Premium Mall lớn nhất tại quận 8,
+                                Tp.HCM. Đây cũng là tổ hợp shopping mall lớn thứ 8 của Sài Gòn.
+                            </p>
+                            <div class="post-date">February 11, 2018</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of category -->
+
+            <!-- 1 Category 2 post -->
+            <div class="row mb-1">
+                <div class="CategoryTitle">
+                    <a href="./category/TinTrongNuoc/TinTrongNuoc.html" class="badge badge-success">Thị trường
+                        24h</a>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a
+                                href="./article/VNVD/singlePost.html"><img src="./img/giaxang.jpg"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Giá xăng tiếp tục tăng mạnh</h5>
+                            <p class="card-text card-article-sumary">Mỗi lít xăng E5 RON 92 tăng 985 đồng, xăng RON
+                                95 thêm 956 đồng sau điều chỉnh từ 16h chiều 2/5. </p>
+                            <div class="post-date">February 11, 2018</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-12 ">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a
+                                href="./article/VNVD/singlePost.html"><img src="./img/hanghieu.jpg"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Hàng hiệu giả ngập chợ mạng</h5>
+                            <p class="card-text card-article-sumary">Bộ Công Thương cho rằng quy định xử phạt ban
+                                hành 6 năm trước đang lỗi thời so với sự phát triển của thương mại điện tử.
+                            </p>
+                            <div class="post-date">February 11, 2018</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of category -->
+
+            <!-- 1 Category 2 post -->
+            <div class="row mb-1">
+                <div class="CategoryTitle">
+                    <a href="./category/TinTrongNuoc/TinTrongNuoc.html" class="badge badge-success">Bệnh đàn ông</a>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a
+                                href="./article/VNVD/singlePost.html"><img src="./img/benhdanong.jpg"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Quý ông nào cũng cần biết điều này để xử lý "cậu
+                                nhỏ" không chịu "nghe lời"</h5>
+                            <p class="card-text card-article-sumary">Rối loạn cương dương là 1 trong những vấn đề
+                                phổ biến nhất và gây khó khăn nhất cho đời sống tình dục. Vì vậy quý ông nào cũng
+                                cần biết những điều sau để phòng tránh và xử lý</p>
+                            <div class="post-date">February 11, 2018</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-12 ">
+                    <div class="card">
+                        <div style="height:250px!important; overflow: hidden;"><a
+                                href="./article/VNVD/singlePost.html"><img src="./img/benhdanhong1.jpg"
+                                    class="card-img-top card-img-categoryItem" alt="..."></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title my-card-title-s">Lấy lại "bản lĩnh đàn ông" sau 12 năm bất lực
+                            </h5>
+                            <p class="card-text card-article-sumary">Các nhà khoa học Úc đã tạo ra phép màu với
+                                nhiều người đàn ông bị rối loạn cương dương sau điều trị ung thư tuyến tiền liệt,
+                                trong đó có 2 người đã bất lực suốt 12 năm.
+                            </p>
+                            <div class="post-date">February 11, 2018</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of category -->
+
+
+
+        </div>
+        <!-- Kết thúc cột 1 -->
+
+
+        <!-- Cột 2: slide bài viết được xem nhiều nhất,mini-article các bài viết mới nhất -->
+        <div class="col-md-5 col-sm-12">
+
+            <!-- Dòng 1 dành cho slide các bài viết xem nhiều nhất -->
+            <div class="row mb-4">
+                <!-- slide các bài viết xem nhiều nhất-->
+                <div class="bd-example mt-2">
+                    <div class="Customtitle mb-1">
+                        <div class="my-mark">
+                            <p class="ml-3">Xem nhiều nhất</p>
+                        </div>
+                    </div>
+                    <div id="carouselExampleCaptions1" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <a href="./article/VNVD/singlePost.html" class="carousel-itemlink">
+                                    <img src="./img/quocvuong.jpg" class="d-block w-100 carousel-img-Latest" alt="..."
+                                        style="width:90%">
+                                </a>
+                                <div class="my-carousel-caption ">
+                                    <div class="ml-1 mr-1">
+                                        <h5>Lễ rước kiệu 16 người khiêng của tân vương Thái Lan</h5>
+                                        <p class="carousel-sumary">Hàng trăm nghìn người dân Thái Lan hôm nay tập
+                                            trung trên các con phố đoàn rước kiệu đi qua để ngắm nhìn Quốc vương
+                                            Vajiralongkorn.
+                                        </p>
+                                        <div class="post-date">February 11, 2018</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="./article/VNVD/singlePost.html" class="carousel-itemlink">
+                                    <img src="./img/cauthang.jpg" class="d-block w-100 carousel-img-Latest" alt="..."
+                                        style="width:90%">
+                                </a>
+                                <div class="my-carousel-caption">
+                                    <div class="ml-1 mr-1">
+                                        <h5>Chiếc cầu thang 'níu chân' khách trong ngôi nhà Sài Gòn</h5>
+                                        <p class="carousel-sumary">Cầu thang nằm ở khu vực thông tầng hình chiếc lá
+                                            cũng là nơi ngồi chơi thư giãn cho cả nhà, nơi ngắm cảnh, đón nắng gió.
+                                        </p>
+                                        <div class="post-date">February 11, 2018</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="./article/VNVD/singlePost.html" class="carousel-itemlink">
+                                    <img src="./img/donggioi.png" class="d-block w-100 carousel-img-Latest" alt="..."
+                                        style="width:90%">
+                                </a>
+                                <div class="my-carousel-caption">
+                                    <div class="ml-1 mr-1">
+                                        <h5>Chuyện tình người phụ nữ đi nghỉ với bạn trai</h5>
+                                        <p class="carousel-sumary">Khoảnh khắc nhìn thấy cô Sharon, Sandra (người
+                                            Anh) quyết định rời bỏ người bạn đời 18 năm để đến với tình yêu đồng
+                                            giới.
+                                        </p>
+                                        <div class="post-date">February 11, 2018</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="./article/VNVD/singlePost.html" class="carousel-itemlink">
+                                    <img src="./img/ngheo.png" class="d-block w-100 carousel-img-Latest" alt="..."
+                                        style="width:90%">
+                                </a>
+                                <div class="my-carousel-caption">
+                                    <div class="ml-1 mr-1">
+                                        <h5>6 dấu hiệu bạn đang nhiễm 'virus nghèo khó'</h5>
+                                        <p class="carousel-sumary">Một người nghĩ mình nghèo thường cố chứng minh
+                                            mình "không đến nỗi nào", mua quà đắt tiền, đãi khách bằng những đồng
+                                            cuối cùng.
+                                        </p>
+                                        <div class="post-date">February 11, 2018</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="./article/VNVD/singlePost.html" class="carousel-itemlink">
+                                    <img src="./img/nhaong.jpg" class="d-block w-100 carousel-img-Latest" alt="..."
+                                        style="width:90%">
+                                </a>
+                                <div class="my-carousel-caption">
+                                    <div class="ml-1 mr-1">
+                                        <h5>Nhà ống Sài Gòn thừa nắng, thừa gió</h5>
+                                        <p class="carousel-sumary">Hai giếng trời cộng hệ lam đa dạng ở cả 3 tầng
+                                        </p>
+                                        <div class="post-date">February 11, 2018</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="./article/VNVD/singlePost.html" class="carousel-itemlink">
+                                    <img src="./img/mcgiau.jpg" class="d-block w-100 carousel-img-Latest" alt="..."
+                                        style="width:90%">
+                                </a>
+                                <div class="my-carousel-caption">
+                                    <div class="ml-1 mr-1">
+                                        <h5>MC giàu có tuyên bố </h5>
+                                        <p class="carousel-sumary">MC nổi tiếng người Anh Kirstie Allsopp tiết lộ sẽ
+                                            để lại số tiền 16 triệu bảng cho hai con trai, nhưng chỉ sau khi họ có
+                                            việc làm.
+                                        </p>
+                                        <div class="post-date">February 11, 2018</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="./article/VNVD/singlePost.html" class="carousel-itemlink">
+                                    <img src="./img/tevez.jpg" class="d-block w-100 carousel-img-Latest" alt="..."
+                                        style="width:90%">
+                                </a>
+                                <div class="my-carousel-caption">
+                                    <div class="ml-1 mr-1">
+                                        <h5>Tiêu đề aaaaaa aaaaaaaaa bb aaaaaa aaaaaa aaaaaaaaaaaaa aaaaaaaaaaaaaa
+                                            aaaaaaaaa aaaaaaaaaa</h5>
+                                        <p class="carousel-sumary">Vài dòng tóm tắt aaaaaaa aaaaaa aaaaa Nulla vitae
+                                            elit libero,
+                                            a pharetra augue mollis interdum. aaaaaa bbbb aaaaaaaa aaaaaaaaaaaaaaaaa
+                                            aaaaa
+                                            aaaaaaaaaaa bbbbb aaaaaaaaaaa aaaaaaaaa
+                                        </p>
+                                        <div class="post-date">February 11, 2018</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="./article/VNVD/singlePost.html" class="carousel-itemlink">
+                                    <img src="./img/vidic.png" class="d-block w-100 carousel-img-Latest" alt="..."
+                                        style="width:90%">
+                                </a>
+                                <div class="my-carousel-caption">
+                                    <div class="ml-1 mr-1">
+                                        <h5>Tiêu đề aaaaaa aaaaaaaaa bb aaaaaa aaaaaa aaaaaaaaaaaaa aaaaaaaaaaaaaa
+                                            aaaaaaaaa aaaaaaaaaa</h5>
+                                        <p class="carousel-sumary">Vài dòng tóm tắt aaaaaaa aaaaaa aaaaa Nulla vitae
+                                            elit libero,
+                                            a pharetra augue mollis interdum. aaaaaa bbbb aaaaaaaa aaaaaaaaaaaaaaaaa
+                                            aaaaa
+                                            aaaaaaaaaaa bbbbb aaaaaaaaaaa aaaaaaaaa
+                                        </p>
+                                        <div class="post-date">February 11, 2018</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="./article/VNVD/singlePost.html" class="carousel-itemlink">
+                                    <img src="./img/cr7.jpg" class="d-block w-100 carousel-img-Latest" alt="..."
+                                        style="width:90%">
+                                </a>
+                                <div class="my-carousel-caption">
+                                    <div class="ml-1 mr-1">
+                                        <h5>Tiêu đề aaaaaa aaaaaaaaa bb aaaaaa aaaaaa aaaaaaaaaaaaa aaaaaaaaaaaaaa
+                                            aaaaaaaaa aaaaaaaaaa</h5>
+                                        <p class="carousel-sumary">Vài dòng tóm tắt aaaaaaa aaaaaa aaaaa Nulla vitae
+                                            elit libero,
+                                            a pharetra augue mollis interdum. aaaaaa bbbb aaaaaaaa aaaaaaaaaaaaaaaaa
+                                            aaaaa
+                                            aaaaaaaaaaa bbbbb aaaaaaaaaaa aaaaaaaaa
+                                        </p>
+                                        <div class="post-date">February 11, 2018</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="./article/VNVD/singlePost.html" class="carousel-itemlink">
+                                    <img src="./img/tevez.jpg" class="d-block w-100 carousel-img-Latest" alt="..."
+                                        style="width:90%">
+                                </a>
+                                <div class="my-carousel-caption">
+                                    <div class="ml-1 mr-1">
+                                        <h5>Tiêu đề aaaaaa aaaaaaaaa bb aaaaaa aaaaaa aaaaaaaaaaaaa aaaaaaaaaaaaaa
+                                            aaaaaaaaa aaaaaaaaaa</h5>
+                                        <p class="carousel-sumary">Vài dòng tóm tắt aaaaaaa aaaaaa aaaaa Nulla vitae
+                                            elit libero,
+                                            a pharetra augue mollis interdum. aaaaaa bbbb aaaaaaaa aaaaaaaaaaaaaaaaa
+                                            aaaaa
+                                            aaaaaaaaaaa bbbbb aaaaaaaaaaa aaaaaaaaa
+                                        </p>
+                                        <div class="post-date">February 11, 2018</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleCaptions1" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleCaptions1" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- end slide các bài viết xem nhiều nhất -->
+            </div>
+            <!-- Kết thúc dòng 1 dành cho slide các bài viết xem nhiều nhất -->
+
+            <!-- Dòng 2 dành cho các bài viết mới nhất -->
+            <div class="row mb-4 ">
+                <div class="Customtitle mb-1 w-100">
+                    <div class="my-mark">
+                        <p class="ml-3">Mới nhất</p>
+                    </div>
+                </div>
+                <div style="" id="vs_inner_0">
+                    <article class="article-mini" data-list="2" style="display: block;">
+                        <div class="inner">
+                            <figure>
+                                <a href="./article/VNVD/singlePost.html">
+                                    <img src="./img/cr7.jpg" alt="Sample Article">
+                                </a>
+                            </figure>
+                            <div class="padding">
+                                <h1><a href="./article/VNVD/singlePost.html">Không phải hôm nay thời tiết thật đẹp
+                                        để ra ngoài
+                                        sao?</a></h1>
+                                <div class="detail">
+                                    <div class="category"><a href="#">Sao việt</a></div>
+                                    <div class="time">April 5, 2019</div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="article-mini" data-list="3" style="display: block;">
+                        <div class="inner">
+                            <figure>
+                                <a href="./article/VNVD/singlePost.html">
+                                    <img src="./img/vidic.png" alt="Sample Article">
+                                </a>
+                            </figure>
+                            <div class="padding">
+                                <h1><a href="single.html">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                </h1>
+                                <div class="detail">
+                                    <div class="category"><a href="category.html">Thể thao|Tin trong nước</a></div>
+                                    <div class="time">April 9, 2019</div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="article-mini" data-list="2" style="display: block;">
+                        <div class="inner">
+                            <figure>
+                                <a href="./article/VNVD/singlePost.html">
+                                    <img src="./img/cr7.jpg" alt="Sample Article">
+                                </a>
+                            </figure>
+                            <div class="padding">
+                                <h1><a href="./article/VNVD/singlePost.html">Không phải hôm nay thời tiết thật đẹp
+                                        để ra ngoài
+                                        sao?</a></h1>
+                                <div class="detail">
+                                    <div class="category"><a href="#">Bệnh phụ nữ</a></div>
+                                    <div class="time">April 5, 2019</div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="article-mini" data-list="3" style="display: block;">
+                        <div class="inner">
+                            <figure>
+                                <a href="./article/VNVD/singlePost.html">
+                                    <img src="./img/vidic.png" alt="Sample Article">
+                                </a>
+                            </figure>
+                            <div class="padding">
+                                <h1><a href="single.html">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                </h1>
+                                <div class="detail">
+                                    <div class="category"><a href="category.html">Thị trường 24h</a></div>
+                                    <div class="time">April 9, 2019</div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="article-mini" data-list="2" style="display: block;">
+                        <div class="inner">
+                            <figure>
+                                <a href="./article/VNVD/singlePost.html">
+                                    <img src="./img/cr7.jpg" alt="Sample Article">
+                                </a>
+                            </figure>
+                            <div class="padding">
+                                <h1><a href="./article/VNVD/singlePost.html">Không phải hôm nay thời tiết thật đẹp
+                                        để ra ngoài
+                                        sao?</a></h1>
+                                <div class="detail">
+                                    <div class="category"><a href="#">Doanh nhân</a></div>
+                                    <div class="time">April 5, 2019</div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="article-mini" data-list="3" style="display: block;">
+                        <div class="inner">
+                            <figure>
+                                <a href="./article/VNVD/singlePost.html">
+                                    <img src="./img/vidic.png" alt="Sample Article">
+                                </a>
+                            </figure>
+                            <div class="padding">
+                                <h1><a href="single.html">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                </h1>
+                                <div class="detail">
+                                    <div class="category"><a href="category.html">Tài chính</a></div>
+                                    <div class="time">April 9, 2019</div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <!-- kết thúc tin 1 -->
+                <!-- tin 2 trong 10 tin xem nhiều nhất -->
+
+
+            </div>
+            <!-- end dòng 2 cho các bài viết mới nhất -->
+
+            <!-- Cột 2  Tin trong nước, tin quốc tế-->
+
+            <!-- dòng 1 Bệnh phụ nữ -->
+            <div class="row mb-3 container-post-outner">
+                <div class="post-outner ">
+                    <a href="./article/VNVD/singlePost.html"><img
+                            src="./img/dau-dau-trong-ngay-den-do-co-dang-lo-1-1555232580-816-width640height426.jpg"
+                            style="width:100%;height:250px" alt=""></a>
+                    <a href="./category/TinTrongNuoc/TinTrongNuoc.html"
+                        class=" post-outner-title badge badge-success ">Bệnh phụ nữ</a>
+                </div>
+                <div class="my-carousel-caption">
+                    <h5 class="my-carousel-caption-title">Đau đầu trong ngày đèn đỏ có đáng lo?
+                    </h5>
+                    <p class="my-carousel-caption-sumary">Trong thời kỳ kinh nguyệt, việc thường xuyên suy nghĩ
+                        nhiều, lười vận động, thức quá khuya... sẽ khiến người bệnh dễ lâm vào trạng thái đau nhức
+                        đầu và chóng mặt.</p>
+                    <div class="post-date">February 11, 2018</div>
+                </div>
+            </div>
+            <!-- end dòng 1 Bệnh phụ nữ -->
+
+            <!-- dòng 2 Sao việt -->
+            <div class="row mb-3 h-500 container-post-outner">
+                <div class="post-outner ">
+                    <a href="./article/VNVD/singlePost.html"><img src="./img/a.jpg" style="width:100%;height:250px"
+                            alt=""></a>
+                    <a href="./category/TinTrongNuoc/TinTrongNuoc.html"
+                        class=" post-outner-title badge badge-success ">Sao việt</a>
+                </div>
+                <div class="my-carousel-caption">
+                    <h5 class="my-carousel-caption-title">Phía diễn viên Phi Huyền Trang nói gì?
+                    </h5>
+                    <p class="my-carousel-caption-sumary">Người quản lý của Phi Huyền Trang lên tiếng trước ồn ào nữ
+                        diễn viên bị tố giật chồng và một đoạn video nhạy cảm được cho là của cô.</p>
+                    <div class="post-date">February 11, 2018</div>
+                </div>
+            </div>
+            <!-- end dòng 2 Sao việt -->
+
+            <!-- dòng 3 Talk cùng sao -->
+            <div class="row mb-3 container-post-outner">
+                <div class="post-outner ">
+                    <a href="./article/VNVD/singlePost.html"><img src="./img/b.jpg" style="width:100%;height:250px"
+                            alt=""></a>
+                    <a href="./category/TinTrongNuoc/TinTrongNuoc.html"
+                        class=" post-outner-title badge badge-success ">Talk cùng sao</a>
+                </div>
+                <div class="my-carousel-caption">
+                    <h5 class="my-carousel-caption-title"> hot girlSống trầm cảm suốt 2 năm sau ly hôn Hồ Quang Hiếu
+                    </h5>
+                    <p class="my-carousel-caption-sumary">Ivy của hiện tại sống lạc quan và nói nhiều về triết lý
+                        tình yêu.</p>
+                    <div class="post-date">February 11, 2018</div>
+                </div>
+            </div>
+            <!-- end dòng 3 Talk cùng sao -->
+
+            <!-- dòng 4 Sao Holloywood và các nước khác -->
+            <div class="row mb-3 container-post-outner">
+                <div class="post-outner ">
+                    <a href="./article/VNVD/singlePost.html"><img src="./img/c.jpg" style="width:100%;height:250px"
+                            alt=""></a>
+                    <a href="./category/TinTrongNuoc/TinTrongNuoc.html"
+                        class=" post-outner-title badge badge-success ">Sao Hollywood và các nước khác</a>
+                </div>
+                <div class="my-carousel-caption">
+                    <h5 class="my-carousel-caption-title">Con gái Angelina Jolie lớn phổng phao
+                    </h5>
+                    <p class="my-carousel-caption-sumary">Shiloh (13 tuổi) là con gái ruột đầu tiên của Angelina
+                        Jolie và Brad Pitt. Ngay từ nhỏ, cô bé đã bày tỏ ước muốn trở thành một người con trai.</p>
+                    <div class="post-date">February 11, 2018</div>
+                </div>
+            </div>
+            <!-- end dòng 4 Sao Holloywood và các nước khác -->
+
+
+        </div>
+
+        <!-- End cột 2 -->
+        <!-- Kết thúc cột 2 -->
+
+
+    </div>
+</div>
+<!-- End dòng 2: Slide xem nhiều nhất, Các mục còn lại -->
+
+<!-- End of content -->
