@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body style="background-color: #f0f1f4;">
+    <!-- header -->
+    <div class="row header-logo " style="background-color: #f0f1f4;">
+        <div class="col-xl-9 col-lg-12">
+            <div class="row">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-6">
+                    <a href="../../index.html"><img class="logo" src="../../img/logo.png" alt=""></a>
+                </div>
+                <!--chạy tin mới nhất-->
+                <div class="col-xl-10 col-lg-12">
+                    <div class="mt-4">
+                        <marquee id="marq" scrollamount="5" direction="left" loop="50" scrolldelay="0" behavior="scroll"
+                            onmouseover="this.stop()" onmouseout="this.start()">
+                            <a style="color: black;" href="#" target="_blank">Nhiệt độ TP HCM cao đỉnh điểm</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a style="color: black;" href="#" target="_blank">Thông báo nghỉ lễ 30/4 - 1/5</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a style="color: black;" href="#" target="_blank">Avenger-Endgame đạt doanh thu kỷ lục</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a style="color: black;" href="#" target="_blank">Vũng tàu thất thủ dịp lễ 30/4 - 1/5</a>
+                            &nbsp;&nbsp;&nbsp;
+                        </marquee>
+                    </div>
+                </div>
+                <!--chạy tin mới nhất-->
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-12" class="login-register-icons">
+            <div class="row mt-4" style="display:flex; justify-content:flex-end;">
+                <div class="mr-3">
+                    <button type="button" class="btn btn-success text-uppercase">
+                        Đăng nhập
+                        <span>
+                            <img src="../../img/dangnhap.png" alt="">
+                        </span>
+                    </button>
+                </div>
+                <div class="mr-1">
+                    <button type="button" class="btn btn-success text-uppercase">
+                        Đăng ký
+                        <span>
+                            <img src="../../img/dangky.png" alt="">
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End header -->
+
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-xl navbar-light bg-light sticky-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Thể thao <span> <img src="../../img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Tin trong nước</a>
+                        <a class="dropdown-item" href="#">Tin quốc tế</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Tài chinh-ngân hàng <span> <img src="../../img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Doanh nhân</a>
+                        <a class="dropdown-item" href="#">Tài chính</a>
+                        <a class="dropdown-item" href="#">Bất động sản</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Thị trường <span> <img src="../../img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Trung tâm mua sắm</a>
+                        <a class="dropdown-item" href="#">Thị trường 24h</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Sức khỏe <span> <img src="../../img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Bệnh đàn ông</a>
+                        <a class="dropdown-item" href="#">Bệnh phụ nữ</a>
+                        <a class="dropdown-item" href="#">Sức khỏe dinh dưỡng</a>
+                        <a class="dropdown-item" href="#">Bài thuốc dân gian</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Showbiz <span> <img src="../../img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Sao việt</a>
+                        <a class="dropdown-item" href="#">Talk cùng sao</a>
+                        <a class="dropdown-item" href="#">Sao Hollywood và các nước khác</a>
+                    </div>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container">
+       
+        <div class="row">
+
+                <!-- cột 1, bài viết -->
+                <div class="my-mark">
+                    <p class="ml-3">Showbiz | Sao Hollywood</p>
+                </div>
+            <div class="col-lg-8 col-sm-12 bg-white">
+                <h1 class="title-article">8 dị nhân quyền năng nhất vũ trụ X-men: Bất ngờ nhất là người số 4  </h1>
+                <div class="post-date">02/06/2019 00:05 AM (GMT+7)</div>
+                <h6 class="sumary-article"><b>"X-Men: Dark Phoenix" đánh dấu chặng đường dài 20 năm của thương hiệu
+                     Vũ trụ X-Men, trong đó gây ấn tượng nhất 8 nhân vật dị nhân dưới đây.</b> 
+                </h6>
+    
+                <p>Là một thương hiệu siêu anh hùng kéo dài suốt 20 năm, X-Men ghi dấu ấn trong lòng khán giả 
+                    nhờ những màn chiến đấu vô cùng hoành tráng của dàn dị Nhân có sức mạnh bá đạo.</p>
+                <p>Với X-Men: Dark Phoenix (tựa Việt: X-Men: Phượng Hoàng Bóng Tối), khán giả sẽ được dịp nhìn 
+                    lại cả một chặng đường đã qua của thương hiệu với 8 cái tên quyền năng bậc nhất vũ trụ X-Men.</p>
+                <p style="font-weight: bold">1. Wolverine</p>
+                <img src="./1.jpg" alt="">
+                <p>Xuất hiện tới 8 trong tổng số 12 phim, Wolverine của Hugh Jackman sở hữu lượng fan đông đảo và được
+                     xem là linh hồn của cả X-Men. Nhờ khả năng hồi phục phi thường mà Logan gần như bất tử trước những 
+                     vũ khí thông thường của con người. Thậm chí, anh chàng còn chịu được cái nóng kinh hoàng của bom 
+                     nguyên tử trong The Wolverine (2013) mà vẫn sống sót.</p>
+                <p>Cũng nhờ sức mạnh này mà anh chàng có tuổi thọ lên đến hàng trăm năm cũng như thực hiện được những
+                     nhiệm vụ “bất khả thi” như trở về quá khứ trong X-Men: Days of Future Past (2014).</p>
+                <p>Ngoài ra, sức tấn công của Logan cũng không hề yếu nhờ bộ vuốt bằng Adamantium sắc bén nhất 
+                    thế giới. Wolverine được xem là vũ khí hoàn hảo mà nhiều nhà khoa học đều muốn chế tạo 
+                    các chiến binh dựa nhân vật này.</p>
+
+                <p style="font-weight: bold">2. Sebastian Shaw</p>
+                <img src="./2.jpg" alt="">
+                <p>Xuất hiện trong X-Men: First Class (2011), Sebastian Shaw (Kevin Bacon) nhanh chóng 
+                    trở thành một trong những ác nhân bá đạo nhất mà nhóm X-Men từng đối mặt.</p>
+                <p>Gã sở hữu trí tuệ hiếm có khi có thể thao túng cả hai phe Nga và Mỹ nhằm tạo ra Thế 
+                    chiến III, cũng như chế tạo ra chiếc mũ bảo hộ đặc trưng khiến nhà ngoại cảm mạnh nhất 
+                    X-Men là Giáo sư X (James McAvoy) cũng phải bó tay.</p>
+                <p>Tuy nhiên, khả năng ghê gớm nhất kẻ phản diện này chính là hấp thụ mọi năng lượng rồi biến 
+                    thành sức mạnh bản thân. Siêu năng lực này không chỉ giúp Sebastian Shaw trẻ mãi không già 
+                    mà còn “bất tử” trước mọi loại vũ khí và của sức mạnh của các dị nhân khác. Cả Giáo sư X lẫn 
+                    Magnato (Michael Fassbender) phải kết hợp thì mới đủ sức hạ gục gã.</p>
+                
+                <p style="font-weight: bold">3. Storm</p>
+                <img src="./3.jpg" alt="">
+                <p>Storm không chỉ là một trong các thành viên đáng tin cậy mà còn sở hữu sức mạnh bậc nhất nhóm X-Men.
+                     Không chỉ là khả năng phóng điện thông thường, cô nàng còn có thể tạo ra cả một cơn bão hay lốc 
+                     xoáy khổng lồ như đúng cái tên của mình.</p>
+                <p>Nếu bộc phát toàn bộ sức mạnh, Storm dư sức điều khiển mọi kiểu thời tiết trên diện rộng, điều chỉnh 
+                    nhiệt độ môi trường, kiểm soát áp suất khí quyển,…</p>
+                <p>Sau loạt phim gốc do Halle Berry thủ vai, phiên bản Storm trẻ của nữ diễn viên Alexandra Shipp thủ vai
+                     cũng nhận được được nhiều tình cảm của khán giả. Sau màn “lật kèo” cùng nhóm X-Men tiêu diệt Apocalypse 
+                     (Oscar Isaac), cô nàng sẽ tiếp tục sát cánh cùng đồng đội chống lại kẻ thù mạnh nhất từ trước tới nay là 
+                     Phoenix Force (Thế lực Phượng hoàng).</p>
+
+                <p style="font-weight: bold">4. Quicksilver</p>
+                <img src="./4.jpg" alt="">
+                <p>Dù chỉ mới xuất hiện trong X-Men: Days of Future Past nhưng Quicksilver của Evan Peters nhanh chóng sở 
+                    hữu lượng fan khổng lồ nhờ tính cách tưng tửng vô cùng đáng yêu.</p>
+                <p>Siêu năng lực của anh chàng cũng chỉ đơn giản ở việc siêu nhanh mà thôi. Ấy vậy mà sức mạnh này đã 
+                    cứu cả nhóm X-Men trong rất nhiều tình huống hiểm nghèo. Việc anh có mặt trong danh sách 8 dị nhân
+                     quyền năng nhất quả là điều bất ngờ nhưng hoàn toàn hợp lý.</p>
+                <p>Mỗi lần trổ tài với những đại cảnh quay chậm hoành tráng cùng nền nhạc ấn tượng đã trở thành món “đặc sản” 
+                    của riêng Quicksilver. Nhưng liệu anh chàng sẽ đối phó ra sao với một kẻ thù quá đỗi mạnh mẽ như Phoenix 
+                    Force trong X-Men: Dark Phoenix đây?</p>
+
+                <p style="font-weight: bold">5. Magneto</p>
+                <img src="./5.jpg" alt="">
+                <p>Cùng với Giáo sư X, Magneto là nhân vật quan trọng bậc nhất loạt phim X-Men với 2 phiên bản do Ian McKellen 
+                    và Michael Fassbender thủ vai.</p>
+                <p>Khả năng thao túng từ trường khiến anh gần như “vô đối” khi mọi thứ trên đời đều ít nhiều có cấu tạo từ 
+                    kim loại. Magneto có thể nâng cả một sân vận động hay cầu Cổng Vàng khổng lồ lên không trung, sử dụng xe
+                     hơi làm khiên chắn, làm đổi hướng đạn bay, hút chất sắt ra khỏi cơ thể người,…</p>
+                <p>Thậm chí, anh còn có thể điều khiển cả những người máy Sentinels được thiết kế để tiêu diệt các dị nhân 
+                    hay vô hiệu hóa khung xương Adamantium của Wolverine. Không những thế, Magneto còn có lối tư duy chiến 
+                    thuật ít ai bì kịp nhờ quãng thời gian dài săn đuổi kẻ thù phát xít.</p>
+                <p>Sắp tới đây, anh sẽ lại đóng vai trò then chốt trong trận chiến với Phoenix Force khi chọn cách tiêu diệt 
+                    thay vì bảo vệ Jean Grey như người bạn thân Charles Xavier.</p>
+
+                <p style="font-weight: bold">6. Giáo sư X</p>
+                <img src="./6.jpg" alt="">
+                <p>Dù mất khả năng đi lại thì Charles Xavier vẫn đủ sức trở thành đầu tàu của nhóm X-Men xuyên suốt hàng 
+                    chục năm trời nhớ trí tuệ thiên tài và lòng cảm thông sâu sắc.</p>
+                <p>Được mệnh danh là nhà ngoại cảm quyền năng nhất hành tinh, Giáo sư X có thể thao túng tâm trí, đọc suy nghĩ,
+                     mở khóa cả những kí ức bị mất của đối phương. Nếu muốn, anh có thể đóng băng cả một sân bay hay khiến một 
+                     người trở nên tàng hình trong mắt kẻ khác.</p>
+                <p>Thông qua Cerebro, Charles có thể kết nối trí não với toàn bộ nhân loại và thậm chí là tiêu diệt toàn bộ con 
+                    người hoặc dị nhân nếu muốn. Khi bị Apocalypse thao túng, anh đã điều khiển và phóng toàn bộ vũ khí hạt nhân ra ngoài vũ trụ.</p>
+                <p>Giáo sư X sẽ tiếp tục là nhân vật quan trọng bậc nhất trong cuộc chiến với Phoenix Force nhờ khả năng trò chuyện bằng tâm trí 
+                    với Jean Grey (Sophie Turner).</p>
+
+                <p style="font-weight: bold">7. Apocalypse</p>
+                <img src="./7.jpg" alt="">
+                <p>Trước khi Phoenix Force xuất hiện thì Apocalypse chính là dị nhân bá đạo nhất vụ trụ X-Men. Được xem là kẻ đột biến đầu tiên,
+                     En Sabah Nur có thể chuyển từ cơ thể này sang cơ thể khác để cướp sức mạnh cũng như trở nên bất tử.</p>
+                <p>Tỉnh dậy sau hàng nghìn năm, gã có thể học toàn bộ tri thức nhân loại chỉ nhờ việc chạm vào TV trong vài phút. Apocalypse còn 
+                    có thể điều khiển mọi vật tới dạng tế bào và tăng cường sức mạnh các dị nhân Storm, Psylocke (Olivia Munn), Magneto và Angel (Ben Hardy).</p>
+                <p>Tuy nhiên, khả năng đáng sợ nhất của tên phản diện này chính là sự thích nghi trong chiến đấu. Đối đầu với những X-Men mạnh 
+                    mẽ như Quicksilver, Apocalypse có thể dễ dàng bắt kịp tốc độ của anh chàng trong chớp mắt hay dùng chính sức mạnh 
+                    tâm trí của Giáo sư X để xóa bỏ toàn bộ vũ khí hạt nhân của con người.</p>
+                <p>Để tiêu diệt gã, cả nhóm X-Men phải kết hợp và nhờ tới sức mạnh tối thượng của Jean Grey.</p>
+
+                <p style="font-weight: bold">8. Jean Grey</p>
+                <img src="./8.jpg" alt="">
+                <p>Từng xuất hiện trong X-Men: The Last Stand (2006) nhưng chưa được phát huy hết sức mạnh, Jean Grey của X-Men: Dark Phoenix 
+                    hứa hẹn sẽ là kẻ thù mạnh mẽ nhất mà nhóm X-Men từng đối đầu.</p>
+                <p>Trong nguyên tác truyện tranh, Phoenix Force là một thực thể đại diện cho ánh sáng và sự sống của toàn vũ trụ và chọn Jean Grey làm vật chủ 
+                    vì những tương thông về mặt tâm trí. Nhưng khi bị cảm xúc che mờ lí trí, nó sẽ biến thành Dark Phoenix – hiện thân của bóng tối 
+                    và sự hủy diệt.</p>
+                <p>Chúng ta đã thấy Jean Grey dễ dàng thổi bay Apocalypse khi bộc phát sức mạnh tối đa nhưng tất cả vẫn chẳng là gì so với quyền năng 
+                    xóa sổ cả một hành tinh trong chớp mắt của Dark Phoenix. Có lẽ, cả nhóm X-Men vẫn là chưa đủ khi họ không chỉ phải đối phó với 
+                    sức mạnh tà ác bậc nhất mà còn là một người đồng đội từng sát cánh chiến đấu vào sinh ra tử.</p>
+                <p>Liệu các dị nhân sẽ lựa chọn ra sao hay dùng cách gì để chiến thắng trận chiến sắp tới đây? X-Men: Dark Phoenix hứa hẹn sẽ 
+                    là bộ phim hoành tráng và cảm xúc bậc nhất, xứng đáng với chặng đường 20 năm của thương hiệu.</p>
+                <p>X-Men: Dark Phoenix (X-Men: Phượng Hoàng Bóng Tối) dự kiến khởi chiếu trên toàn quốc từ ngày 07.06.2019.</p>
+            </div>
+            <!-- end cột 1 -->
+
+            <!-- cột 2, các bài viết cùng chuyên mục, các bài viết mới-->
+            <div class="col-lg-4 col-sm-12 bg-light">
+
+                <!-- Các bài viết cùng chuyên mục -->
+                <div class=" row mb-4 ">
+                    <div class="Customtitle mb-1 w-100">
+                        <div class="my-mark">
+                            <p class="ml-3 mt-2">Cùng chuyên mục</p>
+                        </div>
+                    </div>
+                    <div style="" id="vs_inner_0">
+                        <article class="article-mini" data-list="2" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/tevez.jpg" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                            sao?</a></h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 5, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-mini" data-list="3" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/tevez.jpg" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                    </h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 9, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-mini" data-list="2" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/cr7.jpg" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                            sao?</a></h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 5, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-mini" data-list="3" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/mu-barca.jpg" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                    </h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 9, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-mini" data-list="2" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/cr7.jpg" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                            sao?</a></h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 5, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-mini" data-list="3" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/vidic.png" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                    </h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 9, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- kết thúc tin 1 -->
+                </div>
+                <!-- end các bài viết cùng chuyên mục -->
+
+                <!-- Các bài viết mới -->
+                <div class=" row mb-4 ">
+                        <div class="Customtitle mb-1 w-100">
+                            <div class="my-mark">
+                                <p class="ml-3 mt-2">Tin mới nhất</p>
+                            </div>
+                        </div>
+                        <div style="" id="vs_inner_0">
+                            <article class="article-mini" data-list="2" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/tevez.jpg" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                                sao?</a></h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 5, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="article-mini" data-list="3" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/tevez.jpg" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                        </h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 9, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="article-mini" data-list="2" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/cr7.jpg" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                                sao?</a></h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 5, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="article-mini" data-list="3" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/mu-barca.jpg" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                        </h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 9, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="article-mini" data-list="2" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/cr7.jpg" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                                sao?</a></h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 5, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="article-mini" data-list="3" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/vidic.png" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                        </h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 9, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        
+                    </div>
+
+                <!-- end các bài viết mới -->
+            </div>
+            <!-- end cột 2 -->
+        </div>
+        <div class="row comment-box mt-4 mb-4">
+            <div class="col-lg-8 col-sm-12 bg-white">
+            <h3>Đăng bình luận</h3>
+            <form action="" method="post">
+                <textarea rows="8" cols="90%" placeholder="Bình luận"></textarea>
+                <button class="btn btn-primary mb-2">Đăng bình luận</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 myCols">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sign up</a></li>
+                        <li><a href="#">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="#">Company Information</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Forums</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2016 Copyright Text </p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body style="background-color: #f0f1f4;">
+    <!-- header -->
+    <div class="row header-logo " style="background-color: #f0f1f4;">
+        <div class="col-xl-9 col-lg-12">
+            <div class="row">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-6">
+                    <a href="../../index.html"><img class="logo" src="../../img/logo.png" alt=""></a>
+                </div>
+                <!--chạy tin mới nhất-->
+                <div class="col-xl-10 col-lg-12">
+                    <div class="mt-4">
+                        <marquee id="marq" scrollamount="5" direction="left" loop="50" scrolldelay="0" behavior="scroll"
+                            onmouseover="this.stop()" onmouseout="this.start()">
+                            <a style="color: black;" href="#" target="_blank">Nhiệt độ TP HCM cao đỉnh điểm</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a style="color: black;" href="#" target="_blank">Thông báo nghỉ lễ 30/4 - 1/5</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a style="color: black;" href="#" target="_blank">Avenger-Endgame đạt doanh thu kỷ lục</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a style="color: black;" href="#" target="_blank">Vũng tàu thất thủ dịp lễ 30/4 - 1/5</a>
+                            &nbsp;&nbsp;&nbsp;
+                        </marquee>
+                    </div>
+                </div>
+                <!--chạy tin mới nhất-->
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-12" class="login-register-icons">
+            <div class="row mt-4" style="display:flex; justify-content:flex-end;">
+                <div class="mr-3">
+                    <button type="button" class="btn btn-success text-uppercase">
+                        Đăng nhập
+                        <span>
+                            <img src="../../img/dangnhap.png" alt="">
+                        </span>
+                    </button>
+                </div>
+                <div class="mr-1">
+                    <button type="button" class="btn btn-success text-uppercase">
+                        Đăng ký
+                        <span>
+                            <img src="../../img/dangky.png" alt="">
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End header -->
+
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-xl navbar-light bg-light sticky-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Thể thao <span> <img src="../../img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Tin trong nước</a>
+                        <a class="dropdown-item" href="#">Tin quốc tế</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Tài chinh-ngân hàng <span> <img src="../../img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Doanh nhân</a>
+                        <a class="dropdown-item" href="#">Tài chính</a>
+                        <a class="dropdown-item" href="#">Bất động sản</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Thị trường <span> <img src="../../img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Trung tâm mua sắm</a>
+                        <a class="dropdown-item" href="#">Thị trường 24h</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Sức khỏe <span> <img src="../../img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Bệnh đàn ông</a>
+                        <a class="dropdown-item" href="#">Bệnh phụ nữ</a>
+                        <a class="dropdown-item" href="#">Sức khỏe dinh dưỡng</a>
+                        <a class="dropdown-item" href="#">Bài thuốc dân gian</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-1">
+                    <button type="button" class="btn btn-light text-uppercase font-weight-bold">
+                        Showbiz <span> <img src="../../img/icondown.png" alt=""> </span>
+                    </button>
+                    <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Sao việt</a>
+                        <a class="dropdown-item" href="#">Talk cùng sao</a>
+                        <a class="dropdown-item" href="#">Sao Hollywood và các nước khác</a>
+                    </div>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container">
+       
+        <div class="row">
+
+                <!-- cột 1, bài viết -->
+                <div class="my-mark">
+                    <p class="ml-3">Sức khỏe | Sức khỏe đàn ông</p>
+                </div>
+            <div class="col-lg-8 col-sm-12 bg-white">
+                <h1 class="title-article">6 hiểu lầm tai hại về “cậu nhỏ” nhưng 90% dân số tin là thật  </h1>
+                <div class="post-date">28/05/2019 19:00 PM (GMT+7)</div>
+                <h6 class="sumary-article"><b>Dưới đây là những hiểu lầm phổ biến và sự thật về cậu nhỏ có thể khiến bạn ngạc nhiên.</b> 
+                </h6>
+    
+                <p style="font-weight: bold">Bàn chân to, kích thước cậu nhỏ cũng to</p>
+                <p>Dù bạn tin hay không nhưng kích thước cậu nhỏ không liên quan nhiều với cỡ giày hoặc kích thước của bất kỳ phần 
+                    nào khác của cơ thể. Năm 1993, hai bác sĩ Canada đã đo chiều cao, kích thước bàn chân, và chiều dài dương vật khi 
+                    kéo nhẹ của 63 người đàn ông, và mặc dù chiều dài của cậu nhỏ có liên quan đến cả chiều cao và kích thước của bàn 
+                    chân nhưng mối tương quan này là khá yếu. Một lần nữa, vào năm 2002, một nghiên cứu từ London đã đo cậu nhỏ và bàn 
+                    chân của 104 người đàn ông và thấy không có mối tương quan nào. Về cơ bản, nghiên cứu đã xác định rằng cách duy nhất 
+                    để thực sự đánh giá kích thước cậu nhỏ là “nhìn tận mắt”.</p>
+
+                <p style="font-weight: bold">Lớn hơn luôn tốt hơn</p>
+                
+                <p>Các cậu nhỏ thường không khác nhau nhiều về kích thước. Theo Medical News Today, kích thước cậu nhỏ khi xìu là từ khoảng 7-10cm.
+                     Kích thước cậu nhỏ khi cương là 12-16cm. Theo Medical News Today, trung bình 85% phụ nữ cho biết hài lòng với kích thước cậu nhỏ
+                      của bạn tình. Tuy nhiên, nhiều người cho rằng “cậu nhỏ lớn hơn vẫn tốt hơn”. Và mặc dù sự thật là một số phụ nữ thích quan hệ với
+                       nam giới có “cậu nhỏ hùng dũng” nhưng cậu nhỏ “quá khổ” cũng có nhiều hạn chế.</p>
+                <p>Ví dụ, có một mối liên kết thú vị giữa kích thước dương vật và ngoại tình; một nghiên cứu năm 2014 chỉ ra rằng phụ nữ trong một ngôi
+                     làng ở Kenya có nhiều khả năng lừa dối người đàn ông có dương vật lớn hơn. Các nhà nghiên cứu phát hiện ra rằng "cậu nhỏ cứ tăng một
+                      inch (tương đương với 2,54cm) chiều dài thì nguy cơ ngoại tình của “đối tác” tăng 1,5 lần.</p>
+                <p>Theo nghiên cứu này, lý do mà phụ nữ có nhiều khả năng không chung thủy với người đàn ông có cậu 
+                    nhỏ “quá khổ” là vì họ bị đau đớn khi quan hệ.</p>
+
+                <img src="./SKdanong.jpg" alt="">
+            
+                <p style="font-weight: bold">Cậu nhỏ vẫn cương lên sau khi “yêu” là muốn “chiến đấu” tiếp</p>
+                <p>Trên thực tế, để cậu nhỏ “chiến đấu” liên tục trong một đêm không phải là điều dễ dàng. Nam giới cần một khoảng thời gian
+                     để có thể tiếp tục “hiệp 2” và chỉ vì cậu nhỏ vẫn cương sau khi vừa kết thúc “hiệp 1” không có nghĩa là cậu nhỏ đã sẵn 
+                     sàng chiến đấu tiếp.</p>
+                <p>Theo Women’s Health, thời gian cậu nhỏ duy trì cương cứng phụ thuộc vào chất lượng lưu thông máu của cậu nhỏ, mức độ hưng
+                     phấn hay việc có hay không dùng thuốc trợ giúp. Nhưng cho dù là 5 phút hay hàng nửa giờ thì tất cả đàn ông đều cần một
+                      khoảng thời gian phục hồi giữa các “hiệp”, bất kể cậu nhỏ còn cương cứng hay không.</p>
+
+                <p style="font-weight: bold">Xuất tinh một lượng lớn tinh dịch</p>  
+                <p>Một hiểu lầm phổ biến nữa là đàn ông thường xuất tinh nhiều tinh dịch khi đạt cực khoái. Trên thực tế thì 
+                    nam giới xuất tinh khoảng một thìa cà phê tinh dịch mỗi khi cực khoái. Và một thìa cà phê này bình thường 
+                    chứa khoảng 200 triệu tinh trùng trên mỗi ml tinh dịch. Tuy nhiên, nếu xuất tinh lượng dịch ít hơn có thể
+                     là dấu hiệu của một vấn đề sức khỏe tiềm ẩn.</p>
+                <p style="font-weight: bold">Kích thước cậu nhỏ thay đổi theo chủng tộc</p>
+                <p>Trong năm 2015, các nhà nghiên cứu Anh đã đo cậu nhỏ của hơn 15.000 người từ khắp nơi trên thế giới và xác
+                     định rằng hoàn toàn không có sự tương quan giữa chủng tộc và kích thước cậu nhỏ. Theo các nghiên cứu, chiều
+                      dài trung bình khi cương cứng của cậu nhỏ ở mỗi quốc gia là chỉ hơn 13 cm. Và mặc dù nghiên cứu này có một 
+                      số khó khăn (ví dụ, đa số nam giới trong nghiên cứu này là da trắng), các nghiên cứu khác cũng đã xác định 
+                      rằng mối liên quan giữa kích thước dương vật và chủng tộc dựa trên cảm tính hơn là khoa học thực tế.</p>
+                <p style="font-weight: bold">Thuốc hoặc kem bôi có thể khiến cậu nhỏ lớn hơn</p> 
+                <p>Nam giới cố gắng tăng kích thước của dương vật của họ trong nhiều thế kỷ nhưng vẫn không tìm ra viên thuốc
+                     hay loại kem thần kì nào có thể làm tăng kích thước cậu nhỏ. Chế phẩm bổ sung và các thuốc như Viagra có thể 
+                     tăng oxit nitric, cải thiện lưu lượng máu. Tuy nhiên, điều này giống như là "bơm lốp xe" và không ảnh hưởng
+                      đến kích thước chung của dương vật.</p>  
+                <p>Mặc dù có vô số thuốc tăng kích cỡ được rao bán trên Internet và tại các cửa hàng thuốc, chưa có bằng chứng khoa 
+                    học ủng hộ hiệu quả của chúng, và trên thực tế, chúng thực sự có thể gây hại nhiều hơn lợi. Một khảo sát trên 
+                    Internet được tiến hành bởi FDA trong năm 2009 cho thấy 1/3 các chất bổ sung được khẳng định là có tác dụng cải 
+                    thiện hoạt động tình dục có chứa các thành phần thuốc tân dược hoặc các chất tương tự nhưng không được ghi trên nhãn.</p>   
+            </div>
+            <!-- end cột 1 -->
+
+            <!-- cột 2, các bài viết cùng chuyên mục, các bài viết mới-->
+            <div class="col-lg-4 col-sm-12 bg-light">
+
+                <!-- Các bài viết cùng chuyên mục -->
+                <div class=" row mb-4 ">
+                    <div class="Customtitle mb-1 w-100">
+                        <div class="my-mark">
+                            <p class="ml-3 mt-2">Cùng chuyên mục</p>
+                        </div>
+                    </div>
+                    <div style="" id="vs_inner_0">
+                        <article class="article-mini" data-list="2" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/tevez.jpg" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                            sao?</a></h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 5, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-mini" data-list="3" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/tevez.jpg" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                    </h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 9, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-mini" data-list="2" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/cr7.jpg" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                            sao?</a></h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 5, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-mini" data-list="3" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/mu-barca.jpg" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                    </h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 9, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-mini" data-list="2" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/cr7.jpg" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                            sao?</a></h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 5, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-mini" data-list="3" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="../../img/vidic.png" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                    </h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                        <div class="time">April 9, 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- kết thúc tin 1 -->
+                </div>
+                <!-- end các bài viết cùng chuyên mục -->
+
+                <!-- Các bài viết mới -->
+                <div class=" row mb-4 ">
+                        <div class="Customtitle mb-1 w-100">
+                            <div class="my-mark">
+                                <p class="ml-3 mt-2">Tin mới nhất</p>
+                            </div>
+                        </div>
+                        <div style="" id="vs_inner_0">
+                            <article class="article-mini" data-list="2" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/tevez.jpg" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                                sao?</a></h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 5, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="article-mini" data-list="3" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/tevez.jpg" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                        </h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 9, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="article-mini" data-list="2" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/cr7.jpg" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                                sao?</a></h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 5, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="article-mini" data-list="3" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/mu-barca.jpg" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                        </h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 9, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="article-mini" data-list="2" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/cr7.jpg" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
+                                                sao?</a></h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 5, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="article-mini" data-list="3" style="display: block;">
+                                <div class="inner">
+                                    <figure>
+                                        <a href="#">
+                                            <img src="../../img/vidic.png" alt="Sample Article">
+                                        </a>
+                                    </figure>
+                                    <div class="padding">
+                                        <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
+                                        </h1>
+                                        <div class="detail">
+                                            <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
+                                            <div class="time">April 9, 2019</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        
+                    </div>
+
+                <!-- end các bài viết mới -->
+            </div>
+            <!-- end cột 2 -->
+        </div>
+        <div class="row comment-box mt-4 mb-4">
+            <div class="col-lg-8 col-sm-12 bg-white">
+            <h3>Đăng bình luận</h3>
+            <form action="" method="post">
+                <textarea rows="8" cols="90%" placeholder="Bình luận"></textarea>
+                <button class="btn btn-primary mb-2">Đăng bình luận</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 myCols">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sign up</a></li>
+                        <li><a href="#">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="#">Company Information</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Forums</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 myCols">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2016 Copyright Text </p>
+        </div>
+    </footer>
+</body>
+
+</html>
