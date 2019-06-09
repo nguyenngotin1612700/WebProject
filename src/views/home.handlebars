@@ -14,7 +14,7 @@
                     <div class="carousel-inner">
                         {{#each this.highlight}}
                         <div class="carousel-item {{#if isActive}}active{{/if}}">
-                            <a href="./highlights/{{id}}" class="carousel-itemlink">
+                            <a href="/cat/{{category}}/{{id}}" class="carousel-itemlink">
                                 <img src="{{featureImg}}" class="d-block w-100 carousel-img-Hot" alt="...">
                             </a>
                             <div class="my-carousel-caption">
@@ -25,47 +25,6 @@
                             </div>
                         </div>
                         {{/each}}
-
-                        {{!-- <div class="carousel-item active">
-                            <a href="./article/VNVD/singlePost.html" class="carousel-itemlink">
-                                <img src="./img/tinnoibat1.png" class="d-block w-100 carousel-img-Hot" alt="...">
-                            </a>
-                            <div class="my-carousel-caption">
-                                <h5 class="my-carousel-caption-title">Làm sao để du lịch Việt Nam đón thêm khách nhà
-                                    giàu?</h5>
-                                <p class="my-carousel-caption-sumary">Miễn visa, nâng cao chất lượng dịch vụ là một
-                                    số hiến kế được đưa ra để du lịch Việt Nam có thể thu hút khách nhà giàu.
-                                </p>
-                                <div class="post-date">February 11, 2018</div>
-                            </div>
-                        </div> --}}
-                        {{!-- <div class="carousel-item">
-                            <a href="./article/VNVD/singlePost.html" class="carousel-itemlink">
-                                <img src="./img/tinnoibat2.png" class="d-block w-100 carousel-img-Hot" alt="...">
-                            </a>
-                            <div class="my-carousel-caption">
-                                <h5 class="my-carousel-caption-title">Bí quyết kiếm nhiều tiền của triệu phú 26 tuổi
-                                </h5>
-                                <p class="my-carousel-caption-sumary">Josh Altman luôn tìm cách gây ấn tượng tốt với
-                                    người đối diện ngay từ giây đầu tiên gặp mặt.
-                                </p>
-                                <div class="post-date">February 11, 2018</div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="./article/VNVD/singlePost.html" class="carousel-itemlink">
-                                <img src="./img/tinnoibat3.jpg" class="d-block w-100 carousel-img-Hot" alt="...">
-                            </a>
-                            <div class="my-carousel-caption">
-                                <h5 class="my-carousel-caption-title">Kim Jong-un chăm chú theo dõi tên lửa khai hỏa
-                                    trong 'diễn tập tấn công'</h5>
-                                <p class="my-carousel-caption-sumary">Chủ tịch Triều Tiên ngày 4/5 tới thị sát trực
-                                    tiếp vụ phóng thử tên lửa tầm ngắn và pháo phản lực tại thao trường gần thành
-                                    phố Wonsan.
-                                </p>
-                                <div class="post-date">February 11, 2018</div>
-                            </div>
-                        </div> --}}
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -83,21 +42,45 @@
         <!-- Cột 2  Tin trong nước, tin quốc tế-->
         <div class="col-md-5 col-sm-12">
             <!-- dòng 1 Tin trong nước -->
+            {{#each rows}}
+            {{#ifCond category 'trongnuoc'}}
             <div class="row mb-3">
                 <div class="post">
-                    <img class="annimationImg" src="./img/mienbac.jpg" alt="">
-                    <a href="./category/TinTrongNuoc/TinTrongNuoc.html" class=" post-title badge badge-success ">Tin
-                        trong nước</a>
-                    <span class="post-Desc">
-                        Đầu tuần miền Bắc và Trung nắng nóng
-                    </span>
-                    <span class="post-Time">February 11, 2018</span>
+                    <a href="/cat/{{category}}/{{id}}">
+                        <img class="annimationImg" src="{{featureImg}}" alt="">
+                        <span class=" post-title badge badge-success ">Tin
+                            trong nước</span>
+                        <span class="post-Desc">
+                            {{title}}
+                        </span>
+                        <span class="post-Time">February 11, 2018</span>
+                    </a>
                 </div>
             </div>
+            {{/ifCond}}
+            {{/each}}
+
             <!-- end dòng 1 tin trong nước -->
 
             <!-- dòng 2 Tin quốc tế -->
+            {{#each rows}}
+            {{#ifCond category 'thegioi'}}
             <div class="row mb-1">
+                <div class="post">
+                    <a href="/cat/{{category}}/{{id}}">
+                        <img class="annimationImg" src="{{featureImg}}" alt="">
+                        <span class=" post-title badge badge-success ">Tin
+                            quốc tế</span>
+                        <span class="post-Desc">
+                            {{title}}
+                        </span>
+                        <span class="post-Time">February 11, 2018</span>
+                    </a>
+                </div>
+            </div>
+            {{/ifCond}}
+            {{/each}}
+            {{!-- <div class="row mb-1">
                 <div class="post">
                     <img class="annimationImg" src="./img/venezelua.jpg" alt="">
                     <a href="./category/TinTrongNuoc/TinTrongNuoc.html" class="post-title badge badge-success ">Tin
@@ -107,7 +90,7 @@
                     </span>
                     <span class="post-Time">February 11, 2018</span>
                 </div>
-            </div>
+            </div> --}}
             <!-- end dòng 2 tin quốc tế -->
         </div>
         <!-- End cột 2 -->
@@ -127,38 +110,22 @@
                 <div class="CategoryTitle">
                     <a href="./category/TinTrongNuoc/TinTrongNuoc.html" class="badge badge-success">Doanh nhân</a>
                 </div>
+                {{#each rows}}
+                {{#ifCond category 'doanhnhan'}}
                 <div class="col-md-6 col-12">
                     <div class="card">
-                        <div style="height:250px!important; overflow: hidden;"><a
-                                href="./article/VNVD/singlePost.html"><img src="./img/mark.jpg"
-                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div style="height:250px!important; overflow: hidden;"><a href="/cat/{{category}}/{{id}}"><img
+                                    src="{{featureImg}}" class="card-img-top card-img-categoryItem" alt="..."></a></div>
                         <div class="card-body">
-                            <h5 class="card-title my-card-title-s">Khối bất động sản 'khủng' của Mark Zuckerberg
+                            <h5 class="card-title my-card-title-s">{{title}}
                             </h5>
-                            <p class="card-text card-article-sumary">Ngoài căn nhà ở Palo Alto, Mark Zuckerberg sở
-                                hữu gần chục biệt thự, mảnh đất và đồn điền rộng hàng trăm ha.</p>
-                            <div class="post-date">February 11, 2018</div>
+                            <p class="card-text card-article-sumary">{{description}}</p>
+                            <div class="post-date">{{updated_at}}</div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-6 col-12 ">
-                    <div class="card">
-                        <div style="height:250px!important; overflow: hidden;"><a
-                                href="./article/VNVD/singlePost.html"><img src="./img/warrent.png"
-                                    class="card-img-top card-img-categoryItem" alt="..."></a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title my-card-title-s">Bàn tay vàng của Warren Buffett liệu đã hết phép?
-                            </h5>
-                            <p class="card-text card-article-sumary">Nhiều tài sản ưa thích của Buffett, như Wells
-                                Fargo và Coca-Cola, không có diễn biến tốt, còn Kraft Heinz mất giá 20% năm nay.
-                            </p>
-                            <div class="post-date">February 11, 2018</div>
-                        </div>
-                    </div>
-                </div>
-
+                {{/ifCond}}
+                {{/each}}
             </div>
             <!-- end of category -->
 
@@ -167,36 +134,22 @@
                 <div class="CategoryTitle">
                     <a href="./category/TinTrongNuoc/TinTrongNuoc.html" class="badge badge-success">Tài chính</a>
                 </div>
+                {{#each rows}}
+                {{#ifCond category 'taichinh'}}
                 <div class="col-md-6 col-12">
                     <div class="card">
-                        <div style="height:250px!important; overflow: hidden;"><a
-                                href="./article/VNVD/singlePost.html"><img src="./img/taichinh.jpg"
-                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div style="height:250px!important; overflow: hidden;"><a href="/cat/{{category}}/{{id}}"><img
+                                    src="{{featureImg}}" class="card-img-top card-img-categoryItem" alt="..."></a></div>
                         <div class="card-body">
-                            <h5 class="card-title my-card-title-s">Chuyên gia lo GDP giảm nếu siết tín dụng bất động
-                                sản cao cấp</h5>
-                            <p class="card-text card-article-sumary">Việc siết tín dụng có thể giáng thêm một cú sốc
-                                cho thị trường địa ốc đang gặp khó khăn từ nhiều phía, theo các chuyên gia. </p>
-                            <div class="post-date">February 11, 2018</div>
+                            <h5 class="card-title my-card-title-s">{{title}}
+                            </h5>
+                            <p class="card-text card-article-sumary">{{description}}</p>
+                            <div class="post-date">{{updated_at}}</div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-6 col-12 ">
-                    <div class="card">
-                        <div style="height:250px!important; overflow: hidden;"><a
-                                href="./article/VNVD/singlePost.html"><img src="./img/taichinh1.jpg"
-                                    class="card-img-top card-img-categoryItem" alt="..."></a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title my-card-title-s">Giải ngân đầu tư công tiếp tục chậm</h5>
-                            <p class="card-text card-article-sumary">Tới cuối tháng 4, 39 Bộ, địa phương có tỷ lệ
-                                giải ngân vốn đầu tư công dưới 10% kế hoạch được giao năm 2019.
-                            </p>
-                            <div class="post-date">February 11, 2018</div>
-                        </div>
-                    </div>
-                </div>
+                {{/ifCond}}
+                {{/each}}
             </div>
             <!-- end of category -->
 
@@ -205,36 +158,22 @@
                 <div class="CategoryTitle">
                     <a href="./category/TinTrongNuoc/TinTrongNuoc.html" class="badge badge-success">Bất động sản</a>
                 </div>
+                {{#each rows}}
+                {{#ifCond category 'batdongsan'}}
                 <div class="col-md-6 col-12">
                     <div class="card">
-                        <div style="height:250px!important; overflow: hidden;"><a
-                                href="./article/VNVD/singlePost.html"><img src="./img/batdongsan.jpg"
-                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div style="height:250px!important; overflow: hidden;"><a href="/cat/{{category}}/{{id}}"><img
+                                    src="{{featureImg}}" class="card-img-top card-img-categoryItem" alt="..."></a></div>
                         <div class="card-body">
-                            <h5 class="card-title my-card-title-s">Lợi ích nhóm trong 'cuộc chiến' chung cư</h5>
-                            <p class="card-text card-article-sumary">Hiện tượng căng băng rôn trở thành một trào lưu
-                                ở các dự án, mà đằng sau đó đôi khi có dấu hiệu “lợi ích nhóm”. </p>
-                            <div class="post-date">February 11, 2018</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-12 ">
-                    <div class="card">
-                        <div style="height:250px!important; overflow: hidden;"><a
-                                href="./article/VNVD/singlePost.html"><img src="./img/batdongsan1.png"
-                                    class="card-img-top card-img-categoryItem" alt="..."></a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title my-card-title-s">Tiềm năng đầu tư bất động sản nghỉ dưỡng Hạ Long
+                            <h5 class="card-title my-card-title-s">{{title}}
                             </h5>
-                            <p class="card-text card-article-sumary">Hạ tầng giao thông, hệ thống tiện ích đồng bộ
-                                giúp Hạ Long thu hút nhà đầu tư, nhất là phần khúc bất động sản nghỉ dưỡng.
-                            </p>
-                            <div class="post-date">February 11, 2018</div>
+                            <p class="card-text card-article-sumary">{{description}}</p>
+                            <div class="post-date">{{updated_at}}</div>
                         </div>
                     </div>
                 </div>
+                {{/ifCond}}
+                {{/each}}
             </div>
             <!-- end of category -->
 
@@ -244,40 +183,22 @@
                     <a href="./category/TinTrongNuoc/TinTrongNuoc.html" class="badge badge-success">Trung tâm mua
                         sắm</a>
                 </div>
+                {{#each rows}}
+                {{#ifCond category 'trungtam'}}
                 <div class="col-md-6 col-12">
                     <div class="card">
-                        <div style="height:250px!important; overflow: hidden;"><a
-                                href="./article/VNVD/singlePost.html"><img src="./img/trungtam.jpg"
-                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div style="height:250px!important; overflow: hidden;"><a href="/cat/{{category}}/{{id}}"><img
+                                    src="{{featureImg}}" class="card-img-top card-img-categoryItem" alt="..."></a></div>
                         <div class="card-body">
-                            <h5 class="card-title my-card-title-s">Top các trung tâm thương mại đẹp và mát nhất Sài
-                                Gòn cho du khách mua sắm, tránh nóng
+                            <h5 class="card-title my-card-title-s">{{title}}
                             </h5>
-                            <p class="card-text card-article-sumary">Sài Gòn có nhiều trung tâm thương mại sầm uất,
-                                do đó nếu dịp 30/4-1/5 này không đi chơi xa thì danh sách những điểm mua sắm này
-                                cũng khiến bạn mất cả ngày để khám phá. </p>
-                            <div class="post-date">February 11, 2018</div>
+                            <p class="card-text card-article-sumary">{{description}}</p>
+                            <div class="post-date">{{updated_at}}</div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-6 col-12 ">
-                    <div class="card">
-                        <div style="height:250px!important; overflow: hidden;"><a
-                                href="./article/VNVD/singlePost.html"><img src="./img/trungtam1.jpg"
-                                    class="card-img-top card-img-categoryItem" alt="..."></a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title my-card-title-s">Tp.HCM sắp có đại trung tâm thương mại lớn nhất
-                                tại quận 8</h5>
-                            <p class="card-text card-article-sumary">Quý 3/2019, Tập đoàn Quốc Cường Gia Lai sẽ đưa
-                                vào vận hành đại trung tâm thương mại Central Premium Mall lớn nhất tại quận 8,
-                                Tp.HCM. Đây cũng là tổ hợp shopping mall lớn thứ 8 của Sài Gòn.
-                            </p>
-                            <div class="post-date">February 11, 2018</div>
-                        </div>
-                    </div>
-                </div>
+                {{/ifCond}}
+                {{/each}}
             </div>
             <!-- end of category -->
 
@@ -287,35 +208,22 @@
                     <a href="./category/TinTrongNuoc/TinTrongNuoc.html" class="badge badge-success">Thị trường
                         24h</a>
                 </div>
+                {{#each rows}}
+                {{#ifCond category 'thitruong'}}
                 <div class="col-md-6 col-12">
                     <div class="card">
-                        <div style="height:250px!important; overflow: hidden;"><a
-                                href="./article/VNVD/singlePost.html"><img src="./img/giaxang.jpg"
-                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div style="height:250px!important; overflow: hidden;"><a href="/cat/{{category}}/{{id}}"><img
+                                    src="{{featureImg}}" class="card-img-top card-img-categoryItem" alt="..."></a></div>
                         <div class="card-body">
-                            <h5 class="card-title my-card-title-s">Giá xăng tiếp tục tăng mạnh</h5>
-                            <p class="card-text card-article-sumary">Mỗi lít xăng E5 RON 92 tăng 985 đồng, xăng RON
-                                95 thêm 956 đồng sau điều chỉnh từ 16h chiều 2/5. </p>
-                            <div class="post-date">February 11, 2018</div>
+                            <h5 class="card-title my-card-title-s">{{title}}
+                            </h5>
+                            <p class="card-text card-article-sumary">{{description}}</p>
+                            <div class="post-date">{{updated_at}}</div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-6 col-12 ">
-                    <div class="card">
-                        <div style="height:250px!important; overflow: hidden;"><a
-                                href="./article/VNVD/singlePost.html"><img src="./img/hanghieu.jpg"
-                                    class="card-img-top card-img-categoryItem" alt="..."></a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title my-card-title-s">Hàng hiệu giả ngập chợ mạng</h5>
-                            <p class="card-text card-article-sumary">Bộ Công Thương cho rằng quy định xử phạt ban
-                                hành 6 năm trước đang lỗi thời so với sự phát triển của thương mại điện tử.
-                            </p>
-                            <div class="post-date">February 11, 2018</div>
-                        </div>
-                    </div>
-                </div>
+                {{/ifCond}}
+                {{/each}}
             </div>
             <!-- end of category -->
 
@@ -324,39 +232,22 @@
                 <div class="CategoryTitle">
                     <a href="./category/TinTrongNuoc/TinTrongNuoc.html" class="badge badge-success">Bệnh đàn ông</a>
                 </div>
+                {{#each rows}}
+                {{#ifCond category 'benhdanong'}}
                 <div class="col-md-6 col-12">
                     <div class="card">
-                        <div style="height:250px!important; overflow: hidden;"><a
-                                href="./article/VNVD/singlePost.html"><img src="./img/benhdanong.jpg"
-                                    class="card-img-top card-img-categoryItem" alt="..."></a></div>
+                        <div style="height:250px!important; overflow: hidden;"><a href="/cat/{{category}}/{{id}}"><img
+                                    src="{{featureImg}}" class="card-img-top card-img-categoryItem" alt="..."></a></div>
                         <div class="card-body">
-                            <h5 class="card-title my-card-title-s">Quý ông nào cũng cần biết điều này để xử lý "cậu
-                                nhỏ" không chịu "nghe lời"</h5>
-                            <p class="card-text card-article-sumary">Rối loạn cương dương là 1 trong những vấn đề
-                                phổ biến nhất và gây khó khăn nhất cho đời sống tình dục. Vì vậy quý ông nào cũng
-                                cần biết những điều sau để phòng tránh và xử lý</p>
-                            <div class="post-date">February 11, 2018</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-12 ">
-                    <div class="card">
-                        <div style="height:250px!important; overflow: hidden;"><a
-                                href="./article/VNVD/singlePost.html"><img src="./img/benhdanhong1.jpg"
-                                    class="card-img-top card-img-categoryItem" alt="..."></a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title my-card-title-s">Lấy lại "bản lĩnh đàn ông" sau 12 năm bất lực
+                            <h5 class="card-title my-card-title-s">{{title}}
                             </h5>
-                            <p class="card-text card-article-sumary">Các nhà khoa học Úc đã tạo ra phép màu với
-                                nhiều người đàn ông bị rối loạn cương dương sau điều trị ung thư tuyến tiền liệt,
-                                trong đó có 2 người đã bất lực suốt 12 năm.
-                            </p>
-                            <div class="post-date">February 11, 2018</div>
+                            <p class="card-text card-article-sumary">{{description}}</p>
+                            <div class="post-date">{{updated_at}}</div>
                         </div>
                     </div>
                 </div>
+                {{/ifCond}}
+                {{/each}}
             </div>
             <!-- end of category -->
 
@@ -574,25 +465,27 @@
                     </div>
                 </div>
                 <div style="" id="vs_inner_0">
+                    {{#each rows}}
+                    {{#ifMoreCond id '<=' 10}}
                     <article class="article-mini" data-list="2" style="display: block;">
                         <div class="inner">
                             <figure>
-                                <a href="./article/VNVD/singlePost.html">
-                                    <img src="./img/cr7.jpg" alt="Sample Article">
+                                <a href="/cat/{{category}}/{{id}}">
+                                    <img src="{{featureImg}}" alt="Sample Article">
                                 </a>
                             </figure>
                             <div class="padding">
-                                <h1><a href="./article/VNVD/singlePost.html">Không phải hôm nay thời tiết thật đẹp
-                                        để ra ngoài
-                                        sao?</a></h1>
+                                <h1><a href="/cat/{{category}}/{{id}}">{{title}}</a></h1>
                                 <div class="detail">
-                                    <div class="category"><a href="#">Sao việt</a></div>
-                                    <div class="time">April 5, 2019</div>
+                                    <div class="category"><a href="/cat/{{category}}">{{catViet}}</a></div>
+                                    <div class="time">{{datePost}}</div>
                                 </div>
                             </div>
                         </div>
                     </article>
-                    <article class="article-mini" data-list="3" style="display: block;">
+                    {{/ifMoreCond}}
+                    {{/each}}
+                    {{!-- <article class="article-mini" data-list="3" style="display: block;">
                         <div class="inner">
                             <figure>
                                 <a href="./article/VNVD/singlePost.html">
@@ -678,7 +571,7 @@
                                 </div>
                             </div>
                         </div>
-                    </article>
+                    </article> --}}
                 </div>
                 <!-- kết thúc tin 1 -->
                 <!-- tin 2 trong 10 tin xem nhiều nhất -->

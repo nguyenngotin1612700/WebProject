@@ -8,6 +8,9 @@ module.exports = {
         return db.load(`select * from post where category="${catName}"`);
     },
     bycatNameAndId: (catName, id) => {
-        return db.load(`select * from post where category ="${catName} and id=${id}"`);
+        return db.load(`select * from post where category ="${catName}" and id=${id}`);
+    },
+    bycatNameLimit: (catName, limit) => {
+        return db.load(`select * from post where category="${catName}" LIMIT ${limit}`)
     }
 }

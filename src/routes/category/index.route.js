@@ -3,17 +3,19 @@ var postModel = require('../../models/post.model');
 
 var router = express.Router();
 
-router.get('/:id', (req, res, next) => {
+router.get('/:category/:id', (req, res, next) => {
     let id = req.params.id;
-    var highlight = postModel.bycatNameAndId('highlights', id);
-    highlight.then(rows => {
-            res.render('singlepost', {
-                rows: rows
-            })
+    let cat = req.params.category;
+    var highlight = postModel.bycatNameAndId(cat, id);
+    var post = postModel.all();
+    Promise.all([post, highlight]).then(values => {
+        console.log('vaule: ', values[0]);
+        res.render('singlepost', {
+            layout: 'main',
+            rows: values[0],
+            post: values[1]
         })
-        .catch(err => {
-            throw err
-        });
+    });
 })
 
 module.exports = router;
