@@ -5,8 +5,8 @@ var createConnection = () => {
         host: 'localhost',
         port: 3306,
         user: 'root',
-        password: '',
-        database: 'newspapers'
+        password: '123123',
+        database: 'tinnnn'
     });
 }
     
@@ -25,7 +25,20 @@ module.exports = {
             });
         });
     },
-
+    singleByUsername: (username) =>{
+        return new Promise((resolve,reject)=> {
+            let conn = createConnection();
+            conn.connect();
+            let sql = `select * from user where username = '${username}' `
+            conn.query(sql, (err, value) => {
+                if (err) reject(err);
+                else {
+                    resolve(value);
+                }
+                conn.end();
+            })
+        })
+    },
     add: (tableName, entity) => {
         return new Promise((resolve, reject) => {
             var sql = `insert into ${tableName} set ?`;

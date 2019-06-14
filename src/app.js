@@ -4,19 +4,22 @@ var Handlebars = require('handlebars');
 var dateFormat = require('dateFormat');
 var minify = require('html-minifier').minify;
 var app = express();
-app.engine('handlebars', exphbs({
-    defaultLayout: 'main',
-}));
-app.set('view engine', 'handlebars');
+
+app.use(express.urlencoded());
 var categoryModel = require('./models/category.model');
 var articleModel = require('./models/article.model');
-var highlights = require('./routes/category/index.route')
+var highlights = require('./routes/category/index.route');
+require('./middleware/viewEngine')(app);
+require('./middleware/session')(app);
+require('./middleware/passport')(app);
 var server = app.listen(8000, function () {
     var host = server.address().address
     var port = server.address().port
     console.log("Ung dung Node.js dang hoat dong tai dia chi: http://%s:%s", host, port)
 });
-
+app.use(require('./middleware/auth.local'));
+app.use(express.static('public'));
+app.use('/cat', highlights);
 app.use('/', (req, res, next) => {
     let cat = categoryModel.all();
     cat.then(value => {
@@ -49,8 +52,7 @@ app.use('/', (req, res, next) => {
         next();
     })
 })
-app.use(express.static('public'));
-app.use('/cat', highlights);
+
 Handlebars.registerHelper('ifCond', function (v1, v2, options) {
     if (v1 === v2) {
         return options.fn(this);
@@ -84,7 +86,10 @@ Handlebars.registerHelper('ifMoreCond', function (v1, operator, v2, options) {
             return options.inverse(this);
     }
 });
-
+app.use('/account',require('./routes/account/account.route'));
+app.use('/admin',require('./routes/admin/admin.route'));
+app.use('/editor',require('./routes/editor/editor.route'));
+app.use('/writer',require('./routes/writer/writer.router'));
 app.get('/', function (req, res) {
     let value = [];
     // let post = articleModel.all();
@@ -120,51 +125,5 @@ app.get('/', function (req, res) {
     });
 });
 
-app.get('/text.txt', function (req, res) {
-    res.send('text.txt');
-});
-app.post('/', function (req, res) {
-    console.log("POST request");
-    res.send("hello POST");
-    res.end();
-});
 
-app.delete('/delete', function (req, res) {
-    console.log("DELETE Request");
-    res.send('Hello DELETE');
-    res.end();
-});
 
-app.get('/ab*cd', function (req, res) {
-    console.log(req.body);
-    console.log("GET request /ab*cd");
-    res.send('Page Pattern Match');
-    res.end();
-});
-
-app.get('/xxx', (req, res) => {
-    let x = [{
-        a: 1
-    }, {
-        a: 2
-    }];
-    let y = [{
-        a: 3
-    }, {
-        a: 4
-    }];
-    let z = [{
-        t: x
-    }, {
-        u: y
-    }];
-    res.render('xxx', {
-        layout: 'main',
-        z
-    });
-})
-
-// var testMinify = minify('<div class="my-mark "> <p class = "ml-3"></p> </div>', {
-//     removeAttributeQuotes: true
-// });
-// console.log('testMinify-------', testMinify);
