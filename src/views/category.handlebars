@@ -34,22 +34,30 @@
                 <div class="row" style="padding-top:100px">
                     <nav aria-label="Page navigation example " class="mx-auto w-50 " style="display:block">
                         <ul class="pagination text-center ">
+                            {{#if pre}}
                             <li class="page-item">
-                                <a class="page-link mypage-item " href="#" aria-label="Previous">
+                                <a class="page-link mypage-item " href="?page={{pre}}" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                 </a>
                             </li>
-                            <li class="page-item active"><a class="page-link mypage-item" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link mypage-item " href="#">2</a></li>
-                            <li class="page-item"><a class="page-link mypage-item " href="#">3</a></li>
-                            <li class="page-item"><a class="page-link mypage-item " href="#">...</a></li>
-                            <li class="page-item"><a class="page-link mypage-item " href="#">15</a></li>
+                            {{/if}}
+                            {{#each this.pages}}
+                            {{#if active}}
+                            <li class="page-item active"><a class="page-link mypage-item"
+                                    href="javascript:;">{{value}}</a>
+                            </li>
+                            {{else}}
+                            <li class="page-item"><a class="page-link mypage-item" href="?page={{value}}">{{value}}</a>
+                            </li>
+                            {{/if}}
+                            {{/each}}
+                            {{#if next}}
                             <li class="page-item">
-                                <a class="page-link mypage-item " href="#" aria-label="Next">
+                                <a class="page-link mypage-item " href="?page={{next}}" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
                                 </a>
                             </li>
-
+                            {{/if}}
                         </ul>
                     </nav>
                 </div>
@@ -83,94 +91,6 @@
                             </div>
                         </article>
                         {{/each}}
-                        <article class="article-mini" data-list="3" style="display: block;">
-                            <div class="inner">
-                                <figure>
-                                    <a href="#">
-                                        <img src="../../img/tevez.jpg" alt="Sample Article">
-                                    </a>
-                                </figure>
-                                <div class="padding">
-                                    <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
-                                    </h1>
-                                    <div class="detail">
-                                        <div class="category"><a href="category.html">Thể thao | Tin trong nước</a>
-                                        </div>
-                                        <div class="time">April 9, 2019</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="article-mini" data-list="2" style="display: block;">
-                            <div class="inner">
-                                <figure>
-                                    <a href="#">
-                                        <img src="../../img/cr7.jpg" alt="Sample Article">
-                                    </a>
-                                </figure>
-                                <div class="padding">
-                                    <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
-                                            sao?</a></h1>
-                                    <div class="detail">
-                                        <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
-                                        <div class="time">April 5, 2019</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="article-mini" data-list="3" style="display: block;">
-                            <div class="inner">
-                                <figure>
-                                    <a href="#">
-                                        <img src="../../img/mu-barca.jpg" alt="Sample Article">
-                                    </a>
-                                </figure>
-                                <div class="padding">
-                                    <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
-                                    </h1>
-                                    <div class="detail">
-                                        <div class="category"><a href="category.html">Thể thao | Tin trong nước</a>
-                                        </div>
-                                        <div class="time">April 9, 2019</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="article-mini" data-list="2" style="display: block;">
-                            <div class="inner">
-                                <figure>
-                                    <a href="#">
-                                        <img src="../../img/cr7.jpg" alt="Sample Article">
-                                    </a>
-                                </figure>
-                                <div class="padding">
-                                    <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
-                                            sao?</a></h1>
-                                    <div class="detail">
-                                        <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
-                                        <div class="time">April 5, 2019</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="article-mini" data-list="3" style="display: block;">
-                            <div class="inner">
-                                <figure>
-                                    <a href="#">
-                                        <img src="../../img/vidic.png" alt="Sample Article">
-                                    </a>
-                                </figure>
-                                <div class="padding">
-                                    <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
-                                    </h1>
-                                    <div class="detail">
-                                        <div class="category"><a href="category.html">Thể thao | Tin trong nước</a>
-                                        </div>
-                                        <div class="time">April 9, 2019</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
                     </div>
 
                 </div>

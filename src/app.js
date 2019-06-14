@@ -3,7 +3,9 @@ var exphbs = require('express-handlebars');
 var Handlebars = require('handlebars');
 var dateFormat = require('dateFormat');
 var minify = require('html-minifier').minify;
+var morgan = require('morgan');
 var app = express();
+var moment = require('moment');
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
 }));
@@ -16,14 +18,22 @@ var server = app.listen(8000, function () {
     var port = server.address().port
     console.log("Ung dung Node.js dang hoat dong tai dia chi: http://%s:%s", host, port)
 });
-
+app.use(morgan('dev'));
+app.use(express.json());
+app.use(express.urlencoded());
 app.use('/', (req, res, next) => {
     let cat = categoryModel.all();
-    cat.then(value => {
-        res.locals.category = value;
+    let latest = articleModel.bypublish(10);
+    Promise.all([cat, latest]).then(values => {
+        res.locals.category = values[0];
+        let latest = values[1];
+        let latesthtml = '';
+        latest.forEach(elem => {
+            latesthtml += '<a style="color: black;" href="/cat/' + elem.category_id + '/' + elem.id + '" target="_self">' + elem.title + '</a>&nbsp;&nbsp;&nbsp;';
+        })
         let parentCat = [];
         let childCat = [];
-        value.forEach(row => {
+        values[0].forEach(row => {
             if (row.parent_id === null) {
                 parentCat.push(row);
             } else {
@@ -45,9 +55,40 @@ app.use('/', (req, res, next) => {
                 htmlChild +
                 '</li>';
         });
+        res.locals.latesthtml = latesthtml;
         res.locals.navbar = html;
+        res.locals.username = "Ngô Đức Kha";
         next();
-    })
+    });;
+    // cat.then(value => {
+    //     res.locals.category = value;
+    //     let parentCat = [];
+    //     let childCat = [];
+    //     value.forEach(row => {
+    //         if (row.parent_id === null) {
+    //             parentCat.push(row);
+    //         } else {
+    //             childCat.push(row);
+    //         }
+    //     });
+    //     let html = '';
+    //     parentCat.forEach(parent => {
+    //         let htmlChild = '<div class="dropdown-content" aria-labelledby="navbarDropdown">';
+    //         childCat.forEach(child => {
+    //             if (child.parent_id === parent.id) {
+    //                 htmlChild = htmlChild + '<a class="dropdown-item" href="/cat/' + child.id + '">' + child.name + '</a>';
+    //             }
+    //         });
+    //         htmlChild += '</div>';
+    //         html = html + '<li class="nav-item dropdown mr-1"><button type="button" class="btn btn-light text-uppercase font-weight-bold">' +
+    //             parent.name +
+    //             ' <span> <img src="/img/icondown.png" alt=""> </span></button>' +
+    //             htmlChild +
+    //             '</li>';
+    //     });
+    //     res.locals.navbar = html;
+    //     next();
+    // })
 })
 app.use(express.static('public'));
 app.use('/cat', highlights);
@@ -107,6 +148,23 @@ app.get('/', function (req, res) {
         let latest = values.shift();
         viewMost[0].isActive = true;
 
+        viewMost.forEach(elem => {
+            elem.publish_at = moment(elem.publish_at).format("LL");
+        });
+        trongnuoc.forEach(elem => {
+            elem.publish_at = moment(elem.publish_at).format("LL");
+        });
+        quocte.forEach(elem => {
+            elem.publish_at = moment(elem.publish_at).format("LL");
+        });
+        latest.forEach(elem => {
+            elem.publish_at = moment(elem.publish_at).format("LL");
+        });
+        values.forEach(elem => {
+            elem.forEach(Element => {
+                Element.publish_at = moment(Element.publish_at).format("LL");
+            });
+        });
 
         res.render('home', {
             layout: 'main',
@@ -115,7 +173,7 @@ app.get('/', function (req, res) {
             quocte: quocte,
             latest: latest,
             rows: values,
-            navbar: res.locals.navbar
+
         })
     });
 });
@@ -135,34 +193,6 @@ app.delete('/delete', function (req, res) {
     res.end();
 });
 
-app.get('/ab*cd', function (req, res) {
-    console.log(req.body);
-    console.log("GET request /ab*cd");
-    res.send('Page Pattern Match');
-    res.end();
-});
-
-app.get('/xxx', (req, res) => {
-    let x = [{
-        a: 1
-    }, {
-        a: 2
-    }];
-    let y = [{
-        a: 3
-    }, {
-        a: 4
-    }];
-    let z = [{
-        t: x
-    }, {
-        u: y
-    }];
-    res.render('xxx', {
-        layout: 'main',
-        z
-    });
-})
 
 // var testMinify = minify('<div class="my-mark "> <p class = "ml-3"></p> </div>', {
 //     removeAttributeQuotes: true
