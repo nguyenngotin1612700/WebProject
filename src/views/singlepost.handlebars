@@ -10,16 +10,29 @@
             <div class="post-date">{{publish_at}}</div>
             <h6 class="sumary-article">{{description}}</h6>
             {{{content}}}
+            {{/each}}
             <div class="row comment-box mt-4 mb-4">
-                <h5>Ý kiến bạn đọc</h5>
-                <form action="" method="post">
-                    <textarea rows="6" cols="90%" placeholder="Bình luận"></textarea>
-                    <button class="btn btn-primary mb-2">Đăng bình luận</button>
-                </form>
+                <h5 style="color: #9d234c;width: 100%;background: #eaeaea;height: 30px;">Ý kiến bạn đọc</h5>
+                <div class="width_common" id="box_comment" style="margin-left: 1%;">
+                    <div class="main_show_comment width_common mb10" id="list_comment">
+                        {{#each this.postcomment}}
+
+                        <p class="full_content">{{content}}</p>
+                        <p class="left txt_666 txt_14"><b>{{user_name}}</b>
+                            - {{create_at}}</p>
+
+                        {{/each}}
+                    </div>
+                </div>
             </div>
+            {{#each this.rows}}
+            <form action="/cat/{{category_id}}/{{id}}" target="_self" method="post" style="margin-top: 7%;"
+                id="comment">
+                <textarea rows="6" cols="90%" placeholder="Bình luận" id="content" name="content"></textarea>
+                <button type="submit" class="btn btn-primary mb-2">Đăng bình luận</button>
+            </form>
+            {{/each}}
         </div>
-        <!-- end cột 1 -->
-        {{/each}}
         <!-- cột 2, các bài viết cùng chuyên mục, các bài viết mới-->
         <div class="col-lg-4 col-sm-12 bg-light">
 
@@ -42,98 +55,13 @@
                             <div class="padding">
                                 <h1><a href="/cat/{{category_id}}/{{id}}">{{title}}</a></h1>
                                 <div class="detail">
-                                    <div class="category"><a href="#">{{catname}}</a></div>
+                                    <div class="category"><a href="/cat/{{category_id}}">{{catname}}</a></div>
                                     <div class="time">{{publish_at}}</div>
                                 </div>
                             </div>
                         </div>
                     </article>
                     {{/each}}
-                    {{!-- <article class="article-mini" data-list="3" style="display: block;">
-                        <div class="inner">
-                            <figure>
-                                <a href="#">
-                                    <img src="/img/tevez.jpg" alt="Sample Article">
-                                </a>
-                            </figure>
-                            <div class="padding">
-                                <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
-                                </h1>
-                                <div class="detail">
-                                    <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
-                                    <div class="time">April 9, 2019</div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="article-mini" data-list="2" style="display: block;">
-                        <div class="inner">
-                            <figure>
-                                <a href="#">
-                                    <img src="/img/cr7.jpg" alt="Sample Article">
-                                </a>
-                            </figure>
-                            <div class="padding">
-                                <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
-                                        sao?</a></h1>
-                                <div class="detail">
-                                    <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
-                                    <div class="time">April 5, 2019</div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="article-mini" data-list="3" style="display: block;">
-                        <div class="inner">
-                            <figure>
-                                <a href="#">
-                                    <img src="/img/mu-barca.jpg" alt="Sample Article">
-                                </a>
-                            </figure>
-                            <div class="padding">
-                                <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
-                                </h1>
-                                <div class="detail">
-                                    <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
-                                    <div class="time">April 9, 2019</div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="article-mini" data-list="2" style="display: block;">
-                        <div class="inner">
-                            <figure>
-                                <a href="#">
-                                    <img src="/img/cr7.jpg" alt="Sample Article">
-                                </a>
-                            </figure>
-                            <div class="padding">
-                                <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
-                                        sao?</a></h1>
-                                <div class="detail">
-                                    <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
-                                    <div class="time">April 5, 2019</div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="article-mini" data-list="3" style="display: block;">
-                        <div class="inner">
-                            <figure>
-                                <a href="#">
-                                    <img src="/img/vidic.png" alt="Sample Article">
-                                </a>
-                            </figure>
-                            <div class="padding">
-                                <h1><a href="#">Tại sao nên ra ngoài chơi thể thao nhiều hơn?</a>
-                                </h1>
-                                <div class="detail">
-                                    <div class="category"><a href="category.html">Thể thao | Tin trong nước</a></div>
-                                    <div class="time">April 9, 2019</div>
-                                </div>
-                            </div>
-                        </div>
-                    </article> --}}
                 </div>
                 <!-- kết thúc tin 1 -->
             </div>
@@ -175,3 +103,24 @@
     </div>
 
 </div>
+<script type="text/javascript">
+    var frm = $('#comment');
+
+    frm.submit(function (e) {
+
+        e.preventDefault();
+
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+            success: function (data) {
+                document.location.reload(true);
+            },
+            error: function (data) {
+                console.log('An error occurred.');
+                console.log(data);
+            },
+        });
+    });
+</script>
