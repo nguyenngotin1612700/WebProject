@@ -6,10 +6,10 @@ var createConnection = () => {
         port: 3306,
         user: 'root',
         password: '',
-        database: 'newspaper'
+        database: 'newspapers'
     });
 }
-
+    
 module.exports = {
     load: sql => {
         return new Promise((resolve, reject) => {

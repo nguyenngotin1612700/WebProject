@@ -1,13 +1,13 @@
 <div class="container mt-3 ">
     <div class="row">
-        {{#each this.post}}
+        {{#each this.rows}}
         <!-- cột 1, bài viết -->
         <div class="my-mark ">
-            <p class="ml-3">{{catViet}}</p>
+            <p class="ml-3">{{catname}}</p>
         </div>
         <div class="col-lg-8 col-sm-12 bg-white">
             <h1 class="title-article">{{title}}</h1>
-            <div class="post-date">{{datePost}}</div>
+            <div class="post-date">{{publish_at}}</div>
             <h6 class="sumary-article">{{description}}</h6>
             {{{content}}}
             <div class="row comment-box mt-4 mb-4">
@@ -31,24 +31,25 @@
                     </div>
                 </div>
                 <div style="" id="vs_inner_0">
+                    {{#each this.samecat}}
                     <article class="article-mini" data-list="2" style="display: block;">
                         <div class="inner">
                             <figure>
-                                <a href="#">
-                                    <img src="/img/tevez.jpg" alt="Sample Article">
+                                <a href="/cat/{{category_id}}/{{id}}">
+                                    <img src="{{avatar}}" alt="Sample Article">
                                 </a>
                             </figure>
                             <div class="padding">
-                                <h1><a href="#">Không phải hôm nay thời tiết thật đẹp để ra ngoài
-                                        sao?</a></h1>
+                                <h1><a href="/cat/{{category_id}}/{{id}}">{{title}}</a></h1>
                                 <div class="detail">
-                                    <div class="category"><a href="#">Thể thao | Tin trong nước</a></div>
-                                    <div class="time">April 5, 2019</div>
+                                    <div class="category"><a href="#">{{catname}}</a></div>
+                                    <div class="time">{{publish_at}}</div>
                                 </div>
                             </div>
                         </div>
                     </article>
-                    <article class="article-mini" data-list="3" style="display: block;">
+                    {{/each}}
+                    {{!-- <article class="article-mini" data-list="3" style="display: block;">
                         <div class="inner">
                             <figure>
                                 <a href="#">
@@ -132,7 +133,7 @@
                                 </div>
                             </div>
                         </div>
-                    </article>
+                    </article> --}}
                 </div>
                 <!-- kết thúc tin 1 -->
             </div>
@@ -146,25 +147,23 @@
                     </div>
                 </div>
                 <div style="" id="vs_inner_0">
-                    {{#each this.rows}}
-                    {{#ifMoreCond id '<=' 10}}
+                    {{#each this.latest}}
                     <article class="article-mini" data-list="2" style="display: block;">
                         <div class="inner">
                             <figure>
-                                <a href="/cat/{{category}}/{{id}}">
-                                    <img src="{{featureImg}}" alt="Sample Article">
+                                <a href="/cat/{{category_id}}/{{id}}">
+                                    <img src="{{avatar}}" alt="Sample Article">
                                 </a>
                             </figure>
                             <div class="padding">
-                                <h1><a href="/cat/{{category}}/{{id}}">{{title}}</a></h1>
+                                <h1><a href="/cat/{{category_id}}/{{id}}">{{title}}</a></h1>
                                 <div class="detail">
-                                    <div class="category"><a href="/cat/{{category}}">{{catViet}}</a></div>
-                                    <div class="time">{{datePost}}</div>
+                                    <div class="category"><a href="/cat/{{category_id}}">{{catViet}}</a></div>
+                                    <div class="time">{{publish_at}}</div>
                                 </div>
                             </div>
                         </div>
                     </article>
-                    {{/ifMoreCond}}
                     {{/each}}
                 </div>
 
