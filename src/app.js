@@ -12,7 +12,8 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 var categoryModel = require('./models/category.model');
 var articleModel = require('./models/article.model');
-var highlights = require('./routes/category/index.route')
+var highlights = require('./routes/category/index.route');
+var tag = require('./routes/tag/index.route')
 var server = app.listen(8000, function () {
     var host = server.address().address
     var port = server.address().port
@@ -60,38 +61,10 @@ app.use('/', (req, res, next) => {
         res.locals.username = "Ngô Đức Kha";
         next();
     });;
-    // cat.then(value => {
-    //     res.locals.category = value;
-    //     let parentCat = [];
-    //     let childCat = [];
-    //     value.forEach(row => {
-    //         if (row.parent_id === null) {
-    //             parentCat.push(row);
-    //         } else {
-    //             childCat.push(row);
-    //         }
-    //     });
-    //     let html = '';
-    //     parentCat.forEach(parent => {
-    //         let htmlChild = '<div class="dropdown-content" aria-labelledby="navbarDropdown">';
-    //         childCat.forEach(child => {
-    //             if (child.parent_id === parent.id) {
-    //                 htmlChild = htmlChild + '<a class="dropdown-item" href="/cat/' + child.id + '">' + child.name + '</a>';
-    //             }
-    //         });
-    //         htmlChild += '</div>';
-    //         html = html + '<li class="nav-item dropdown mr-1"><button type="button" class="btn btn-light text-uppercase font-weight-bold">' +
-    //             parent.name +
-    //             ' <span> <img src="/img/icondown.png" alt=""> </span></button>' +
-    //             htmlChild +
-    //             '</li>';
-    //     });
-    //     res.locals.navbar = html;
-    //     next();
-    // })
 })
 app.use(express.static('public'));
 app.use('/cat', highlights);
+app.use('/tag', tag);
 Handlebars.registerHelper('ifCond', function (v1, v2, options) {
     if (v1 === v2) {
         return options.fn(this);

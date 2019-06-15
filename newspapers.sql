@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 14, 2019 lúc 05:49 PM
+-- Thời gian đã tạo: Th6 15, 2019 lúc 07:00 AM
 -- Phiên bản máy phục vụ: 10.1.36-MariaDB
 -- Phiên bản PHP: 7.2.10
 
@@ -166,7 +166,40 @@ INSERT INTO `comment` (`id`, `user_id`, `user_name`, `article_id`, `content`, `c
 (14, 1, 'Ngô Đức Kha', 35, 'bbbb', '2019-06-14'),
 (15, 1, 'Ngô Đức Kha', 25, 'bbbbbbbb', '2019-06-14'),
 (16, 1, 'Ngô Đức Kha', 25, 'nmnmnmn', '2019-06-14'),
-(17, 1, 'Ngô Đức Kha', 7, '212312312', '2019-06-14');
+(17, 1, 'Ngô Đức Kha', 7, '212312312', '2019-06-14'),
+(18, 1, 'Ngô Đức Kha', 33, 'quá đã', '2019-06-14'),
+(19, 1, 'Ngô Đức Kha', 5, 'tại sao bài post này lại như vậy?', '2019-06-14'),
+(20, 1, 'Ngô Đức Kha', 5, 'quá dữ', '2019-06-14'),
+(21, 1, 'Ngô Đức Kha', 5, 'hy vọng sẽ không bị như vậy nữa', '2019-06-14'),
+(22, 1, 'Ngô Đức Kha', 28, 'có thể là do ngày tháng chăng?', '2019-06-14'),
+(23, 1, 'Ngô Đức Kha', 25, 'tại sao lại nắng nóng như vậy', '2019-06-14'),
+(24, 1, 'Ngô Đức Kha', 28, 'sắp xếp quá đúng', '2019-06-14'),
+(25, 1, 'Ngô Đức Kha', 29, 'thật quan ngại', '2019-06-14'),
+(26, 1, 'Ngô Đức Kha', 29, 'Ổn không?', '2019-06-14'),
+(27, 1, 'Ngô Đức Kha', 2, 'cố lên việt nam', '2019-06-14'),
+(28, 1, 'Ngô Đức Kha', 2, 'việt nam chiến thắng', '2019-06-14'),
+(29, 1, 'Ngô Đức Kha', 2, 'việt nam chiến thắng', '2019-06-14'),
+(30, 1, 'Ngô Đức Kha', 20, 'VN vô địch quá xứng đáng', '2019-06-14'),
+(31, 1, 'Ngô Đức Kha', 20, 'ngày hôm nay', '2019-06-14'),
+(32, 1, 'Ngô Đức Kha', 7, 'được không?', '2019-06-14'),
+(33, 1, 'Ngô Đức Kha', 28, 'hư hết rồi huhu', '2019-06-14'),
+(34, 1, 'Ngô Đức Kha', 28, 'alo alo', '2019-06-14'),
+(35, 1, 'Ngô Đức Kha', 22, 'Việt Nam đẹp lắm VIệt nam ơi', '2019-06-14'),
+(36, 1, 'Ngô Đức Kha', 1, 'coutinho quá sai lầm', '2019-06-14'),
+(37, 1, 'Ngô Đức Kha', 37, 'đáng sợ quá', '2019-06-14'),
+(38, 1, 'Ngô Đức Kha', 29, 'cái này thì sao', '2019-06-14'),
+(39, 1, 'Ngô Đức Kha', 5, 'bos tay huhu', '2019-06-14'),
+(40, 1, 'Ngô Đức Kha', 27, 'Thật ngưỡng mộ', '2019-06-14'),
+(41, 1, 'Ngô Đức Kha', 27, 'Thật ngưỡng mộ', '2019-06-14'),
+(42, 1, 'Ngô Đức Kha', 27, 'rồi sao?', '2019-06-14'),
+(44, 1, 'Ngô Đức Kha', 5, 'thua thật sự :((((', '2019-06-14'),
+(45, 1, 'Ngô Đức Kha', 28, 'đc chứ', '2019-06-14'),
+(46, 1, 'Ngô Đức Kha', 35, 'đáng sợ thật', '2019-06-14'),
+(47, 1, 'Ngô Đức Kha', 35, 'bla bla', '2019-06-14'),
+(48, 1, 'Ngô Đức Kha', 28, 'dc khong?', '2019-06-14'),
+(49, 1, 'Ngô Đức Kha', 5, 'bai viet nay ', '2019-06-14'),
+(50, 1, 'Ngô Đức Kha', 2, 'ko dc thi nghi', '2019-06-14'),
+(51, 1, 'Ngô Đức Kha', 2, 'van ko dc', '2019-06-14');
 
 -- --------------------------------------------------------
 
@@ -179,6 +212,22 @@ CREATE TABLE `tag` (
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `tag`
+--
+
+INSERT INTO `tag` (`id`, `name`) VALUES
+(1, 'thitruong'),
+(2, 'congnghe'),
+(3, 'doanhnhan'),
+(4, 'facebook'),
+(5, 'thethao'),
+(6, 'messi'),
+(7, 'u23'),
+(8, 'kingcup'),
+(9, 'fifa'),
+(10, 'DTVietNam');
+
 -- --------------------------------------------------------
 
 --
@@ -189,6 +238,21 @@ CREATE TABLE `tagarticle` (
   `id_tag` int(11) NOT NULL,
   `id_article` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tagarticle`
+--
+
+INSERT INTO `tagarticle` (`id_tag`, `id_article`) VALUES
+(10, 2),
+(5, 2),
+(10, 20),
+(10, 38),
+(10, 1),
+(2, 4),
+(2, 7),
+(2, 27),
+(2, 21);
 
 -- --------------------------------------------------------
 
@@ -280,13 +344,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT cho bảng `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT cho bảng `tag`
 --
 ALTER TABLE `tag`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `user`

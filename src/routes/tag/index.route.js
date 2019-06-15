@@ -5,20 +5,24 @@ var tagarticleModel = require('../../models/tagarticle.model');
 var router = express.Router();
 var moment = require('moment');
 
-router.get('/:categoryId', (req, res, next) => {
-    let cat = req.params.categoryId;
+router.get('/:tagId', (req, res, next) => {
+    let tagId = req.params.tagId;
     let latest = articleModel.bypublish(10);
+    let tagname = tagarticleModel.bytagID(tagId);
+
     let pagecat = req.query.page || 1;
     if (pagecat < 1) {
         pagecat = 1;
     }
     let limit = 3;
     let offset = (pagecat - 1) * limit;
-    let page = articleModel.bypagecatId(cat, limit, offset);
-    let totalpost = articleModel.bycountcatID(cat);
-    Promise.all([page, latest, totalpost]).then(values => {
-        let catname = values[0][0].catname;
-        let total = values[2][0].total;
+    let page = tagarticleModel.bypagetagId(tagId, limit, offset);
+    let totalpost = tagarticleModel.bycounttagID(tagId);
+
+    Promise.all([page, latest, tagname, totalpost]).then(values => {
+        let name = values[2][0].name;
+
+        let total = values[3][0].total;
         let npages = Math.floor(total / limit);
         if (total % limit > 0) {
             npages++;
@@ -41,44 +45,21 @@ router.get('/:categoryId', (req, res, next) => {
             let pares = parseInt(pagecat);
             next = pares + 1;
         }
-        res.render('category', {
+
+        res.render('tag', {
             layout: 'main',
-            rows: values[0],
+            article: values[0],
             latest: values[1],
-            catname: catname,
-            pages: pages,
+            name,
+            pages,
             pre,
             next
-        })
+        });
     }).catch(err => {
-        throw err;
+        throw err
     });
 });
-router.get('/:categoryID/:id', (req, res, next) => {
-    let id = req.params.id;
-    let cat = req.params.categoryID;
-    let post = articleModel.bycatNameAndId(cat, id);
-    let latest = articleModel.bypublish(10);
-    let samecat = articleModel.bycatIDLimit(cat, 5);
-    let postcomment = comment.bypostID(id);
-    let alltag = tagarticleModel.byarticleID(id);
-    Promise.all([post, latest, samecat, postcomment, alltag]).then(values => {
-            values[3].forEach(element => {
-                element.create_at = moment(element.create_at).format("LL");
-            });
-            res.render('singlepost', {
-                layout: 'main',
-                rows: values[0],
-                latest: values[1],
-                samecat: values[2],
-                postcomment: values[3],
-                tag: values[4]
-            })
-        })
-        .catch(err => {
-            throw err;
-        });
-})
+router.get('/:tagID/:id', (req, res, next) => {})
 router.post('/:categoryID/:id', (req, res, next) => {
     console.log('body-------', req.body);
     let cat = req.params.categoryID;
