@@ -6,13 +6,20 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    {{!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+
 
 </head>
 
 <body style="background-color: #f0f1f4;">
     <!-- Header -->
+    <form id="frmSignout" action="/account/logout" method="POST"></form>
     <div class="row header-logo " style="background-color: #f0f1f4;">
         <div class="col-xl-9 col-lg-12">
             <div class="row">
@@ -33,22 +40,67 @@
         </div>
         <div class="col-xl-3 col-lg-12" class="login-register-icons">
             <div class="row mt-4" style="display:flex; justify-content:flex-end;">
-                <div class="mr-3">
-                    <button type="button" class="btn btn-success text-uppercase">
-                        Đăng nhập
-                        <span>
-                            <img src="/img/dangnhap.png" alt="">
-                        </span>
+                {{#if isAuthenticated}}
+                
+                <div class="dropdown dropleft">
+                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                        {{user.name}}
                     </button>
+                    {{#if isAdmin}}
+                    <div class="dropdown-menu " style="position: absolute; z-index: 2000">
+                        <a class="dropdown-item" href="/account/profile">Thông tin cá nhân</a>
+                        <a class="dropdown-item" href="/admin/manageCategories">Quản lí chuyên mục</a>
+                        <a class="dropdown-item" href="/admin/manageTag">Quản lí tag</a>
+                        <a class="dropdown-item" href="/admin/manageArticle">Quản lí bài viết</a>
+                        <a class="dropdown-item" href="/admin/manageUser">Quản lí danh sách người dùng</a>
+                        <a class="dropdown-item" href="javascript: $('#frmSignout').submit();">Logout</a>
+                    </div>
+                    {{else}}
+                    {{#if isEditor}}
+                    <div class="dropdown-menu " style="position: absolute; z-index: 2000">
+                        <a class="dropdown-item" href="/account/profile">Thông tin cá nhân</a>
+                        <a class="dropdown-item" href="/editor/manageArticle">Quản lí chuyên mục của mình</a>
+                        <a class="dropdown-item" href="javascript: $('#frmSignout').submit();">Logout</a>
+                    </div>
+                    {{else}}
+                    {{#if isWriter}}
+                    <div class="dropdown-menu " style="position: absolute; z-index: 2000">
+                        <a class="dropdown-item" href="/account/profile">Thông tin cá nhân</a>
+                        <a class="dropdown-item" href="/writer/manageArticle">Danh sách bài viết</a>
+                        <a class="dropdown-item" href="javascript: $('#frmSignout').submit();">Logout</a>
+                    </div>
+                    {{else}}
+                    <div class="dropdown-menu " style="position: absolute; z-index: 2000">
+                        <a class="dropdown-item" href="/account/profile">Profile</a>
+                        <a class="dropdown-item" href="javascript: $('#frmSignout').submit();">Logout</a>
+                    </div>
+                    {{/if}}
+                    {{/if}}
+                    {{/if}}
+                </div>
+                {{else}}
+                <div class="mr-3">
+                    <a href="/account/login">
+                        <button type="button" class="btn btn-success text-uppercase">
+                            Đăng nhập
+                            <span>
+                                <img src="/img/dangnhap.png" alt="">
+                            </span>
+                        </button>
+                    </a>
                 </div>
                 <div class="mr-1">
-                    <button type="button" class="btn btn-success text-uppercase">
-                        Đăng ký
-                        <span>
-                            <img src="/img/dangky.png" alt="">
-                        </span>
-                    </button>
+                    <a href="/account/register">
+                        <button type="button" class="btn btn-success text-uppercase">
+                            Đăng ký
+                            <span>
+                                <img src="/img/dangky.png" alt="">
+                            </span>
+                        </button>
+                    </a>
                 </div>
+                {{/if}}
+
             </div>
         </div>
     </div>
