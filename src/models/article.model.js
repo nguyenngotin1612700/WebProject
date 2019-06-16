@@ -24,5 +24,12 @@ module.exports = {
     },
     bypublish: (limit) => {
         return db.load(`select * from article order by publish_at DESC limit ${limit}`)
+    },
+    byfulltextSearch: (keyword, limit, offset) => {
+        return db.load(`select * from article where MATCH (title, description, catname, content) AGAINST('"${keyword}"') LIMIT ${limit} OFFSET ${offset}`)
+    },
+    bycountFulltextSearch: (keyword) => {
+        return db.load(`select count(*) as total from article where MATCH (title, description, catname, content) AGAINST('"${keyword}"')`)
     }
+
 }

@@ -15,7 +15,8 @@ app.set('view engine', 'handlebars');
 var categoryModel = require('./models/category.model');
 var articleModel = require('./models/article.model');
 var highlights = require('./routes/category/index.route');
-var tag = require('./routes/tag/index.route')
+var tag = require('./routes/tag/index.route');
+var search = require('./routes/search/search.route');
 require('./middleware/viewEngine')(app);
 require('./middleware/session')(app);
 require('./middleware/passport')(app);
@@ -27,10 +28,12 @@ var server = app.listen(8000, function () {
 app.use(require('./middleware/auth.local'));
 app.use(express.static('public'));
 app.use('/cat', highlights);
+app.use('/tag', tag);
+app.use('/search', search);
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
-app.use('/', (req, res, next) => {
+app.all('/', (req, res, next) => {
     let cat = categoryModel.all();
     let latest = articleModel.bypublish(10);
     Promise.all([cat, latest]).then(values => {
@@ -64,15 +67,13 @@ app.use('/', (req, res, next) => {
                 htmlChild +
                 '</li>';
         });
-        res.locals.latesthtml = latesthtml;
-        res.locals.navbar = html;
+        app.locals.latesthtml = latesthtml;
+        app.locals.navbar = html;
+        console.log('navar--------', res.app.locals.navbar);
         res.locals.username = "Ngô Đức Kha";
         next();
     });;
 })
-app.use(express.static('public'));
-app.use('/cat', highlights);
-app.use('/tag', tag);
 
 Handlebars.registerHelper('ifCond', function (v1, v2, options) {
     if (v1 === v2) {
@@ -107,10 +108,10 @@ Handlebars.registerHelper('ifMoreCond', function (v1, operator, v2, options) {
             return options.inverse(this);
     }
 });
-app.use('/account',require('./routes/account/account.route'));
-app.use('/admin',require('./routes/admin/admin.route'));
-app.use('/editor',require('./routes/editor/editor.route'));
-app.use('/writer',require('./routes/writer/writer.router'));
+app.use('/account', require('./routes/account/account.route'));
+app.use('/admin', require('./routes/admin/admin.route'));
+app.use('/editor', require('./routes/editor/editor.route'));
+app.use('/writer', require('./routes/writer/writer.router'));
 app.get('/', function (req, res) {
     let value = [];
     // let post = articleModel.all();
@@ -158,10 +159,6 @@ app.get('/', function (req, res) {
             quocte: quocte,
             latest: latest,
             rows: values,
-
         })
     });
 });
-
-
-

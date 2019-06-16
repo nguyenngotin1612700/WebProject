@@ -5,8 +5,8 @@ var createConnection = () => {
         host: 'localhost',
         port: 3306,
         user: 'root',
-        password: '123123',
-        database: 'tinnnn'
+        password: '',
+        database: 'newspaper'
     });
 }
     
@@ -25,8 +25,8 @@ module.exports = {
             });
         });
     },
-    singleByUsername: (username) =>{
-        return new Promise((resolve,reject)=> {
+    singleByUsername: (username) => {
+        return new Promise((resolve, reject) => {
             let conn = createConnection();
             conn.connect();
             let sql = `select * from user where username = '${username}' `
