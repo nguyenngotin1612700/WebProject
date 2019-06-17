@@ -1,0 +1,102 @@
+<body style="background-color: #f0f1f4;">
+
+
+    <div class="container">
+        <div class="row">
+            {{!-- <div class="my-big-mark">
+                <p class="ml-3">Thể thao | Tin trong nước</p>
+            </div> --}}
+            <div class="Customtitle mb-1 w-100 mt-2">
+                <div class="my-mark">
+                    <p class="ml-3">{{this.name}}</p>
+                </div>
+            </div>
+            <div class="col-lg-8 col-sm-12" style="">
+                {{#each this.article}}
+                <article class="article">
+                    <figure>
+                        <a href="/cat/{{category_id}}/{{id}}">
+                            <img style="" src="{{avatar}}">
+                        </a>
+                    </figure>
+                    <div style="padding:10px 10px;" class="detail">
+                        <h4><a href="/cat/{{category_id}}/{{id}}">{{title}}</a>
+                        </h4>
+                        <div class="time">{{publish_at}}</div>
+                        <p>
+                            {{descripttion}}
+                        </p>
+                    </div>
+                </article>
+                {{/each}}
+
+
+                <div class="row" style="padding-top:100px">
+                    <nav aria-label="Page navigation example " class="mx-auto w-50 " style="display:block">
+                        <ul class="pagination text-center ">
+                            {{#if pre}}
+                            <li class="page-item">
+                                <a class="page-link mypage-item " href="?page={{pre}}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            {{/if}}
+                            {{#each this.pages}}
+                            {{#if active}}
+                            <li class="page-item active"><a class="page-link mypage-item"
+                                    href="javascript:;">{{value}}</a>
+                            </li>
+                            {{else}}
+                            <li class="page-item"><a class="page-link mypage-item" href="?page={{value}}">{{value}}</a>
+                            </li>
+                            {{/if}}
+                            {{/each}}
+                            {{#if next}}
+                            <li class="page-item">
+                                <a class="page-link mypage-item " href="?page={{next}}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                            {{/if}}
+                        </ul>
+                    </nav>
+                </div>
+
+
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <!-- Các bài viết mới -->
+                <div class=" row mb-4 ">
+                    <div class="Customtitle mb-1 w-100">
+                        <div class="my-mark">
+                            <p class="ml-3 mt-2">Mới cập nhật</p>
+                        </div>
+                    </div>
+                    <div style="" id="vs_inner_0">
+                        {{#each this.latest}}
+                        <article class="article-mini" data-list="2" style="display: block;">
+                            <div class="inner">
+                                <figure>
+                                    <a href="#">
+                                        <img src="{{avatar}}" alt="Sample Article">
+                                    </a>
+                                </figure>
+                                <div class="padding">
+                                    <h1><a href="/cat/{{category_id}}/{{id}}">{{title}}</a></h1>
+                                    <div class="detail">
+                                        <div class="category"><a href="/cat/{{category_id}}">{{catname}}</a></div>
+                                        <div class="time">{{publish_at}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        {{/each}}
+                    </div>
+
+                </div>
+
+                <!-- end các bài viết mới -->
+            </div>
+        </div>
+
+    </div>

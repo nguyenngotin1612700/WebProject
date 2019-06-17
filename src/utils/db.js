@@ -25,8 +25,8 @@ module.exports = {
             });
         });
     },
-    singleByUsername: (username) =>{
-        return new Promise((resolve,reject)=> {
+    singleByUsername: (username) => {
+        return new Promise((resolve, reject) => {
             let conn = createConnection();
             conn.connect();
             let sql = `select * from user where username = '${username}' `

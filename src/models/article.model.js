@@ -41,5 +41,12 @@ module.exports = {
     approved:(id,publishDate)=>{
         let sql = `update article set status = 'approved', publish_at='${publishDate}' where id = ${id}`;
         return db.load(sql);
+    },
+    byfulltextSearch: (keyword, limit, offset) => {
+        return db.load(`select * from article where MATCH (title, description, catname, content) AGAINST('"${keyword}"') LIMIT ${limit} OFFSET ${offset}`)
+    },
+    bycountFulltextSearch: (keyword) => {
+        return db.load(`select count(*) as total from article where MATCH (title, description, catname, content) AGAINST('"${keyword}"')`)
     }
+
 }

@@ -11,6 +11,15 @@
             <h6 class="sumary-article">{{description}}</h6>
             {{{content}}}
             {{/each}}
+            <div class="block_tag width_common">
+                <div class="badge badge-secondary"><i class="ic ic-tag"></i>&nbsp;Tags</div>
+                {{#each this.tag}}
+                <h6 class="badge badge-secondary">
+                    <a href="/tag/{{id}}" style="color: white" title="{{name}}">
+                        {{name}} </a>
+                </h6>
+                {{/each}}
+            </div>
             <div class="row comment-box mt-4 mb-4">
                 <h5 style="color: #9d234c;width: 100%;background: #eaeaea;height: 30px;">Ý kiến bạn đọc</h5>
                 <div class="width_common" id="box_comment" style="margin-left: 1%;">

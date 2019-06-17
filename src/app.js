@@ -20,6 +20,8 @@ app.set('view engine', 'handlebars');
 var categoryModel = require('./models/category.model');
 var articleModel = require('./models/article.model');
 var highlights = require('./routes/category/index.route');
+var tag = require('./routes/tag/index.route');
+var search = require('./routes/search/search.route');
 require('./middleware/viewEngine')(app);
 require('./middleware/session')(app);
 require('./middleware/passport')(app);
@@ -31,10 +33,12 @@ var server = app.listen(8000, function () {
 app.use(require('./middleware/auth.local'));
 app.use(express.static('public'));
 app.use('/cat', highlights);
+app.use('/tag', tag);
+app.use('/search', search);
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
-app.use('/', (req, res, next) => {
+app.all('/', (req, res, next) => {
     let cat = categoryModel.all();
     let latest = articleModel.bypublish(10);
     Promise.all([cat, latest]).then(values => {
@@ -68,40 +72,12 @@ app.use('/', (req, res, next) => {
                 htmlChild +
                 '</li>';
         });
-        res.locals.latesthtml = latesthtml;
-        res.locals.navbar = html;
+        app.locals.latesthtml = latesthtml;
+        app.locals.navbar = html;
+        console.log('navar--------', res.app.locals.navbar);
         res.locals.username = "Ngô Đức Kha";
         next();
     });;
-    // cat.then(value => {
-    //     res.locals.category = value;
-    //     let parentCat = [];
-    //     let childCat = [];
-    //     value.forEach(row => {
-    //         if (row.parent_id === null) {
-    //             parentCat.push(row);
-    //         } else {
-    //             childCat.push(row);
-    //         }
-    //     });
-    //     let html = '';
-    //     parentCat.forEach(parent => {
-    //         let htmlChild = '<div class="dropdown-content" aria-labelledby="navbarDropdown">';
-    //         childCat.forEach(child => {
-    //             if (child.parent_id === parent.id) {
-    //                 htmlChild = htmlChild + '<a class="dropdown-item" href="/cat/' + child.id + '">' + child.name + '</a>';
-    //             }
-    //         });
-    //         htmlChild += '</div>';
-    //         html = html + '<li class="nav-item dropdown mr-1"><button type="button" class="btn btn-light text-uppercase font-weight-bold">' +
-    //             parent.name +
-    //             ' <span> <img src="/img/icondown.png" alt=""> </span></button>' +
-    //             htmlChild +
-    //             '</li>';
-    //     });
-    //     res.locals.navbar = html;
-    //     next();
-    // })
 })
 
 Handlebars.registerHelper('ifCond', function (v1, v2, options) {
@@ -137,10 +113,10 @@ Handlebars.registerHelper('ifMoreCond', function (v1, operator, v2, options) {
             return options.inverse(this);
     }
 });
-app.use('/account',require('./routes/account/account.route'));
-app.use('/admin',require('./routes/admin/admin.route'));
-app.use('/editor',require('./routes/editor/editor.route'));
-app.use('/writer',require('./routes/writer/writer.router'));
+app.use('/account', require('./routes/account/account.route'));
+app.use('/admin', require('./routes/admin/admin.route'));
+app.use('/editor', require('./routes/editor/editor.route'));
+app.use('/writer', require('./routes/writer/writer.router'));
 app.get('/', function (req, res) {
     let value = [];
     // let post = articleModel.all();
@@ -188,10 +164,6 @@ app.get('/', function (req, res) {
             quocte: quocte,
             latest: latest,
             rows: values,
-
         })
     });
 });
-
-
-
