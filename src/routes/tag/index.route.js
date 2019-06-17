@@ -18,10 +18,25 @@ router.get('/:tagId', (req, res, next) => {
     let offset = (pagecat - 1) * limit;
     let page = tagarticleModel.bypagetagId(tagId, limit, offset);
     let totalpost = tagarticleModel.bycounttagID(tagId);
-
+    if (req.user) {
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = mm + '/' + dd + '/' + yyyy;
+        if (req.user.expiry_date > today) {
+            page = tagarticleModel.bypagetagIdPremium(tagId, limit, offset);
+            totalpost = tagarticleModel.bycounttagIDPremium(tagId);
+        }
+    }
     Promise.all([page, latest, tagname, totalpost]).then(values => {
         let name = values[2][0].name;
-
+        values[0].forEach(element => {
+            element.publish_at = moment().format("LL");
+        });
+        values[1].forEach(element => {
+            element.publish_at = moment().format("LL");
+        })
         let total = values[3][0].total;
         let npages = Math.floor(total / limit);
         if (total % limit > 0) {
@@ -57,25 +72,6 @@ router.get('/:tagId', (req, res, next) => {
         });
     }).catch(err => {
         throw err
-    });
-});
-router.get('/:tagID/:id', (req, res, next) => {})
-router.post('/:categoryID/:id', (req, res, next) => {
-    console.log('body-------', req.body);
-    let cat = req.params.categoryID;
-    let id = req.params.id;
-    let username = "Ngô Đức Kha";
-    let userid = 1;
-    req.body.article_id = id;
-    req.body.user_id = userid;
-    req.body.user_name = username;
-    let today = new Date();
-    let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    req.body.create_at = date;
-    comment.add(req.body).then(result => {
-        res.redirect(`/cat/${cat}/${id}`);
-    }).catch(err => {
-        throw err;
     });
 });
 module.exports = router;

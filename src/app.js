@@ -69,8 +69,6 @@ app.all('/', (req, res, next) => {
         });
         app.locals.latesthtml = latesthtml;
         app.locals.navbar = html;
-        console.log('navar--------', res.app.locals.navbar);
-        res.locals.username = "Ngô Đức Kha";
         next();
     });;
 })

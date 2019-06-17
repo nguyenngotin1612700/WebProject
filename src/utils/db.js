@@ -9,7 +9,7 @@ var createConnection = () => {
         database: 'newspaper'
     });
 }
-    
+
 module.exports = {
     load: sql => {
         return new Promise((resolve, reject) => {
@@ -48,7 +48,7 @@ module.exports = {
                 if (error) {
                     reject(error);
                 } else {
-                    resolve(value.insertId);
+                    resolve(value);
                 }
                 connection.end();
             });

@@ -13,14 +13,30 @@ router.get('/', (req, res, next) => {
     }
     let limit = 3;
     let offset = (pagecat - 1) * limit;
-
     let latest = articleModel.bypublish(10);
     let article = articleModel.byfulltextSearch(search, limit, offset);
     let totalpost = articleModel.bycountFulltextSearch(search);
+    if (req.user) {
+        console.log('da dang nhap');
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = mm + '/' + dd + '/' + yyyy;
+        if (req.user.expiry_date > today) {
+            article = articleModel.byfulltextSearchPremium(search, limit, offset);
+            totalpost = articleModel.bycountFulltextSearchPremium(search);
+        }
+    }
     Promise.all([article, latest, totalpost]).then(values => {
         let rows = values[0];
         let latest = values[1];
-
+        rows.forEach(element => {
+            element.publish_at = moment().format("LL");
+        })
+        latest.forEach(element => {
+            element.publish_at = moment().format("LL");
+        })
         let total = values[2][0].total;
         let npages = Math.floor(total / limit);
         if (total % limit > 0) {
