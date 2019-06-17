@@ -15,12 +15,21 @@
                 {{#each this.rows}}
                 <article class="article">
                     <figure>
-                        <a href="/cat/{{category_id}}/{{id}}">
-                            <img style="" src="{{avatar}}">
-                        </a>
+                        {{#if ispremium}}
+                        <a href="/cat/premium/{{category_id}}/{{id}}">
+                            {{else}}
+                            <a href="/cat/{{category_id}}/{{id}}">
+                                {{/if}}
+                                <img style="" src="{{avatar}}">
+                            </a>
                     </figure>
                     <div style="padding:10px 10px;" class="detail">
-                        <h4><a href="/cat/{{category_id}}/{{id}}">{{title}}</a>
+                        <h4>
+                            {{#if ispremium}}
+                        <a href="/cat/premium/{{category_id}}/{{id}}">{{title}}</a>
+                            {{else}}
+                            <a href="/cat/{{category_id}}/{{id}}">{{title}}</a>
+                                {{/if}}
                         </h4>
                         <div class="time">{{publish_at}}</div>
                         <p>

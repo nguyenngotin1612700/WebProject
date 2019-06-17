@@ -5,11 +5,11 @@ var createConnection = () => {
         host: 'localhost',
         port: 3306,
         user: 'root',
-        password: '123123',
-        database: 'newproject'
+        password: '',
+        database: 'newspaper'
     });
 }
-    
+
 module.exports = {
     load: sql => {
         return new Promise((resolve, reject) => {
@@ -48,7 +48,7 @@ module.exports = {
                 if (error) {
                     reject(error);
                 } else {
-                    resolve(value.insertId);
+                    resolve(value);
                 }
                 connection.end();
             });
