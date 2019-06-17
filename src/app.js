@@ -43,6 +43,7 @@ app.all('/', (req, res, next) => {
     let latest = articleModel.bypublish(10);
     Promise.all([cat, latest]).then(values => {
         res.locals.category = values[0];
+        res.app.locals.category = values[0];
         let latest = values[1];
         let latesthtml = '';
         latest.forEach(elem => {

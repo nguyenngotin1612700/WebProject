@@ -42,7 +42,7 @@ router.post('/register', (req, res) => {
         email: req.body.email,
         dob,
         expiry_date,
-        role:'editor'
+        role:'user'
     }
 
     userModel.add(entity)
