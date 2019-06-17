@@ -24,5 +24,22 @@ module.exports = {
     },
     bypublish: (limit) => {
         return db.load(`select * from article order by publish_at DESC limit ${limit}`)
+    },
+    byStatus:(status)=>{
+        let sql = `select article.*, category.name from article join category on article.category_id = category.id  where status = '${status}' order by category.name ASC,article.create_at ASC`;
+        return db.load(sql);
+    },
+    reject:(id,rejectMessage)=>{
+        let sql = `update article set status = 'rejected', message_reject='${rejectMessage}' where id = ${id}`;
+        return db.load(sql);
+    },
+    publish:(id,publishDate)=>{
+        let sql = `update article set status = 'published', publish_at = '${publishDate}' where id = ${id}`;
+        console.log(sql);
+        return db.load(sql);
+    },
+    approved:(id,publishDate)=>{
+        let sql = `update article set status = 'approved', publish_at='${publishDate}' where id = ${id}`;
+        return db.load(sql);
     }
 }
