@@ -5,12 +5,17 @@ var dateFormat = require('dateFormat');
 var minify = require('html-minifier').minify;
 var morgan = require('morgan');
 var app = express();
+var hbs_sections = require('express-handlebars-sections');
 
 app.use(express.urlencoded());
 var moment = require('moment');
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
+    helpers: {
+        section: hbs_sections()
+      }
 }));
+
 app.set('view engine', 'handlebars');
 var categoryModel = require('./models/category.model');
 var articleModel = require('./models/article.model');

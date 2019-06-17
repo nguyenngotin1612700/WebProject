@@ -4,7 +4,7 @@ let router = express.Router();
 let authEditor = require('../../middleware/isEditor');
 
 router.get('/manageArticle',authEditor,(req,res)=>{
-    res.end('manageArticle')
+    res.render('editor/manageArticle',{layout:'main'});
 });
 
 module.exports = router;

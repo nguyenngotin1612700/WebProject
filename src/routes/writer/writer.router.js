@@ -7,8 +7,8 @@ var router = express.Router();
 var moment = require('moment');
 
 let authWriter = require('../../middleware/isWriter')
-router.get('/manageArticle', authWriter, (req, res) => {
-    res.end('manageArticle')
+router.get('/manageArticle',authWriter,(req,res)=>{
+    res.render('writer/manageArticle',{layout:'main'});
 });
 
 router.get('/upload', authWriter, (req, res, next) => {
@@ -19,7 +19,7 @@ router.get('/upload', authWriter, (req, res, next) => {
         let alltag = values[1];
         console.log('alllcat------', allcat);
         console.log('alltag----------', alltag);
-        res.render('writer1/upload', {
+        res.render('writer/upload', {
             allcat,
             alltag
         });

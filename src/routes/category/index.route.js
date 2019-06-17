@@ -1,5 +1,7 @@
 var express = require('express');
 var articleModel = require('../../models/article.model');
+var categoryModel = require('../../models/category.model');
+let authAdmin = require('../../middleware/isAdmin');
 var comment = require('../../models/comment.model');
 var tagarticleModel = require('../../models/tagarticle.model');
 var router = express.Router();
