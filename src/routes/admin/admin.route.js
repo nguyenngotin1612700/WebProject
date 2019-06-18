@@ -16,38 +16,35 @@ let TagModel = require('../../models/tag.model');
 let router = express.Router();
 
 router.get('/manageCategories', authAdmin, (req, res, next) => {
-    let parentCat = [];
-    let childCat = [];
-    res.app.locals.category.forEach(row => {
-        if (row.parent_id === null) {
-            parentCat.push(row);
-        } else {
-            childCat.push(row);
-        }
-    });
-    parentCat.forEach((row, index) => {
-        let children = [];
-        childCat.forEach(rowchild => {
-            if (rowchild.parent_id === row.id)
-                children.push(rowchild);
+    categoryModel.all()
+    .then((category) => {
+        let parentCat = [];
+        let childCat = [];
+        category.forEach(row => {
+            if (row.parent_id === null) {
+                parentCat.push(row);
+            } else {
+                childCat.push(row);
+            }
+        });
+        parentCat.forEach((row, index) => {
+            let children = [];
+            childCat.forEach(rowchild => {
+                if (rowchild.parent_id === row.id)
+                    children.push(rowchild);
+            })
+            parentCat[index] = { row, children };
         })
-        parentCat[index] = {
-            row,
-            children
-        };
+        res.render('admin/manageCategories', { layout: 'main', categories: parentCat });
+    }).catch(err=>{
+        throw err;
     })
-    res.render('admin/manageCategories', {
-        layout: 'main',
-        categories: parentCat
-    });
+
 });
 router.get('/manageTag', authAdmin, (req, res) => {
     TagModel.all()
         .then(result => {
-            res.render('admin/manageTag', {
-                layout: 'main',
-                tag: result
-            })
+            res.render('admin/manageTag', { layout: 'main', tag: result })
         })
         .catch(err => {
             throw err;
@@ -67,15 +64,18 @@ router.post('/manageTag/:tagId', authAdmin, (req, res) => {
         })
 });
 router.get('/manageArticle', authAdmin, (req, res) => {
-    let result = articleModel.byStatus('new');
-    result.then(value => {
-            res.render('admin/manageArticle', {
-                layout: 'main',
-                article: value
-            })
+    let input = [];
+
+    let newArticle = articleModel.byStatus('new');
+    input.push(newArticle);
+    let approvedArticle = articleModel.allApproveNotPublish();
+    input.push(approvedArticle);
+    Promise.all(input)
+        .then((values) => {
+            res.render('admin/manageArticle', { layout: 'main', newArticle: values[0], approvedArticle: values[1] })
         })
         .catch(err => {
-            console.log(err);
+            throw err;
         })
 
 });
@@ -83,7 +83,7 @@ router.get('/manageArticle', authAdmin, (req, res) => {
 router.get('/review/:categoryId/:id', authAdmin, (req, res, next) => {
     let id = req.params.id;
     let cat = req.params.categoryId;
-    let post = articleModel.bycatNameAndIdStatus(cat, id, 'new');
+    let post = articleModel.byIdWithCatName(id);
     post.then(value => {
             res.render('admin/singlepostReview', {
                 layout: 'main',
@@ -97,17 +97,31 @@ router.get('/review/:categoryId/:id', authAdmin, (req, res, next) => {
 
 router.post('/review/:categoryId/:id', authAdmin, (req, res, next) => {
     if (req.body.message_reject) {
-        articleModel.reject(req.params.id, req.body.message_reject);
-        res.redirect('/admin/manageArticle');
+        articleModel.reject(req.params.id, req.body.message_reject)
+            .then(() => {
+                res.redirect('/admin/manageArticle');
+            })
+            .catch(err => {
+                throw err;
+            })
         return;
     }
-    articleModel.publish(req.params.id, moment(new Date()).format('YYYY-MM-DD'));
-    res.redirect('/admin/manageArticle');
+    articleModel.publish(req.params.id, moment(new Date()).format('YYYY-MM-DD'))
+        .then(() => {
+            res.redirect('/admin/manageArticle');
+        })
+
 })
 
 router.post('/manageCategories/:id', authAdmin, (req, res, next) => {
-    categoryModel.updateName(req.body.categoryName, req.params.id);
-    res.redirect('/admin/manageCategories')
+    categoryModel.updateName(req.body.categoryName, req.params.id)
+        .then(() => {
+            res.redirect('/admin/manageCategories');
+        })
+        .catch(err => {
+            throw err;
+        })
+
 });
 router.post('/manageCategories', authAdmin, (req, res, next) => {
     let entity;
@@ -120,8 +134,13 @@ router.post('/manageCategories', authAdmin, (req, res, next) => {
         name,
         parent_id
     }
-    categoryModel.add(entity);
-    res.end('...');
+    categoryModel.add(entity)
+        .then(() => {
+            res.redirect('/admin/manageCategories');
+        })
+        .catch(err => {
+            throw err;
+        })
 });
 
 router.get('/manageUser', authAdmin, (req, res) => {
@@ -138,10 +157,7 @@ router.get('/manageUser', authAdmin, (req, res) => {
         .then(values => {
             let editorWithCategories = []
             values[2].forEach((row, index) => {
-                editorWithCategories[index] = {
-                    row,
-                    childCat
-                }
+                editorWithCategories[index] = { row, childCat }
             })
             res.render('admin/manageUser', {
                 layout: 'main',

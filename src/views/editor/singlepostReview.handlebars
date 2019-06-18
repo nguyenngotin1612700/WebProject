@@ -1,0 +1,111 @@
+{{#section 'css'}}
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
+{{/section}}
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-8 col-sm-12 bg-white">
+            <!-- cột 1, bài viết -->
+            {{#each this.article}}
+            <h1 class="title-article">{{title}}</h1>
+            <div class="post-date">{{create_at}}</div>
+            <h6 class="sumary-article"> {{decription}} </h6>
+            {{{content}}}
+            {{/each}}
+            
+        </div>
+        <!-- end cột 1 -->
+
+        <!-- cột 2, các bài viết cùng chuyên mục, các bài viết mới-->
+        <div class="col-lg-4 col-sm-12">
+
+            <!-- Các bài viết cùng chuyên mục -->
+            <div style="background-color: white;">
+
+                <h5>Approve</h5>
+                <hr>
+                <div style="text-align:right;" class="mt-2">
+                    <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                        data-target="#exampleModal">Reject</button>
+                    <button type="button" class="btn btn-outline-warning mx-lg-2" style="float:right;"
+                        data-target="#exampleModal2" data-toggle="modal">Approve</button>
+                </div>
+                <hr>
+            </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">message for jounalist</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{#each this.article}}
+                    <form id="frmReject" action="/editor/review/{{category_id}}/{{id}}" method="POST">
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Message:</label>
+                            <textarea  class="form-control" id="message-text" name ="message_reject" required="required"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-danger"> Reject</button>
+                    </form>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ngày Publish</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{#each this.article}}
+                    <form id="frmApprove" action="/editor/review/{{category_id}}/{{id}}" method="POST">
+                        <div class="form-group">
+                            <input required="required" type="text" class="inputLogin" id="txtDOB" placeholder="DatePublish" name="datePublish"
+                                autocomplete="off" >
+                        </div>
+                        <button type="submit" class="btn btn-outline-warning"> Approve</button>
+                    </form>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+            <!-- kết thúc tin 1 -->
+
+            <!-- end các bài viết cùng chuyên mục -->
+
+        </div>
+        <!-- end cột 2 -->
+    </div>
+
+</div>
+{{#section 'js'}}
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script>
+  $(function () {
+
+    $('#txtDOB').datetimepicker({
+      format: 'd/m/Y',
+      timepicker: false,
+    });
+  })
+</script>
+{{/section}}
