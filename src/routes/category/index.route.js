@@ -19,12 +19,9 @@ router.get('/:categoryId', (req, res, next) => {
     let page = articleModel.bypagecatId(cat, limit, offset);
     let totalpost = articleModel.bycountcatID(cat);
     if (req.user) {
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
-        today = mm + '/' + dd + '/' + yyyy;
-        if (req.user.expiry_date > today) {
+        let today = moment();
+        if (moment(res.locals.user.expiry_date).isAfter(today)) {
+            console.log('ahihi');
             page = articleModel.bypagecatIDpremiumArticle(cat, limit, offset);
             totalpost = articleModel.bycouncatPremium(cat);
         }
@@ -82,6 +79,11 @@ router.get('/:categoryID/:id', (req, res, next) => {
     let samecat = articleModel.bycatIDLimit(cat, 5);
     let postcomment = comment.bypostID(id);
     let alltag = tagarticleModel.byarticleID(id);
+    if (res.locals.user) {
+        if (res.locals.user.role === 'writer') {
+            post = articleModel.byId(id);
+        }
+    }
     Promise.all([post, latest, samecat, postcomment, alltag]).then(values => {
             values[1].forEach(element => {
                 element.publish_at = moment().format("LL");
@@ -133,12 +135,9 @@ router.get('/premium/:categoryID/:id', auth, (req, res, next) => {
     let postcomment = comment.bypostID(id);
     let alltag = tagarticleModel.byarticleID(id);
     if (req.user) {
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
-        today = mm + '/' + dd + '/' + yyyy;
-        if (req.user.expiry_date > today) {
+        let today = moment();
+        if (moment(res.locals.user.expiry_date).isAfter(today)) {
+            console.log('ahihi');
             post = articleModel.bycatNameAndIdPremium(cat, id);
         }
     }

@@ -7,6 +7,9 @@ module.exports = {
     allTag: () => {
         return db.load('select * from tag')
     },
+    byarticleIDSingle: (id) => {
+        return db.load(`select * from tagarticle where id_article=${id}`)
+    },
     byarticleID: (id) => {
         return db.load(`select * from tagarticle join tag on id_article=${id} and tagarticle.id_tag = tag.id`);
     },
@@ -30,5 +33,11 @@ module.exports = {
     },
     add: (entity) => {
         return db.add('tagarticle', entity);
+    },
+    delete: (idField, id) => {
+        return db.delete('tagarticle', idField, id);
+    },
+    update: (entity) => {
+        return db.update('tagarticle', 'id_article', entity)
     }
 }

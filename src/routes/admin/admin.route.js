@@ -31,37 +31,49 @@ router.get('/manageCategories', authAdmin, (req, res, next) => {
             if (rowchild.parent_id === row.id)
                 children.push(rowchild);
         })
-        parentCat[index] = { row, children };
+        parentCat[index] = {
+            row,
+            children
+        };
     })
-    res.render('admin/manageCategories', { layout: 'main', categories: parentCat });
+    res.render('admin/manageCategories', {
+        layout: 'main',
+        categories: parentCat
+    });
 });
 router.get('/manageTag', authAdmin, (req, res) => {
     TagModel.all()
-    .then(result=>{
-        res.render('admin/manageTag', { layout: 'main', tag: result })
-    })
-    .catch(err=> {
-        throw err;
-    })
-    
+        .then(result => {
+            res.render('admin/manageTag', {
+                layout: 'main',
+                tag: result
+            })
+        })
+        .catch(err => {
+            throw err;
+        })
+
 });
-router.post('/manageTag',authAdmin,(req,res)=>{
+router.post('/manageTag', authAdmin, (req, res) => {
     TagModel.add(req.body.tagNameAdd)
-    .then(()=>{
-        res.redirect('/admin/manageTag');
-    })
+        .then(() => {
+            res.redirect('/admin/manageTag');
+        })
 })
-router.post('/manageTag/:tagId',authAdmin,(req,res)=>{
-    TagModel.updateName(req.body.tagName,req.params.tagId)
-    .then(result=>{
-        res.redirect('/admin/manageTag');
-    })
+router.post('/manageTag/:tagId', authAdmin, (req, res) => {
+    TagModel.updateName(req.body.tagName, req.params.tagId)
+        .then(result => {
+            res.redirect('/admin/manageTag');
+        })
 });
 router.get('/manageArticle', authAdmin, (req, res) => {
     let result = articleModel.byStatus('new');
     result.then(value => {
-        res.render('admin/manageArticle', { layout: 'main', article: value })
-    })
+            res.render('admin/manageArticle', {
+                layout: 'main',
+                article: value
+            })
+        })
         .catch(err => {
             console.log(err);
         })
@@ -71,10 +83,13 @@ router.get('/manageArticle', authAdmin, (req, res) => {
 router.get('/review/:categoryId/:id', authAdmin, (req, res, next) => {
     let id = req.params.id;
     let cat = req.params.categoryId;
-    let post = articleModel.bycatNameAndId(cat, id);
+    let post = articleModel.bycatNameAndIdStatus(cat, id, 'new');
     post.then(value => {
-        res.render('admin/singlepostReview', { layout: 'main', singlepost: value });
-    })
+            res.render('admin/singlepostReview', {
+                layout: 'main',
+                singlepost: value
+            });
+        })
         .catch(err => {
             throw err;
         })
@@ -82,11 +97,11 @@ router.get('/review/:categoryId/:id', authAdmin, (req, res, next) => {
 
 router.post('/review/:categoryId/:id', authAdmin, (req, res, next) => {
     if (req.body.message_reject) {
-        ArticleModel.reject(req.params.id, req.body.message_reject);
+        articleModel.reject(req.params.id, req.body.message_reject);
         res.redirect('/admin/manageArticle');
         return;
     }
-    ArticleModel.publish(req.params.id, moment(new Date()).format('YYYY-MM-DD'));
+    articleModel.publish(req.params.id, moment(new Date()).format('YYYY-MM-DD'));
     res.redirect('/admin/manageArticle');
 })
 
@@ -122,8 +137,11 @@ router.get('/manageUser', authAdmin, (req, res) => {
     Promise.all([usernormal, writer, editor])
         .then(values => {
             let editorWithCategories = []
-            values[2].forEach((row,index)=>{
-                editorWithCategories[index]= {row,childCat}
+            values[2].forEach((row, index) => {
+                editorWithCategories[index] = {
+                    row,
+                    childCat
+                }
             })
             res.render('admin/manageUser', {
                 layout: 'main',
@@ -135,103 +153,103 @@ router.get('/manageUser', authAdmin, (req, res) => {
         })
 
 });
-router.post('/manageUser/writer/:writerId',authAdmin,(req,res)=>{
+router.post('/manageUser/writer/:writerId', authAdmin, (req, res) => {
     let name = req.body.writerName;
     let password = req.body.writerPassword;
     let id = req.params.writerId;
-    let input =[]
-    if(name !=''){
-        let updateName = UserModel.updateName(name,id);
+    let input = []
+    if (name != '') {
+        let updateName = UserModel.updateName(name, id);
         input.push(updateName)
     }
-    if(password != ''){
+    if (password != '') {
         let saltround = 10;
         let hash = bcrypt.hashSync(password, saltround);
-        let updatePassword = UserModel.updatePassword(hash,id);
+        let updatePassword = UserModel.updatePassword(hash, id);
         input.push(updatePassword);
     }
     Promise.all(input)
-    .then(()=>{
-        res.redirect('/admin/manageUser');
-    })
-    .catch((err)=>{
-        throw err;
-    })
+        .then(() => {
+            res.redirect('/admin/manageUser');
+        })
+        .catch((err) => {
+            throw err;
+        })
 });
 
-router.post('/manageUser/editor/:editorId',authAdmin,(req,res)=>{
+router.post('/manageUser/editor/:editorId', authAdmin, (req, res) => {
     let name = req.body.editorName;
     let password = req.body.editorPassword;
     let id = req.params.editorId;
     let manage_category = req.body.CategoryManage;
-    let input =[]
-    if(name !=''){
-        let updateName = UserModel.updateName(name,id);
+    let input = []
+    if (name != '') {
+        let updateName = UserModel.updateName(name, id);
         input.push(updateName)
     }
-    if(password != ''){
+    if (password != '') {
         let saltround = 10;
         let hash = bcrypt.hashSync(password, saltround);
-        let updatePassword = UserModel.updatePassword(hash,id);
+        let updatePassword = UserModel.updatePassword(hash, id);
         input.push(updatePassword);
     }
-    let updateManageCategory = UserModel.updateCategoryManage(manage_category,id);
+    let updateManageCategory = UserModel.updateCategoryManage(manage_category, id);
     input.push(updateManageCategory);
     Promise.all(input)
-    .then(()=>{
-        res.redirect('/admin/manageUser');
-    })
-    .catch((err)=>{
-        throw err;
-    })
+        .then(() => {
+            res.redirect('/admin/manageUser');
+        })
+        .catch((err) => {
+            throw err;
+        })
 });
 
-router.post('/manageUser/user/:userId',authAdmin,(req,res)=>{
+router.post('/manageUser/user/:userId', authAdmin, (req, res) => {
     let name = req.body.userName;
     let password = req.body.userPassword;
     let id = req.params.userId;
-    let renew  = req.body.renew;
-    let input=[];
-    if(name !=''){
-        let updateName = UserModel.updateName(name,id);
+    let renew = req.body.renew;
+    let input = [];
+    if (name != '') {
+        let updateName = UserModel.updateName(name, id);
         input.push(updateName)
     }
-    if(password != ''){
+    if (password != '') {
         let saltround = 10;
         let hash = bcrypt.hashSync(password, saltround);
-        let updatePassword = UserModel.updatePassword(hash,id);
+        let updatePassword = UserModel.updatePassword(hash, id);
         input.push(updatePassword);
     }
-    if(renew =='on'){
-        let expiry_date = moment().add(7,'days');
+    if (renew == 'on') {
+        let expiry_date = moment().add(7, 'days');
         expiry_date = moment(expiry_date).format('YYYY-MM-DD');
-        let renewUser = UserModel.renewUser(expiry_date,id);
+        let renewUser = UserModel.renewUser(expiry_date, id);
         input.push(renewUser);
     }
     Promise.all(input)
-    .then(()=>{
-        res.redirect('/admin/manageUser');
-    })
-    .catch((err)=>{
-        throw err;
-    })
+        .then(() => {
+            res.redirect('/admin/manageUser');
+        })
+        .catch((err) => {
+            throw err;
+        })
 });
 
-router.post('/manageUser/delete/:id',authAdmin,(req,res)=>{
+router.post('/manageUser/delete/:id', authAdmin, (req, res) => {
     UserModel.InactiveUser(req.params.id)
-    .then(()=>{
-        res.redirect('/admin/manageUser');
-    })
+        .then(() => {
+            res.redirect('/admin/manageUser');
+        })
 })
 
-router.post('/manageUser/user',authAdmin,(req,res)=>{
+router.post('/manageUser/user', authAdmin, (req, res) => {
     let name = req.body.nameUser;
     let email = req.body.email;
     let username = req.body.username;
     let password = req.body.password;
     let saltround = 10;
     let hash = bcrypt.hashSync(password, saltround);
-    let expiry_date = moment().add(7,'days');
+    let expiry_date = moment().add(7, 'days');
     expiry_date = moment(expiry_date).format('YYYY-MM-DD');
     let entity = {
         username,
@@ -239,15 +257,15 @@ router.post('/manageUser/user',authAdmin,(req,res)=>{
         name,
         email,
         expiry_date,
-        role:'user'
+        role: 'user'
     }
     UserModel.add(entity)
-    .then(() => res.redirect('/admin/manageUser'))
-    .catch(err => {
-        throw err;
-    })
+        .then(() => res.redirect('/admin/manageUser'))
+        .catch(err => {
+            throw err;
+        })
 });
-router.post('/manageUser/writer',authAdmin,(req,res)=>{
+router.post('/manageUser/writer', authAdmin, (req, res) => {
     let name = req.body.nameWriter;
     let email = req.body.emailWriter;
     let username = req.body.username;
@@ -259,15 +277,15 @@ router.post('/manageUser/writer',authAdmin,(req,res)=>{
         password: hash,
         name,
         email,
-        role:'writer'
+        role: 'writer'
     }
     UserModel.add(entity)
-    .then(() => res.redirect('/admin/manageUser'))
-    .catch(err => {
-        throw err;
-    })
+        .then(() => res.redirect('/admin/manageUser'))
+        .catch(err => {
+            throw err;
+        })
 })
-router.post('/manageUser/editor',authAdmin,(req,res)=>{
+router.post('/manageUser/editor', authAdmin, (req, res) => {
     let name = req.body.nameEditor;
     let email = req.body.emailEditor;
     let username = req.body.username;
@@ -281,13 +299,13 @@ router.post('/manageUser/editor',authAdmin,(req,res)=>{
         name,
         email,
         manage_category,
-        role:'editor'
+        role: 'editor'
     }
     UserModel.add(entity)
-    .then(() => res.redirect('/admin/manageUser'))
-    .catch(err => {
-        throw err;
-    })
+        .then(() => res.redirect('/admin/manageUser'))
+        .catch(err => {
+            throw err;
+        })
 })
 
 module.exports = router;
