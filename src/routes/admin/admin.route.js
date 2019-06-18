@@ -16,24 +16,30 @@ let TagModel = require('../../models/tag.model');
 let router = express.Router();
 
 router.get('/manageCategories', authAdmin, (req, res, next) => {
-    let parentCat = [];
-    let childCat = [];
-    res.app.locals.category.forEach(row => {
-        if (row.parent_id === null) {
-            parentCat.push(row);
-        } else {
-            childCat.push(row);
-        }
-    });
-    parentCat.forEach((row, index) => {
-        let children = [];
-        childCat.forEach(rowchild => {
-            if (rowchild.parent_id === row.id)
-                children.push(rowchild);
+    categoryModel.all()
+    .then((category) => {
+        let parentCat = [];
+        let childCat = [];
+        category.forEach(row => {
+            if (row.parent_id === null) {
+                parentCat.push(row);
+            } else {
+                childCat.push(row);
+            }
+        });
+        parentCat.forEach((row, index) => {
+            let children = [];
+            childCat.forEach(rowchild => {
+                if (rowchild.parent_id === row.id)
+                    children.push(rowchild);
+            })
+            parentCat[index] = { row, children };
         })
-        parentCat[index] = { row, children };
+        res.render('admin/manageCategories', { layout: 'main', categories: parentCat });
+    }).catch(err=>{
+        throw err;
     })
-    res.render('admin/manageCategories', { layout: 'main', categories: parentCat });
+
 });
 router.get('/manageTag', authAdmin, (req, res) => {
     TagModel.all()
@@ -105,8 +111,14 @@ router.post('/review/:categoryId/:id', authAdmin, (req, res, next) => {
 })
 
 router.post('/manageCategories/:id', authAdmin, (req, res, next) => {
-    categoryModel.updateName(req.body.categoryName, req.params.id);
-    res.redirect('/admin/manageCategories')
+    categoryModel.updateName(req.body.categoryName, req.params.id)
+        .then(() => {
+            res.redirect('/admin/manageCategories');
+        })
+        .catch(err => {
+            throw err;
+        })
+
 });
 router.post('/manageCategories', authAdmin, (req, res, next) => {
     let entity;
@@ -119,8 +131,13 @@ router.post('/manageCategories', authAdmin, (req, res, next) => {
         name,
         parent_id
     }
-    categoryModel.add(entity);
-    res.end('...');
+    categoryModel.add(entity)
+        .then(() => {
+            res.redirect('/admin/manageCategories');
+        })
+        .catch(err => {
+            throw err;
+        })
 });
 
 router.get('/manageUser', authAdmin, (req, res) => {
