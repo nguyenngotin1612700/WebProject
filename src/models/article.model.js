@@ -9,7 +9,7 @@ module.exports = {
         return db.load(`select * from article where status='published' or (status='approved' and publish_at < '${today})`);
     },
     byView: (limit) => {
-        return db.load(`select * from article where status='published' or (status='approved' and publish_at < '${today}') ORDER BY view DESC limit ${limit}`);
+        return db.load(`select * from article where ispremium=0 and status='published' or (status='approved' and publish_at < '${today}') ORDER BY view DESC limit ${limit}`);
     },
     byId: (id) => {
         return db.load(`select * from article where id=${id}`)

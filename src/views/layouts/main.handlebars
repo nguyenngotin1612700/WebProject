@@ -6,14 +6,14 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">
-     {{{_sections.css}}}
+    {{{_sections.css}}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     {{!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    
+
 
 
 </head>
@@ -42,14 +42,14 @@
         <div class="col-xl-3 col-lg-12" class="login-register-icons">
             <div class="row mt-4" style="display:flex; justify-content:flex-end;">
                 {{#if isAuthenticated}}
-                
+
                 <div class="dropdown dropleft">
                     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
                         {{user.name}}
                     </button>
                     {{#if isAdmin}}
                     <div class="dropdown-menu " style="position: absolute; z-index: 2000">
-                        <a class="dropdown-item" href="/account/profile">Thông tin cá nhân</a>
+                        <a class="dropdown-item" href="/account/profile/{{user.id}}">Thông tin cá nhân</a>
                         <a class="dropdown-item" href="/admin/manageCategories">Quản lí chuyên mục</a>
                         <a class="dropdown-item" href="/admin/manageTag">Quản lí tag</a>
                         <a class="dropdown-item" href="/admin/manageArticle">Quản lí bài viết</a>
@@ -59,21 +59,21 @@
                     {{else}}
                     {{#if isEditor}}
                     <div class="dropdown-menu " style="position: absolute; z-index: 2000">
-                        <a class="dropdown-item" href="/account/profile">Thông tin cá nhân</a>
+                        <a class="dropdown-item" href="/account/profile/{{user.id}}">Thông tin cá nhân</a>
                         <a class="dropdown-item" href="/editor/manageArticle">Quản lí chuyên mục của mình</a>
                         <a class="dropdown-item" href="javascript: $('#frmSignout').submit();">Logout</a>
                     </div>
                     {{else}}
                     {{#if isWriter}}
                     <div class="dropdown-menu " style="position: absolute; z-index: 2000">
-                        <a class="dropdown-item" href="/account/profile">Thông tin cá nhân</a>
+                        <a class="dropdown-item" href="/account/profile/{{user.id}}">Thông tin cá nhân</a>
                         <a class="dropdown-item" href="/writer/upload">Đăng bài viết mới</a>
                         <a class="dropdown-item" href="/writer/manageArticle">Danh sách bài viết</a>
                         <a class="dropdown-item" href="javascript: $('#frmSignout').submit();">Logout</a>
                     </div>
                     {{else}}
                     <div class="dropdown-menu " style="position: absolute; z-index: 2000">
-                        <a class="dropdown-item" href="/account/profile">Profile</a>
+                        <a class="dropdown-item" href="/account/profile/{{user.id}}">Profile</a>
                         <a class="dropdown-item" href="javascript: $('#frmSignout').submit();">Logout</a>
                     </div>
                     {{/if}}
@@ -120,7 +120,8 @@
                 {{{navbar}}}
             </ul>
             <form class="form-inline my-2 my-lg-0" action="/search" method="GET">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" aria-label="Search">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search"
+                    aria-label="Search">
                 <button type="submit" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
@@ -172,7 +173,7 @@
             <p>© 2016 Copyright Text </p>
         </div>
     </footer>
-     {{{_sections.js}}}
+    {{{_sections.js}}}
 </body>
 
 </html>
