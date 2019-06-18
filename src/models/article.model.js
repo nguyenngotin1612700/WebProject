@@ -72,5 +72,22 @@ module.exports = {
     },
     add: (entity) => {
         return db.add('article', entity);
+    },
+    allNewByCategory: (category)=>{
+        return db.load(`select article.*, category.name as categoryName 
+        from article join category on article.category_id = category.id
+        where category.id = ${category} and article.status='new'
+        `);
+    },
+    allApproveNotPublish :()=>{
+        let sql = `select article.*, category.name from article join category on article.category_id = category.id  
+        where status = 'approved' and publish_at > '${today}'
+        order by category.name ASC,article.create_at ASC`;
+        return db.load(sql);
+    },
+    byIdWithCatName:(id)=>{
+        return db.load(`select article.*, category.name as catname
+        from article join category on article.category_id = category.id
+        where article.id = ${id}`);
     }
 }
