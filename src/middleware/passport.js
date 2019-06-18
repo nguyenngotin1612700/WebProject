@@ -25,7 +25,10 @@ module.exports = (app)=>{
             let ret = bcrypt.compareSync(password,rows[0].password);
 
             if(ret){
-                return done(null,user);
+                if(user.status =='active'){
+                    return done(null,user);
+                }
+                return done(null,false,{message:'User is block'});
             }
             return done(null,false,{message:'Invalid password'})
 

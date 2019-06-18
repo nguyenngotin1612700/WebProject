@@ -87,6 +87,17 @@ router.get('/profile',auth,(req,res,next )=>{
     res.end('profile');
 })
 
+router.get('/google',passport.authenticate('google',{
+    scope: ['profile']
+}));
 
+router.get('/google/abc',passport.authenticate('google'),(req,res,next)=>{
+    req.logIn(req.user, function (err) {
+        if (err) { 
+            return next(err);
+         }
+        return res.redirect('/');
+    });
+})
 
 module.exports = router;

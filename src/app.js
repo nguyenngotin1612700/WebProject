@@ -25,6 +25,7 @@ var search = require('./routes/search/search.route');
 require('./middleware/viewEngine')(app);
 require('./middleware/session')(app);
 require('./middleware/passport')(app);
+require('./middleware/passportGG')(app);
 var server = app.listen(8000, function () {
     var host = server.address().address
     var port = server.address().port
