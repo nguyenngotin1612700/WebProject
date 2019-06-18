@@ -120,7 +120,7 @@ app.use('/writer', require('./routes/writer/writer.router'));
 app.get('/', function (req, res) {
     let value = [];
     // let post = articleModel.all();
-    let viewMost = articleModel.byView(4);
+    let viewMost = articleModel.byView(10);
     let trongnuoc = articleModel.bycatIDLimit(2, 1);
     let quocte = articleModel.bycatIDLimit(3, 1);
     let latest = articleModel.bypublish(10);

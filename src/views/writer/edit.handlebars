@@ -1,0 +1,103 @@
+<script
+    src="https://cdn.tiny.cloud/1/utey62ie86jj6h6e4ewzqh66syyujnmxxv1xut2ypvozvm30/tinymce/5/tinymce.min.js"></script>
+<script>tinymce.init({
+        selector: '#content',
+        height: 500,
+        plugins: [
+            'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+            'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+            'save table contextmenu directionality emoticons template paste textcolor'
+        ],
+        toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
+
+    });</script>
+
+
+<div class="mx-3 my-md-3">
+    <div class="row">
+        <div class="col-md-9 col-sm-12">
+            <form method="POST" action="/writer/manageArticle/edit" id="upload">
+                <h2>Tiêu đề bài viết</h2>
+                <input type="text" name="title" placeholder="Nhập tiêu đề bài viết tại đây"
+                    style="width:100%; height: 40px;" value="{{this.article.title}}"></input>
+                <span>Description</span><input type="text" name="description" placeholder=""
+                    value="{{this.article.description}}" style="width:100%; height: 30px;"></input>
+                <hr>
+                <textarea id="content" name="content">{{this.article.content}}</textarea>
+                <input type="hidden" name="id" value="{{this.article.id}}" />
+            </form>
+
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <div style="background-color: white;">
+
+                <h5>Publish</h5>
+                <hr>
+                <div style="text-align:center;">
+                    <button type="button" class="btn btn-outline-danger" style="float: left;">Delete</button>
+                    <button type="button" class="btn btn-outline-secondary">Preview</button>
+                    <button type="submit" form="upload" class="btn btn-outline-success mx-lg-2" style="float:right;">
+                        Post</button>
+                </div>
+                <hr>
+            </div>
+
+            <div style="background-color: white;">
+                <h5>Categories</h5>
+                <hr>
+                <div class="ml-3">
+                    <select form="upload" name="category_id">
+                        <option value="" disabled selected>Vui lòng chọn chuyên mục</option>
+                        {{#each this.allcat}}
+                        <option value="{{id}}" {{#if selected}} selected="selected" {{/if}}>{{name}}</option>
+                        {{/each}}
+                    </select>
+                    <hr>
+                </div>
+                <hr>
+            </div>
+
+            <div style="background-color: white;">
+                <h5>Tag</h5>
+                <hr>
+                <div class="ml-3 mt-1">
+                    {{#each this.alltag}}
+                    <label class="font-weight-light font-italic border px-1">
+                        <input form="upload" type="checkbox" name="tag" value="{{id}}" {{#if selected}} checked
+                            {{/if}}>{{name}}
+                    </label>
+                    {{/each}}
+                </div>
+                <hr>
+            </div>
+
+            <div style="background-color: white;">
+                <h5>Feature Image</h5>
+                <hr>
+                <input form="upload" type="text" name="avatar" placeholder="please enter your feature image"
+                    style="width: 100%;padding-bottom: 10px;margin-bottom: 10px;" value="{{this.article.avatar}}">
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var frm = $('#upload');
+
+    frm.submit(function (e) {
+        tinyMCE.triggerSave();
+        e.preventDefault();
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+            success: function (data) {
+                alert('Upload article successful, please waiting for approve');
+                window.location.href = "/";
+            },
+            error: function (data) {
+                console.log('An error occurred.');
+                console.log(data);
+            },
+        });
+    });
+</script>

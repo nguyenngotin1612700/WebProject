@@ -85,8 +85,11 @@ router.get('/review/:categoryId/:id', authAdmin, (req, res, next) => {
     let cat = req.params.categoryId;
     let post = articleModel.byIdWithCatName(id);
     post.then(value => {
-        res.render('admin/singlepostReview', { layout: 'main', singlepost: value });
-    })
+            res.render('admin/singlepostReview', {
+                layout: 'main',
+                singlepost: value
+            });
+        })
         .catch(err => {
             throw err;
         })

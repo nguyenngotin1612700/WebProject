@@ -19,14 +19,11 @@ router.get('/:tagId', (req, res, next) => {
     let page = tagarticleModel.bypagetagId(tagId, limit, offset);
     let totalpost = tagarticleModel.bycounttagID(tagId);
     if (req.user) {
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
-        today = mm + '/' + dd + '/' + yyyy;
-        if (req.user.expiry_date > today) {
-            page = tagarticleModel.bypagetagIdPremium(tagId, limit, offset);
-            totalpost = tagarticleModel.bycounttagIDPremium(tagId);
+        let today = moment();
+        if (moment(res.locals.user.expiry_date).isAfter(today)) {
+            console.log('ahihi');
+           page = tagarticleModel.bypagetagIdPremium(tagId, limit, offset);
+           totalpost = tagarticleModel.bycounttagIDPremium(tagId);
         }
     }
     Promise.all([page, latest, tagname, totalpost]).then(values => {

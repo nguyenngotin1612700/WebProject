@@ -9,7 +9,7 @@ module.exports = {
         return db.load(`select * from article where status='published' or (status='approved' and publish_at < '${today})`);
     },
     byView: (limit) => {
-        return db.load(`select * from article where status='published' or (status='approved' and publish_at < '${today}') ORDER BY view DESC limit ${limit}`);
+        return db.load(`select * from article where ispremium=0 and status='published' or (status='approved' and publish_at < '${today}') ORDER BY view DESC limit ${limit}`);
     },
     byId: (id) => {
         return db.load(`select * from article where id=${id}`)
@@ -19,6 +19,9 @@ module.exports = {
     },
     bycatNameAndId: (catID, id) => {
         return db.load(`select * from article where category_id ="${catID}" and id=${id} and ispremium=0 and (status='published' or (status='approved' and publish_at < '${today}'))`);
+    },
+    bycatNameAndIdStatus: (catId, id, status) => {
+        return db.load(`select * from article where category_id ="${catId}" and id=${id} and ispremium=0 and status='${status}'`)
     },
     bycatNameAndIdPremium: (catID, id) => {
         return db.load(`select * from article where category_id ="${catID}" and id=${id} and (status='published' or (status='approved' and publish_at < '${today}'))`)
@@ -35,20 +38,20 @@ module.exports = {
     bypublish: (limit) => {
         return db.load(`select * from article where status='published' or (status='approved' and publish_at < '${today}') order by publish_at DESC limit ${limit}`)
     },
-    byStatus:(status)=>{
+    byStatus: (status) => {
         let sql = `select article.*, category.name from article join category on article.category_id = category.id  where status = '${status}' order by category.name ASC,article.create_at ASC`;
         return db.load(sql);
     },
-    reject:(id,rejectMessage)=>{
+    reject: (id, rejectMessage) => {
         let sql = `update article set status = 'rejected', message_reject='${rejectMessage}' where id = ${id}`;
         return db.load(sql);
     },
-    publish:(id,publishDate)=>{
+    publish: (id, publishDate) => {
         let sql = `update article set status = 'published', publish_at = '${publishDate}' where id = ${id}`;
         console.log(sql);
         return db.load(sql);
     },
-    approved:(id,publishDate)=>{
+    approved: (id, publishDate) => {
         let sql = `update article set status = 'approved', publish_at='${publishDate}' where id = ${id}`;
         return db.load(sql);
     },
@@ -72,6 +75,15 @@ module.exports = {
     },
     add: (entity) => {
         return db.add('article', entity);
+    },
+    byUserId: (id) => {
+        return db.load(`select * from article where author=${id}`)
+    },
+    delete: (idField, id) => {
+        return db.delete('article', idField, id);
+    },
+    update: (entity) => {
+        return db.update('article', 'id', entity)
     },
     allNewByCategory: (category)=>{
         return db.load(`select article.*, category.name as categoryName 

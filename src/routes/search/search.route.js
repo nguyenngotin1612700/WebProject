@@ -17,13 +17,9 @@ router.get('/', (req, res, next) => {
     let article = articleModel.byfulltextSearch(search, limit, offset);
     let totalpost = articleModel.bycountFulltextSearch(search);
     if (req.user) {
-        console.log('da dang nhap');
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
-        today = mm + '/' + dd + '/' + yyyy;
-        if (req.user.expiry_date > today) {
+        let today = moment();
+        if (moment(res.locals.user.expiry_date).isAfter(today)) {
+            console.log('ahihi');
             article = articleModel.byfulltextSearchPremium(search, limit, offset);
             totalpost = articleModel.bycountFulltextSearchPremium(search);
         }

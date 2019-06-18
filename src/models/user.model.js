@@ -7,6 +7,9 @@ module.exports ={
     singleByUsername : (username)=>{
         return db.singleByUsername(username);
     },
+    singleById: (id) => {
+        return db.load(`select * from user where id=${id}`)
+    },
     allByRole : (role)=>{
         let sql = `select * from user where role = '${role}' and status='active'`;
         return db.load(sql);
@@ -36,5 +39,8 @@ module.exports ={
     InactiveUser:(id)=>{
         let sql = `update user set status = 'inactive' where id ='${id}'`;
         return db.load(sql);
+    },
+    update: (entity) => {
+        return db.update('user', 'id', entity);
     }
 }
